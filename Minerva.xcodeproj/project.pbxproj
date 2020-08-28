@@ -3,17 +3,194 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1A0CFE7624F8ACB200A3C6AB /* Minerva-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1A0CFE7924F8ACB200A3C6AB /* Build configuration list for PBXAggregateTarget "Minerva-Universal" */;
+			buildPhases = (
+				1A0CFE7A24F8ACB700A3C6AB /* Build fat */,
+			);
+			dependencies = (
+			);
+			name = "Minerva-Universal";
+			productName = "Minerva-Universal";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		1A0CFE7D24F8B84800A3C6AB /* Minerva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0CFE7B24F8AF6B00A3C6AB /* Minerva.framework */; };
+		1A0CFE7E24F8B84800A3C6AB /* Minerva.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0CFE7B24F8AF6B00A3C6AB /* Minerva.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A257DE924F7C825004B08DE /* Minerva.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A257DE724F7C825004B08DE /* Minerva.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A257DF624F7C83A004B08DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257DF524F7C83A004B08DE /* AppDelegate.swift */; };
+		1A257DFA24F7C83A004B08DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257DF924F7C83A004B08DE /* ViewController.swift */; };
+		1A257DFD24F7C83A004B08DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A257DFB24F7C83A004B08DE /* Main.storyboard */; };
+		1A257DFF24F7C83B004B08DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A257DFE24F7C83B004B08DE /* Assets.xcassets */; };
+		1A257E0224F7C83B004B08DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A257E0024F7C83B004B08DE /* LaunchScreen.storyboard */; };
+		1A257EE424F7C8D0004B08DE /* CTTTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257E9624F7C8D0004B08DE /* CTTTransactionResponse.swift */; };
+		1A257EE524F7C8D0004B08DE /* CTTPaymentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257E9724F7C8D0004B08DE /* CTTPaymentConfig.swift */; };
+		1A257EE624F7C8D0004B08DE /* CTTMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257E9824F7C8D0004B08DE /* CTTMethod.swift */; };
+		1A257EE724F7C8D0004B08DE /* CTTTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257E9924F7C8D0004B08DE /* CTTTransaction.swift */; };
+		1A257EE824F7C8D0004B08DE /* CTTTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257E9A24F7C8D0004B08DE /* CTTTransactionRequest.swift */; };
+		1A257EE924F7C8D0004B08DE /* CTTTransactionApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257E9B24F7C8D0004B08DE /* CTTTransactionApiRequest.swift */; };
+		1A257EEA24F7C8D0004B08DE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257E9E24F7C8D0004B08DE /* UIView+.swift */; };
+		1A257EEB24F7C8D0004B08DE /* Double+currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257E9F24F7C8D0004B08DE /* Double+currency.swift */; };
+		1A257EEC24F7C8D0004B08DE /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EA024F7C8D0004B08DE /* UIImage+.swift */; };
+		1A257EED24F7C8D0004B08DE /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EA124F7C8D0004B08DE /* UIColor+.swift */; };
+		1A257EEE24F7C8D0004B08DE /* PaymentTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EA324F7C8D0004B08DE /* PaymentTheme.swift */; };
+		1A257EEF24F7C8D0004B08DE /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EA624F7C8D0004B08DE /* ResultViewController.swift */; };
+		1A257EF024F7C8D0004B08DE /* ResultProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EA724F7C8D0004B08DE /* ResultProtocols.swift */; };
+		1A257EF124F7C8D0004B08DE /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EA824F7C8D0004B08DE /* ResultPresenter.swift */; };
+		1A257EF224F7C8D0004B08DE /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EA924F7C8D0004B08DE /* ResultRouter.swift */; };
+		1A257EF324F7C8D0004B08DE /* PaymentMethodsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EAB24F7C8D0004B08DE /* PaymentMethodsPresenter.swift */; };
+		1A257EF424F7C8D0004B08DE /* PaymentMethodsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EAC24F7C8D0004B08DE /* PaymentMethodsProtocols.swift */; };
+		1A257EF524F7C8D0004B08DE /* PaymentMethodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EAD24F7C8D0004B08DE /* PaymentMethodCell.swift */; };
+		1A257EF624F7C8D0004B08DE /* PaymentMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EAE24F7C8D0004B08DE /* PaymentMethodsViewController.swift */; };
+		1A257EF724F7C8D0004B08DE /* PaymentMethodPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EAF24F7C8D0004B08DE /* PaymentMethodPresenterProtocol.swift */; };
+		1A257EF824F7C8D0004B08DE /* PaymentMethodsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EB024F7C8D0004B08DE /* PaymentMethodsRouter.swift */; };
+		1A257EF924F7C8D0004B08DE /* PaymentQRPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EB224F7C8D0004B08DE /* PaymentQRPresenter.swift */; };
+		1A257EFA24F7C8D0004B08DE /* PaymentQRProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EB324F7C8D0004B08DE /* PaymentQRProtocols.swift */; };
+		1A257EFB24F7C8D0004B08DE /* PaymentQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EB424F7C8D0004B08DE /* PaymentQRViewController.swift */; };
+		1A257EFC24F7C8D0004B08DE /* PaymentQRRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EB524F7C8D0004B08DE /* PaymentQRRouter.swift */; };
+		1A257EFD24F7C8D0004B08DE /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EB724F7C8D0004B08DE /* PaymentViewController.swift */; };
+		1A257EFE24F7C8D0004B08DE /* PaymentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EB824F7C8D0004B08DE /* PaymentRouter.swift */; };
+		1A257EFF24F7C8D0004B08DE /* PaymentNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EB924F7C8D0004B08DE /* PaymentNavigationController.swift */; };
+		1A257F0024F7C8D0004B08DE /* PaymentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EBA24F7C8D0004B08DE /* PaymentProtocols.swift */; };
+		1A257F0124F7C8D0004B08DE /* PaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EBB24F7C8D0004B08DE /* PaymentRequest.swift */; };
+		1A257F0224F7C8D0004B08DE /* PaymentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EBC24F7C8D0004B08DE /* PaymentPresenter.swift */; };
+		1A257F0324F7C8D0004B08DE /* SposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EBE24F7C8D0004B08DE /* SposViewController.swift */; };
+		1A257F0424F7C8D0004B08DE /* SposPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EBF24F7C8D0004B08DE /* SposPresenter.swift */; };
+		1A257F0524F7C8D0004B08DE /* SposProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC024F7C8D0004B08DE /* SposProtocols.swift */; };
+		1A257F0624F7C8D0004B08DE /* SposRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC124F7C8D0004B08DE /* SposRouter.swift */; };
+		1A257F0724F7C8D0004B08DE /* Minerva.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC224F7C8D0004B08DE /* Minerva.swift */; };
+		1A257F0824F7C8D0004B08DE /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A257EC324F7C8D0004B08DE /* images.bundle */; };
+		1A257F0924F7C8D0004B08DE /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC524F7C8D0004B08DE /* Environment.swift */; };
+		1A257F0A24F7C8D0004B08DE /* PaymentObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC724F7C8D0004B08DE /* PaymentObserver.swift */; };
+		1A257F0B24F7C8D0004B08DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC824F7C8D0004B08DE /* DatabaseManager.swift */; };
+		1A257F0C24F7C8D0004B08DE /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ECA24F7C8D0004B08DE /* Encodable+.swift */; };
+		1A257F0D24F7C8D0004B08DE /* MD5Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ECB24F7C8D0004B08DE /* MD5Encryptor.swift */; };
+		1A257F0E24F7C8D0004B08DE /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ECC24F7C8D0004B08DE /* DictionaryExtensions.swift */; };
+		1A257F0F24F7C8D0004B08DE /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ECD24F7C8D0004B08DE /* StringExtensions.swift */; };
+		1A257F1024F7C8D0004B08DE /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ECE24F7C8D0004B08DE /* DateUtils.swift */; };
+		1A257F1124F7C8D0004B08DE /* Double+int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ECF24F7C8D0004B08DE /* Double+int.swift */; };
+		1A257F1224F7C8D0004B08DE /* MethodCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED124F7C8D0004B08DE /* MethodCode.swift */; };
+		1A257F1324F7C8D0004B08DE /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED224F7C8D0004B08DE /* PaymentMethod.swift */; };
+		1A257F1424F7C8D0004B08DE /* BaseTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED424F7C8D0004B08DE /* BaseTransactionRequest.swift */; };
+		1A257F1524F7C8D0004B08DE /* BaseTransactionApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED524F7C8D0004B08DE /* BaseTransactionApiRequest.swift */; };
+		1A257F1624F7C8D0004B08DE /* PaymentServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED624F7C8D0004B08DE /* PaymentServiceConfig.swift */; };
+		1A257F1724F7C8D0004B08DE /* PaymentMethodConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED724F7C8D0004B08DE /* PaymentMethodConfig.swift */; };
+		1A257F1824F7C8D0004B08DE /* PaymentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED824F7C8D0004B08DE /* PaymentError.swift */; };
+		1A257F1924F7C8D0004B08DE /* PaymentGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED924F7C8D0004B08DE /* PaymentGateway.swift */; };
+		1A257F1A24F7C8D0004B08DE /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EDA24F7C8D0004B08DE /* PaymentService.swift */; };
+		1A257F1B24F7C8D0004B08DE /* PaymentStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EDB24F7C8D0004B08DE /* PaymentStatusCode.swift */; };
+		1A257F1C24F7C8D0004B08DE /* BaseTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EDC24F7C8D0004B08DE /* BaseTransactionResponse.swift */; };
+		1A257F1D24F7C8D0004B08DE /* SPOSTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EDE24F7C8D0004B08DE /* SPOSTransaction.swift */; };
+		1A257F1E24F7C8D0004B08DE /* SPOSTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EDF24F7C8D0004B08DE /* SPOSTransactionRequest.swift */; };
+		1A257F1F24F7C8D0004B08DE /* SPOSTransactionApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EE024F7C8D0004B08DE /* SPOSTransactionApiRequest.swift */; };
+		1A257F2024F7C8D0004B08DE /* SPOSTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EE124F7C8D0004B08DE /* SPOSTransactionResponse.swift */; };
+		1A257F2124F7C8D0004B08DE /* SPOSPaymentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EE224F7C8D0004B08DE /* SPOSPaymentConfig.swift */; };
+		1A257F2224F7C8D0004B08DE /* SPOSMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EE324F7C8D0004B08DE /* SPOSMethod.swift */; };
+		A16428C8A03490192AC669FD /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16D10CCCA5E88D6617B0D8C /* Pods_Example.framework */; };
+		F72504F1A868A1C78B7BE8BD /* Pods_Minerva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1130F8158960A16AA924BEB4 /* Pods_Minerva.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1A0CFE7F24F8B84800A3C6AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A0CFE7E24F8B84800A3C6AB /* Minerva.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1130F8158960A16AA924BEB4 /* Pods_Minerva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minerva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0CFE7B24F8AF6B00A3C6AB /* Minerva.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Minerva.framework; path = Outputs/Minerva.framework; sourceTree = "<group>"; };
 		1A257DE424F7C825004B08DE /* Minerva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Minerva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A257DE724F7C825004B08DE /* Minerva.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Minerva.h; sourceTree = "<group>"; };
 		1A257DE824F7C825004B08DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A257DF324F7C83A004B08DE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A257DF524F7C83A004B08DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A257DF924F7C83A004B08DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1A257DFC24F7C83A004B08DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1A257DFE24F7C83B004B08DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A257E0124F7C83B004B08DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A257E0324F7C83B004B08DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A257E9624F7C8D0004B08DE /* CTTTransactionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTTTransactionResponse.swift; sourceTree = "<group>"; };
+		1A257E9724F7C8D0004B08DE /* CTTPaymentConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTTPaymentConfig.swift; sourceTree = "<group>"; };
+		1A257E9824F7C8D0004B08DE /* CTTMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTTMethod.swift; sourceTree = "<group>"; };
+		1A257E9924F7C8D0004B08DE /* CTTTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTTTransaction.swift; sourceTree = "<group>"; };
+		1A257E9A24F7C8D0004B08DE /* CTTTransactionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTTTransactionRequest.swift; sourceTree = "<group>"; };
+		1A257E9B24F7C8D0004B08DE /* CTTTransactionApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTTTransactionApiRequest.swift; sourceTree = "<group>"; };
+		1A257E9E24F7C8D0004B08DE /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		1A257E9F24F7C8D0004B08DE /* Double+currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+currency.swift"; sourceTree = "<group>"; };
+		1A257EA024F7C8D0004B08DE /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		1A257EA124F7C8D0004B08DE /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		1A257EA324F7C8D0004B08DE /* PaymentTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTheme.swift; sourceTree = "<group>"; };
+		1A257EA624F7C8D0004B08DE /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		1A257EA724F7C8D0004B08DE /* ResultProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultProtocols.swift; sourceTree = "<group>"; };
+		1A257EA824F7C8D0004B08DE /* ResultPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
+		1A257EA924F7C8D0004B08DE /* ResultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
+		1A257EAB24F7C8D0004B08DE /* PaymentMethodsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodsPresenter.swift; sourceTree = "<group>"; };
+		1A257EAC24F7C8D0004B08DE /* PaymentMethodsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodsProtocols.swift; sourceTree = "<group>"; };
+		1A257EAD24F7C8D0004B08DE /* PaymentMethodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodCell.swift; sourceTree = "<group>"; };
+		1A257EAE24F7C8D0004B08DE /* PaymentMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodsViewController.swift; sourceTree = "<group>"; };
+		1A257EAF24F7C8D0004B08DE /* PaymentMethodPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodPresenterProtocol.swift; sourceTree = "<group>"; };
+		1A257EB024F7C8D0004B08DE /* PaymentMethodsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodsRouter.swift; sourceTree = "<group>"; };
+		1A257EB224F7C8D0004B08DE /* PaymentQRPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentQRPresenter.swift; sourceTree = "<group>"; };
+		1A257EB324F7C8D0004B08DE /* PaymentQRProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentQRProtocols.swift; sourceTree = "<group>"; };
+		1A257EB424F7C8D0004B08DE /* PaymentQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentQRViewController.swift; sourceTree = "<group>"; };
+		1A257EB524F7C8D0004B08DE /* PaymentQRRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentQRRouter.swift; sourceTree = "<group>"; };
+		1A257EB724F7C8D0004B08DE /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		1A257EB824F7C8D0004B08DE /* PaymentRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentRouter.swift; sourceTree = "<group>"; };
+		1A257EB924F7C8D0004B08DE /* PaymentNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentNavigationController.swift; sourceTree = "<group>"; };
+		1A257EBA24F7C8D0004B08DE /* PaymentProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentProtocols.swift; sourceTree = "<group>"; };
+		1A257EBB24F7C8D0004B08DE /* PaymentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentRequest.swift; sourceTree = "<group>"; };
+		1A257EBC24F7C8D0004B08DE /* PaymentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentPresenter.swift; sourceTree = "<group>"; };
+		1A257EBE24F7C8D0004B08DE /* SposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SposViewController.swift; sourceTree = "<group>"; };
+		1A257EBF24F7C8D0004B08DE /* SposPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SposPresenter.swift; sourceTree = "<group>"; };
+		1A257EC024F7C8D0004B08DE /* SposProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SposProtocols.swift; sourceTree = "<group>"; };
+		1A257EC124F7C8D0004B08DE /* SposRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SposRouter.swift; sourceTree = "<group>"; };
+		1A257EC224F7C8D0004B08DE /* Minerva.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minerva.swift; sourceTree = "<group>"; };
+		1A257EC324F7C8D0004B08DE /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
+		1A257EC524F7C8D0004B08DE /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		1A257EC724F7C8D0004B08DE /* PaymentObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentObserver.swift; sourceTree = "<group>"; };
+		1A257EC824F7C8D0004B08DE /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		1A257ECA24F7C8D0004B08DE /* Encodable+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
+		1A257ECB24F7C8D0004B08DE /* MD5Encryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MD5Encryptor.swift; sourceTree = "<group>"; };
+		1A257ECC24F7C8D0004B08DE /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		1A257ECD24F7C8D0004B08DE /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		1A257ECE24F7C8D0004B08DE /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		1A257ECF24F7C8D0004B08DE /* Double+int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+int.swift"; sourceTree = "<group>"; };
+		1A257ED124F7C8D0004B08DE /* MethodCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodCode.swift; sourceTree = "<group>"; };
+		1A257ED224F7C8D0004B08DE /* PaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		1A257ED424F7C8D0004B08DE /* BaseTransactionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransactionRequest.swift; sourceTree = "<group>"; };
+		1A257ED524F7C8D0004B08DE /* BaseTransactionApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransactionApiRequest.swift; sourceTree = "<group>"; };
+		1A257ED624F7C8D0004B08DE /* PaymentServiceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentServiceConfig.swift; sourceTree = "<group>"; };
+		1A257ED724F7C8D0004B08DE /* PaymentMethodConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodConfig.swift; sourceTree = "<group>"; };
+		1A257ED824F7C8D0004B08DE /* PaymentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentError.swift; sourceTree = "<group>"; };
+		1A257ED924F7C8D0004B08DE /* PaymentGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentGateway.swift; sourceTree = "<group>"; };
+		1A257EDA24F7C8D0004B08DE /* PaymentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
+		1A257EDB24F7C8D0004B08DE /* PaymentStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentStatusCode.swift; sourceTree = "<group>"; };
+		1A257EDC24F7C8D0004B08DE /* BaseTransactionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransactionResponse.swift; sourceTree = "<group>"; };
+		1A257EDE24F7C8D0004B08DE /* SPOSTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOSTransaction.swift; sourceTree = "<group>"; };
+		1A257EDF24F7C8D0004B08DE /* SPOSTransactionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOSTransactionRequest.swift; sourceTree = "<group>"; };
+		1A257EE024F7C8D0004B08DE /* SPOSTransactionApiRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOSTransactionApiRequest.swift; sourceTree = "<group>"; };
+		1A257EE124F7C8D0004B08DE /* SPOSTransactionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOSTransactionResponse.swift; sourceTree = "<group>"; };
+		1A257EE224F7C8D0004B08DE /* SPOSPaymentConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOSPaymentConfig.swift; sourceTree = "<group>"; };
+		1A257EE324F7C8D0004B08DE /* SPOSMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOSMethod.swift; sourceTree = "<group>"; };
+		275E40916ADFAA58AD44F32D /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		8EE09A13A500CED49B77FC7D /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C16D10CCCA5E88D6617B0D8C /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D217457464F11C30D8B9FA3B /* Pods-Minerva.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.debug.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.debug.xcconfig"; sourceTree = "<group>"; };
+		E689F7B5B9E3D1A80F664556 /* Pods-Minerva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.release.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +198,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72504F1A868A1C78B7BE8BD /* Pods_Minerva.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A257DF024F7C83A004B08DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0CFE7D24F8B84800A3C6AB /* Minerva.framework in Frameworks */,
+				A16428C8A03490192AC669FD /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -31,7 +218,10 @@
 			isa = PBXGroup;
 			children = (
 				1A257DE624F7C825004B08DE /* Minerva */,
+				1A257DF424F7C83A004B08DE /* Example */,
 				1A257DE524F7C825004B08DE /* Products */,
+				20E379B8F3EFE99226F6CA2D /* Pods */,
+				E458E24DF986A8D0968CB982 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -39,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				1A257DE424F7C825004B08DE /* Minerva.framework */,
+				1A257DF324F7C83A004B08DE /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,10 +237,235 @@
 		1A257DE624F7C825004B08DE /* Minerva */ = {
 			isa = PBXGroup;
 			children = (
+				1A257EC424F7C8D0004B08DE /* Core */,
+				1A257E9524F7C8D0004B08DE /* CTT */,
+				1A257EC324F7C8D0004B08DE /* images.bundle */,
+				1A257EC224F7C8D0004B08DE /* Minerva.swift */,
+				1A257EDD24F7C8D0004B08DE /* SPOS */,
+				1A257E9C24F7C8D0004B08DE /* UI */,
 				1A257DE724F7C825004B08DE /* Minerva.h */,
 				1A257DE824F7C825004B08DE /* Info.plist */,
 			);
 			path = Minerva;
+			sourceTree = "<group>";
+		};
+		1A257DF424F7C83A004B08DE /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				1A257DF524F7C83A004B08DE /* AppDelegate.swift */,
+				1A257DF924F7C83A004B08DE /* ViewController.swift */,
+				1A257DFB24F7C83A004B08DE /* Main.storyboard */,
+				1A257DFE24F7C83B004B08DE /* Assets.xcassets */,
+				1A257E0024F7C83B004B08DE /* LaunchScreen.storyboard */,
+				1A257E0324F7C83B004B08DE /* Info.plist */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		1A257E9524F7C8D0004B08DE /* CTT */ = {
+			isa = PBXGroup;
+			children = (
+				1A257E9624F7C8D0004B08DE /* CTTTransactionResponse.swift */,
+				1A257E9724F7C8D0004B08DE /* CTTPaymentConfig.swift */,
+				1A257E9824F7C8D0004B08DE /* CTTMethod.swift */,
+				1A257E9924F7C8D0004B08DE /* CTTTransaction.swift */,
+				1A257E9A24F7C8D0004B08DE /* CTTTransactionRequest.swift */,
+				1A257E9B24F7C8D0004B08DE /* CTTTransactionApiRequest.swift */,
+			);
+			path = CTT;
+			sourceTree = "<group>";
+		};
+		1A257E9C24F7C8D0004B08DE /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1A257E9D24F7C8D0004B08DE /* Extensions */,
+				1A257EA224F7C8D0004B08DE /* Theme */,
+				1A257EA424F7C8D0004B08DE /* Modules */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1A257E9D24F7C8D0004B08DE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A257E9E24F7C8D0004B08DE /* UIView+.swift */,
+				1A257E9F24F7C8D0004B08DE /* Double+currency.swift */,
+				1A257EA024F7C8D0004B08DE /* UIImage+.swift */,
+				1A257EA124F7C8D0004B08DE /* UIColor+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A257EA224F7C8D0004B08DE /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EA324F7C8D0004B08DE /* PaymentTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		1A257EA424F7C8D0004B08DE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EA524F7C8D0004B08DE /* Result */,
+				1A257EAA24F7C8D0004B08DE /* Methods */,
+				1A257EB124F7C8D0004B08DE /* QR */,
+				1A257EB624F7C8D0004B08DE /* Main */,
+				1A257EBD24F7C8D0004B08DE /* SPOS */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		1A257EA524F7C8D0004B08DE /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EA624F7C8D0004B08DE /* ResultViewController.swift */,
+				1A257EA724F7C8D0004B08DE /* ResultProtocols.swift */,
+				1A257EA824F7C8D0004B08DE /* ResultPresenter.swift */,
+				1A257EA924F7C8D0004B08DE /* ResultRouter.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		1A257EAA24F7C8D0004B08DE /* Methods */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EAB24F7C8D0004B08DE /* PaymentMethodsPresenter.swift */,
+				1A257EAC24F7C8D0004B08DE /* PaymentMethodsProtocols.swift */,
+				1A257EAD24F7C8D0004B08DE /* PaymentMethodCell.swift */,
+				1A257EAE24F7C8D0004B08DE /* PaymentMethodsViewController.swift */,
+				1A257EAF24F7C8D0004B08DE /* PaymentMethodPresenterProtocol.swift */,
+				1A257EB024F7C8D0004B08DE /* PaymentMethodsRouter.swift */,
+			);
+			path = Methods;
+			sourceTree = "<group>";
+		};
+		1A257EB124F7C8D0004B08DE /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EB224F7C8D0004B08DE /* PaymentQRPresenter.swift */,
+				1A257EB324F7C8D0004B08DE /* PaymentQRProtocols.swift */,
+				1A257EB424F7C8D0004B08DE /* PaymentQRViewController.swift */,
+				1A257EB524F7C8D0004B08DE /* PaymentQRRouter.swift */,
+			);
+			path = QR;
+			sourceTree = "<group>";
+		};
+		1A257EB624F7C8D0004B08DE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EB724F7C8D0004B08DE /* PaymentViewController.swift */,
+				1A257EB824F7C8D0004B08DE /* PaymentRouter.swift */,
+				1A257EB924F7C8D0004B08DE /* PaymentNavigationController.swift */,
+				1A257EBA24F7C8D0004B08DE /* PaymentProtocols.swift */,
+				1A257EBB24F7C8D0004B08DE /* PaymentRequest.swift */,
+				1A257EBC24F7C8D0004B08DE /* PaymentPresenter.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1A257EBD24F7C8D0004B08DE /* SPOS */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EBE24F7C8D0004B08DE /* SposViewController.swift */,
+				1A257EBF24F7C8D0004B08DE /* SposPresenter.swift */,
+				1A257EC024F7C8D0004B08DE /* SposProtocols.swift */,
+				1A257EC124F7C8D0004B08DE /* SposRouter.swift */,
+			);
+			path = SPOS;
+			sourceTree = "<group>";
+		};
+		1A257EC424F7C8D0004B08DE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EC524F7C8D0004B08DE /* Environment.swift */,
+				1A257EC624F7C8D0004B08DE /* Observer */,
+				1A257EC924F7C8D0004B08DE /* Utils */,
+				1A257ED024F7C8D0004B08DE /* Model */,
+				1A257ED324F7C8D0004B08DE /* Service */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		1A257EC624F7C8D0004B08DE /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EC724F7C8D0004B08DE /* PaymentObserver.swift */,
+				1A257EC824F7C8D0004B08DE /* DatabaseManager.swift */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
+		1A257EC924F7C8D0004B08DE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1A257ECA24F7C8D0004B08DE /* Encodable+.swift */,
+				1A257ECB24F7C8D0004B08DE /* MD5Encryptor.swift */,
+				1A257ECC24F7C8D0004B08DE /* DictionaryExtensions.swift */,
+				1A257ECD24F7C8D0004B08DE /* StringExtensions.swift */,
+				1A257ECE24F7C8D0004B08DE /* DateUtils.swift */,
+				1A257ECF24F7C8D0004B08DE /* Double+int.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1A257ED024F7C8D0004B08DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A257ED124F7C8D0004B08DE /* MethodCode.swift */,
+				1A257ED224F7C8D0004B08DE /* PaymentMethod.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1A257ED324F7C8D0004B08DE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1A257ED424F7C8D0004B08DE /* BaseTransactionRequest.swift */,
+				1A257ED524F7C8D0004B08DE /* BaseTransactionApiRequest.swift */,
+				1A257ED624F7C8D0004B08DE /* PaymentServiceConfig.swift */,
+				1A257ED724F7C8D0004B08DE /* PaymentMethodConfig.swift */,
+				1A257ED824F7C8D0004B08DE /* PaymentError.swift */,
+				1A257ED924F7C8D0004B08DE /* PaymentGateway.swift */,
+				1A257EDA24F7C8D0004B08DE /* PaymentService.swift */,
+				1A257EDB24F7C8D0004B08DE /* PaymentStatusCode.swift */,
+				1A257EDC24F7C8D0004B08DE /* BaseTransactionResponse.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1A257EDD24F7C8D0004B08DE /* SPOS */ = {
+			isa = PBXGroup;
+			children = (
+				1A257EDE24F7C8D0004B08DE /* SPOSTransaction.swift */,
+				1A257EDF24F7C8D0004B08DE /* SPOSTransactionRequest.swift */,
+				1A257EE024F7C8D0004B08DE /* SPOSTransactionApiRequest.swift */,
+				1A257EE124F7C8D0004B08DE /* SPOSTransactionResponse.swift */,
+				1A257EE224F7C8D0004B08DE /* SPOSPaymentConfig.swift */,
+				1A257EE324F7C8D0004B08DE /* SPOSMethod.swift */,
+			);
+			path = SPOS;
+			sourceTree = "<group>";
+		};
+		20E379B8F3EFE99226F6CA2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EE09A13A500CED49B77FC7D /* Pods-Example.debug.xcconfig */,
+				275E40916ADFAA58AD44F32D /* Pods-Example.release.xcconfig */,
+				D217457464F11C30D8B9FA3B /* Pods-Minerva.debug.xcconfig */,
+				E689F7B5B9E3D1A80F664556 /* Pods-Minerva.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E458E24DF986A8D0968CB982 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A0CFE7B24F8AF6B00A3C6AB /* Minerva.framework */,
+				C16D10CCCA5E88D6617B0D8C /* Pods_Example.framework */,
+				1130F8158960A16AA924BEB4 /* Pods_Minerva.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,6 +486,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A257DEC24F7C825004B08DE /* Build configuration list for PBXNativeTarget "Minerva" */;
 			buildPhases = (
+				FC5771CCFFD496AE55C23BC1 /* [CP] Check Pods Manifest.lock */,
 				1A257DDF24F7C825004B08DE /* Headers */,
 				1A257DE024F7C825004B08DE /* Sources */,
 				1A257DE124F7C825004B08DE /* Frameworks */,
@@ -84,16 +501,44 @@
 			productReference = 1A257DE424F7C825004B08DE /* Minerva.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		1A257DF224F7C83A004B08DE /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A257E0424F7C83B004B08DE /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				339188E99DB09ED479202FF4 /* [CP] Check Pods Manifest.lock */,
+				1A257DEF24F7C83A004B08DE /* Sources */,
+				1A257DF024F7C83A004B08DE /* Frameworks */,
+				1A257DF124F7C83A004B08DE /* Resources */,
+				1A0CFE7F24F8B84800A3C6AB /* Embed Frameworks */,
+				83324C00179C95FA950F44E6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Example;
+			productName = Example;
+			productReference = 1A257DF324F7C83A004B08DE /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1A257DDB24F7C825004B08DE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Tung Nguyen";
 				TargetAttributes = {
+					1A0CFE7624F8ACB200A3C6AB = {
+						CreatedOnToolsVersion = 11.6;
+					};
 					1A257DE324F7C825004B08DE = {
+						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
+					};
+					1A257DF224F7C83A004B08DE = {
 						CreatedOnToolsVersion = 11.6;
 					};
 				};
@@ -112,6 +557,8 @@
 			projectRoot = "";
 			targets = (
 				1A257DE324F7C825004B08DE /* Minerva */,
+				1A257DF224F7C83A004B08DE /* Example */,
+				1A0CFE7624F8ACB200A3C6AB /* Minerva-Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -121,22 +568,221 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A257F0824F7C8D0004B08DE /* images.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A257DF124F7C83A004B08DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A257E0224F7C83B004B08DE /* LaunchScreen.storyboard in Resources */,
+				1A257DFF24F7C83B004B08DE /* Assets.xcassets in Resources */,
+				1A257DFD24F7C83A004B08DE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A0CFE7A24F8ACB700A3C6AB /* Build fat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build fat";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# build fat framework script\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nWORKSPACE=\"Minerva.xcworkspace\"\nNAME_OUTPUT_FOLDER=\"Outputs\"\nOUTPUT_FOLDER=\"${PROJECT_DIR}/${NAME_OUTPUT_FOLDER}/\"\n\nSDK_TARGET_NAME=\"Minerva\"\nZIP_NAME=\"${SDK_TARGET_NAME}.zip\"\n\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${OUTPUT_FOLDER}\"\n\n# Build Device and Simulator versions\nxcodebuild -workspace \"${WORKSPACE}\" -scheme \"${SDK_TARGET_NAME}\" -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" ONLY_ACTIVE_ARCH=NO BUILD_ROOT=\"${BUILD_ROOT}\" OBJROOT=\"${OBJROOT}/DependentBuilds\"\nxcodebuild -workspace \"${WORKSPACE}\" -scheme \"${SDK_TARGET_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ARCHS=x86_64 ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" OBJROOT=\"${OBJROOT}/DependentBuilds\"\n\n# make fat framework\n\"${PROJECT_DIR}/build-phases/make-fat-framework.sh\" \"${UNIVERSAL_OUTPUTFOLDER}\" \"${SDK_TARGET_NAME}\" \"${OUTPUT_FOLDER}\"\n\n# Open the project's directory in Finder\nopen \"${OUTPUT_FOLDER}\"\n\n# Zip file\n#zip -r \"${ZIP_NAME}\" ./\"${NAME_OUTPUT_FOLDER}\"\n\ncd \"$NAME_OUTPUT_FOLDER\"\n\nzip -r \"${ZIP_NAME}\" \"${SDK_TARGET_NAME}.framework\"\n\ncd ..\n";
+		};
+		339188E99DB09ED479202FF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83324C00179C95FA950F44E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC5771CCFFD496AE55C23BC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Minerva-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A257DE024F7C825004B08DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A257F1C24F7C8D0004B08DE /* BaseTransactionResponse.swift in Sources */,
+				1A257EFC24F7C8D0004B08DE /* PaymentQRRouter.swift in Sources */,
+				1A257F1424F7C8D0004B08DE /* BaseTransactionRequest.swift in Sources */,
+				1A257F1624F7C8D0004B08DE /* PaymentServiceConfig.swift in Sources */,
+				1A257EFD24F7C8D0004B08DE /* PaymentViewController.swift in Sources */,
+				1A257F1524F7C8D0004B08DE /* BaseTransactionApiRequest.swift in Sources */,
+				1A257F0B24F7C8D0004B08DE /* DatabaseManager.swift in Sources */,
+				1A257F2224F7C8D0004B08DE /* SPOSMethod.swift in Sources */,
+				1A257EF924F7C8D0004B08DE /* PaymentQRPresenter.swift in Sources */,
+				1A257EE824F7C8D0004B08DE /* CTTTransactionRequest.swift in Sources */,
+				1A257F1E24F7C8D0004B08DE /* SPOSTransactionRequest.swift in Sources */,
+				1A257EEB24F7C8D0004B08DE /* Double+currency.swift in Sources */,
+				1A257F1824F7C8D0004B08DE /* PaymentError.swift in Sources */,
+				1A257F1F24F7C8D0004B08DE /* SPOSTransactionApiRequest.swift in Sources */,
+				1A257EF324F7C8D0004B08DE /* PaymentMethodsPresenter.swift in Sources */,
+				1A257EE924F7C8D0004B08DE /* CTTTransactionApiRequest.swift in Sources */,
+				1A257EEA24F7C8D0004B08DE /* UIView+.swift in Sources */,
+				1A257EE724F7C8D0004B08DE /* CTTTransaction.swift in Sources */,
+				1A257F0424F7C8D0004B08DE /* SposPresenter.swift in Sources */,
+				1A257EEE24F7C8D0004B08DE /* PaymentTheme.swift in Sources */,
+				1A257F1A24F7C8D0004B08DE /* PaymentService.swift in Sources */,
+				1A257F1124F7C8D0004B08DE /* Double+int.swift in Sources */,
+				1A257F0F24F7C8D0004B08DE /* StringExtensions.swift in Sources */,
+				1A257F0624F7C8D0004B08DE /* SposRouter.swift in Sources */,
+				1A257F1D24F7C8D0004B08DE /* SPOSTransaction.swift in Sources */,
+				1A257EFF24F7C8D0004B08DE /* PaymentNavigationController.swift in Sources */,
+				1A257EFB24F7C8D0004B08DE /* PaymentQRViewController.swift in Sources */,
+				1A257F0124F7C8D0004B08DE /* PaymentRequest.swift in Sources */,
+				1A257F1724F7C8D0004B08DE /* PaymentMethodConfig.swift in Sources */,
+				1A257EE624F7C8D0004B08DE /* CTTMethod.swift in Sources */,
+				1A257F0024F7C8D0004B08DE /* PaymentProtocols.swift in Sources */,
+				1A257F1924F7C8D0004B08DE /* PaymentGateway.swift in Sources */,
+				1A257EEC24F7C8D0004B08DE /* UIImage+.swift in Sources */,
+				1A257F1224F7C8D0004B08DE /* MethodCode.swift in Sources */,
+				1A257F0A24F7C8D0004B08DE /* PaymentObserver.swift in Sources */,
+				1A257EF524F7C8D0004B08DE /* PaymentMethodCell.swift in Sources */,
+				1A257F1324F7C8D0004B08DE /* PaymentMethod.swift in Sources */,
+				1A257EFA24F7C8D0004B08DE /* PaymentQRProtocols.swift in Sources */,
+				1A257EF824F7C8D0004B08DE /* PaymentMethodsRouter.swift in Sources */,
+				1A257EE524F7C8D0004B08DE /* CTTPaymentConfig.swift in Sources */,
+				1A257F2124F7C8D0004B08DE /* SPOSPaymentConfig.swift in Sources */,
+				1A257EF024F7C8D0004B08DE /* ResultProtocols.swift in Sources */,
+				1A257EF724F7C8D0004B08DE /* PaymentMethodPresenterProtocol.swift in Sources */,
+				1A257EE424F7C8D0004B08DE /* CTTTransactionResponse.swift in Sources */,
+				1A257F0C24F7C8D0004B08DE /* Encodable+.swift in Sources */,
+				1A257F0324F7C8D0004B08DE /* SposViewController.swift in Sources */,
+				1A257F0E24F7C8D0004B08DE /* DictionaryExtensions.swift in Sources */,
+				1A257EF224F7C8D0004B08DE /* ResultRouter.swift in Sources */,
+				1A257EF624F7C8D0004B08DE /* PaymentMethodsViewController.swift in Sources */,
+				1A257F1024F7C8D0004B08DE /* DateUtils.swift in Sources */,
+				1A257F0224F7C8D0004B08DE /* PaymentPresenter.swift in Sources */,
+				1A257EF124F7C8D0004B08DE /* ResultPresenter.swift in Sources */,
+				1A257F0924F7C8D0004B08DE /* Environment.swift in Sources */,
+				1A257F0D24F7C8D0004B08DE /* MD5Encryptor.swift in Sources */,
+				1A257F1B24F7C8D0004B08DE /* PaymentStatusCode.swift in Sources */,
+				1A257EED24F7C8D0004B08DE /* UIColor+.swift in Sources */,
+				1A257F2024F7C8D0004B08DE /* SPOSTransactionResponse.swift in Sources */,
+				1A257EF424F7C8D0004B08DE /* PaymentMethodsProtocols.swift in Sources */,
+				1A257EFE24F7C8D0004B08DE /* PaymentRouter.swift in Sources */,
+				1A257F0524F7C8D0004B08DE /* SposProtocols.swift in Sources */,
+				1A257F0724F7C8D0004B08DE /* Minerva.swift in Sources */,
+				1A257EEF24F7C8D0004B08DE /* ResultViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A257DEF24F7C83A004B08DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A257DFA24F7C83A004B08DE /* ViewController.swift in Sources */,
+				1A257DF624F7C83A004B08DE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		1A257DFB24F7C83A004B08DE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A257DFC24F7C83A004B08DE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1A257E0024F7C83B004B08DE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A257E0124F7C83B004B08DE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		1A0CFE7724F8ACB200A3C6AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1A0CFE7824F8ACB200A3C6AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		1A257DEA24F7C825004B08DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -188,7 +834,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -245,7 +891,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -259,7 +905,10 @@
 		};
 		1A257DED24F7C825004B08DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D217457464F11C30D8B9FA3B /* Pods-Minerva.debug.xcconfig */;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = marker;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -267,6 +916,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Minerva/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -275,6 +925,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vn.teko.ios.minerva.Minerva;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -282,7 +934,10 @@
 		};
 		1A257DEE24F7C825004B08DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E689F7B5B9E3D1A80F664556 /* Pods-Minerva.release.xcconfig */;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -290,6 +945,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Minerva/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,6 +954,53 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vn.teko.ios.minerva.Minerva;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1A257E0524F7C83B004B08DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EE09A13A500CED49B77FC7D /* Pods-Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H2HK7VYTGX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Outputs",
+				);
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vn.teko.ios.minerva.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A257E0624F7C83B004B08DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 275E40916ADFAA58AD44F32D /* Pods-Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H2HK7VYTGX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Outputs",
+				);
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vn.teko.ios.minerva.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -306,6 +1009,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1A0CFE7924F8ACB200A3C6AB /* Build configuration list for PBXAggregateTarget "Minerva-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A0CFE7724F8ACB200A3C6AB /* Debug */,
+				1A0CFE7824F8ACB200A3C6AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1A257DDE24F7C825004B08DE /* Build configuration list for PBXProject "Minerva" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -320,6 +1032,15 @@
 			buildConfigurations = (
 				1A257DED24F7C825004B08DE /* Debug */,
 				1A257DEE24F7C825004B08DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A257E0424F7C83B004B08DE /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A257E0524F7C83B004B08DE /* Debug */,
+				1A257E0624F7C83B004B08DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

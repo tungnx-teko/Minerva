@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build framework
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    tags:
+        - release/v*
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: macos-latest
+
+    env:
+      XC_VER: ${{ '11.3' }}
+      
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/release\//}
+    - name: Select latest Xcode
+      run: "sudo xcode-select -s /Applications/Xcode_$XC_VER.app"
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+#    - name: Install cocoapods
+#      run: gem install cocoapods --pre
+#    - name: Installing pods
+#      run: pod install --verbose
+    # Runs chmod for setting permissions command using the runners shell
+    - name: Chmod
+      run: chmod +x ./release/github-release.sh
+    # Runs a set of commands using the runners shell
+    - name: Build fat framework
+      run: xcodebuild -scheme Janus-Universal build
+    - name: Check tag name
+      run: echo ${{ steps.get_version.outputs.VERSION }}
+    - name: Run script to create release
+      run: ./release/github-release.sh ${{secrets.SECRET_TOKEN}} "Janus" ${{ steps.get_version.outputs.VERSION }} "Change log:\n - Release" "https://api.github.com/repos/teko-vn/Specs-ios/releases"
