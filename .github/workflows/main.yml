@@ -37,8 +37,8 @@ jobs:
       run: chmod +x ./release/github-release.sh
     # Runs a set of commands using the runners shell
     - name: Build fat framework
-      run: xcodebuild -scheme Janus-Universal build
+      run: xcodebuild -scheme Minerva-Universal build
     - name: Check tag name
       run: echo ${{ steps.get_version.outputs.VERSION }}
     - name: Run script to create release
-      run: ./release/github-release.sh ${{secrets.SECRET_TOKEN}} "Janus" ${{ steps.get_version.outputs.VERSION }} "Change log:\n - Release" "https://api.github.com/repos/teko-vn/Specs-ios/releases"
+      run: ./release/github-release.sh ${{secrets.SECRET_TOKEN}} "Minerva" ${{ steps.get_version.outputs.VERSION }} "Change log:\n - Release" "https://api.github.com/repos/teko-vn/Specs-ios/releases"
