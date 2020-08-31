@@ -6,13 +6,12 @@
 //
 
 import UIKit
-//import MinervaCore
 
-public class PaymentRouter: PaymentRouterProtocol {
+class PaymentRouter: PaymentRouterProtocol {
     
     weak var viewController: UIViewController?
     
-    public static func createModule(request: PaymentRequest, delegate: PaymentDelegate) -> UIViewController {
+    static func createModule(request: PaymentRequest, delegate: PaymentDelegate) -> UIViewController {
         let view = PaymentViewController()
         let router = PaymentRouter()
         let presenter = PaymentPresenter(view: view, router: router, request: request, delegate: delegate)

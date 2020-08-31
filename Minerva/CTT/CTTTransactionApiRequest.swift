@@ -6,11 +6,33 @@
 //
 
 import Foundation
+import TekCoreNetwork
 
-public class CTTTransactionApiRequest: BaseTransactionApiRequest {
+class CTTTransactionApiRequest: BaseRequestProtocol {
     
-    public override var path: String {
+    typealias ResponseType = CTTTransactionResponse
+    
+    let request: CTTTransactionRequest
+    
+    init(request: CTTTransactionRequest) {
+        self.request = request
+    }
+    
+    var path: String {
         return "/transactions/genqr"
     }
+    
+    var encoder: APIParamEncoder {
+        return .singleParams(request.dictionary, encoding: JSONParamEncoding.default)
+    }
+    
+    var method: APIMethod {
+        return .post
+    }
+    
+    var hasToken: Bool {
+        return false
+    }
+    
 
 }

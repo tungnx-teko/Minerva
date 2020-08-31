@@ -10,6 +10,7 @@ import Foundation
 public enum PaymentError: Error {
     case timeOut
     case methodNotFound
+    case invalidRequest
     case invalidResponse
     case missingPaymentConfig
     case invalidTransactionRequest

@@ -24,11 +24,11 @@ public class CTTMethod: PaymentMethod {
         return nil
     }
     
-    public func constructApiRequest(request: BaseTransactionRequest) throws -> BaseTransactionApiRequest {
+    public func constructApiRequest(request: BaseTransactionRequest) throws -> AnyRequest {
         guard let request = request as? CTTTransactionRequest else {
             throw PaymentError.invalidTransactionRequest
         }
-        return CTTTransactionApiRequest(request: request)
+        return AnyRequest(CTTTransactionApiRequest(request: request))
     }
     
 }

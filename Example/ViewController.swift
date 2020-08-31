@@ -9,13 +9,32 @@
 import UIKit
 import Minerva
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, PaymentDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("Hi")
     }
 
-
+    @IBAction func callService(_ sender: Any) {
+        
+    }
+    
+    @IBAction func openUI(_ sender: Any) {
+        let request = PaymentRequest(orderId: "aaa", orderCode: "aaaa", amount: 100000)
+        let pm = Minerva.paymentUI(request: request, delegate: self)
+        present(pm, animated: true, completion: nil)
+    }
+    
+    func onResult(_ result: PaymentResult) {
+        print(result)
+    }
+    
+    func onCancel() {
+        print("Cancelled")
+    }
+    
+    
 }
 

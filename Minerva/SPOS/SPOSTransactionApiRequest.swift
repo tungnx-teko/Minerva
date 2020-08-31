@@ -6,11 +6,32 @@
 //
 
 import Foundation
+import TekCoreNetwork
 
-public class SPOSTransactionApiRequest: BaseTransactionApiRequest {
+class SPOSTransactionApiRequest: BaseRequestProtocol {
     
-    public override var path: String {
+    typealias ResponseType = SPOSTransactionResponse
+    
+    let request: SPOSTransactionRequest
+    
+    init(request: SPOSTransactionRequest) {
+        self.request = request
+    }
+    
+    var path: String {
         return "/transactions/spos"
+    }
+    
+    var encoder: APIParamEncoder {
+        return .singleParams(request.dictionary, encoding: JSONParamEncoding.default)
+    }
+    
+    var method: APIMethod {
+        return .post
+    }
+    
+    var hasToken: Bool {
+        return false
     }
     
 }

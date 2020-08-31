@@ -8,6 +8,4 @@
 import Foundation
 import TekCoreNetwork
 
-open class BaseTransactionResponse: BaseResponse<PaymentStatusCode> {
-    
-}
+public typealias BaseTransactionResponse = BaseResponse<PaymentStatusCode>

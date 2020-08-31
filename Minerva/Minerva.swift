@@ -8,9 +8,6 @@
 import Foundation
 import UIKit
 
-//public typealias MinervaGateway = MinervaCore.MinervaGateway
-//public typealias MinervaGatewayConfig = MinervaCore.MinervaGatewayConfig
-
 public class Minerva {
     
     public struct Config {
@@ -43,6 +40,11 @@ public class Minerva {
         public static var backButton: UIImage? = ImagesHelper.imageFor(name: "back")
         public static var sposIcon: UIImage? = ImagesHelper.imageFor(name: "spos")
         public static var qrIcon: UIImage? = ImagesHelper.imageFor(name: "qr")
+    }
+    
+    public static func paymentUI(request: PaymentRequest, delegate: PaymentDelegate) -> UIViewController {
+        let pm = PaymentRouter.createModule(request: request, delegate: delegate)
+        return pm
     }
     
 }

@@ -8,8 +8,6 @@
 import Foundation
 
 public class SPOSMethod: PaymentMethod {
-    public typealias ApiRequest = SPOSTransactionApiRequest
-    public typealias TransactionResponse = SPOSTransactionResponse
     
     public var config: PaymentMethodConfig
     public var methodCode: MethodCode
@@ -23,11 +21,11 @@ public class SPOSMethod: PaymentMethod {
         return nil
     }
     
-    public func constructApiRequest(request: BaseTransactionRequest) throws -> BaseTransactionApiRequest {
+    public func constructApiRequest(request: BaseTransactionRequest) throws -> AnyRequest {
         guard let request = request as? SPOSTransactionRequest else {
             throw PaymentError.invalidTransactionRequest
         }
-        return SPOSTransactionApiRequest(request: request)
+        return AnyRequest(SPOSTransactionApiRequest(request: request))
     }
 }
 

@@ -279,18 +279,17 @@ PODS:
   - PromisesObjC (1.2.10)
   - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
-  - TekCoreNetwork (0.1.28):
+  - TekCoreNetwork (0.1.32):
     - Alamofire (~> 4.8.2)
-  - TekCoreService (0.1.16):
-    - TekCoreNetwork (~> 0.1.22)
+  - TekCoreService (0.1.31):
+    - TekCoreNetwork (~> 0.1.32)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.8.2)
   - FirebaseFirestore
   - SnapKit
   - SVProgressHUD
-  - TekCoreNetwork (= 0.1.28)
-  - TekCoreService (~> 0.1.16)
+  - TekCoreNetwork (= 0.1.32)
+  - TekCoreService (= 0.1.31)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -329,9 +328,9 @@ SPEC CHECKSUMS:
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TekCoreNetwork: 6fc748bf55f4cfea9c273b10691057c0f0b04065
-  TekCoreService: 86ebcf7ffaad2e34053c382178420d020f4ec7d4
+  TekCoreNetwork: 3d6f235026ffc4e70ff18e528b68fa5e4ca56a9c
+  TekCoreService: 7d4cc0285f1b7e71fb9627cc2eb64d57277d31d2
 
-PODFILE CHECKSUM: 706ac333fe0dabce8c1ebcea1db920efe7a95609
+PODFILE CHECKSUM: 4bfca9bf3e435a0138376eeefe778eddee6b6b5d
 
 COCOAPODS: 1.10.0.beta.2

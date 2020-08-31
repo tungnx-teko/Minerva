@@ -59,12 +59,11 @@ public struct ServiceConfig {
   public var usRawUrl: Swift.String?
   public var oAuthRawUrl: Swift.String?
   public var discoveryRawUrl: Swift.String?
-  public var hestiaRawUrl: Swift.String?
   public var userConfig: TekCoreService.ClientConfig?
   public var lineConfig: TekCoreService.LineConfig?
   public var paymentConfig: TekCoreService.PaymentConfig?
   public var oAuthConfig: TekCoreService.OAuthConfig?
-  public init(addressRawUrl: Swift.String? = nil, catalogRawUrl: Swift.String? = nil, crmRawUrl: Swift.String? = nil, iamRawUrl: Swift.String? = nil, listingRawUrl: Swift.String? = nil, omRawUrl: Swift.String? = nil, pageBuilderRawUrl: Swift.String? = nil, ppmRawUrl: Swift.String? = nil, psRawUrl: Swift.String? = nil, searchRawUrl: Swift.String? = nil, stnRawUrl: Swift.String? = nil, usRawUrl: Swift.String? = nil, oAuthRawUrl: Swift.String? = nil, discoveryRawUrl: Swift.String? = nil, hestiaRawUrl: Swift.String? = nil, userConfig: TekCoreService.ClientConfig? = nil, lineConfig: TekCoreService.LineConfig? = nil, paymentConfig: TekCoreService.PaymentConfig? = nil, oAuthConfig: TekCoreService.OAuthConfig? = nil)
+  public init(addressRawUrl: Swift.String? = nil, catalogRawUrl: Swift.String? = nil, crmRawUrl: Swift.String? = nil, iamRawUrl: Swift.String? = nil, listingRawUrl: Swift.String? = nil, omRawUrl: Swift.String? = nil, pageBuilderRawUrl: Swift.String? = nil, ppmRawUrl: Swift.String? = nil, psRawUrl: Swift.String? = nil, searchRawUrl: Swift.String? = nil, stnRawUrl: Swift.String? = nil, usRawUrl: Swift.String? = nil, oAuthRawUrl: Swift.String? = nil, discoveryRawUrl: Swift.String? = nil, userConfig: TekCoreService.ClientConfig? = nil, lineConfig: TekCoreService.LineConfig? = nil, paymentConfig: TekCoreService.PaymentConfig? = nil, oAuthConfig: TekCoreService.OAuthConfig? = nil)
 }
 open class APIManager : TekCoreNetwork.CoreAPIManager {
   required public convenience init(requestConfiguration: TekCoreNetwork.RequestConfigurationProtocol, serviceCredential: TekCoreService.ServicesCredential? = nil)

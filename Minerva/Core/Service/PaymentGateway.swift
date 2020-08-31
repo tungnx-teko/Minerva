@@ -11,15 +11,12 @@ public class PaymentGateway {
     
     public static let shared = PaymentGateway()
     
-    private init() {}
-    
     static var config: PaymentServiceConfig!
-    
     static var environment: Environment = .development
-    
-    public static var methods: [PaymentMethod] = []
-    
+    static var methods: [PaymentMethod] = []
     lazy var paymentService = PaymentService(url: URL(string: PaymentGateway.config.baseUrl)!)
+    
+    private init() {}
     
     public static func initialize(withConfig config: PaymentServiceConfig, environment: Environment) {
         PaymentGateway.config = config

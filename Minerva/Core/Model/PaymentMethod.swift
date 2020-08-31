@@ -13,7 +13,7 @@ public protocol PaymentMethod {
     var methodCode: MethodCode { get }
     
     func validateRequest(request: BaseTransactionRequest) -> PaymentError?
-    func constructApiRequest(request: BaseTransactionRequest) throws -> BaseTransactionApiRequest
+    func constructApiRequest(request: BaseTransactionRequest) throws -> AnyRequest
 }
 
 extension PaymentMethod {
