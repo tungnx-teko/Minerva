@@ -9,9 +9,9 @@ import UIKit
 
 class PaymentRouter: PaymentRouterProtocol {
     
-    weak var viewController: UIViewController?
+    weak var viewController: PaymentViewController?
     
-    static func createModule(request: PaymentRequest, delegate: PaymentDelegate) -> UIViewController {
+    static func createModule(request: PaymentRequest, delegate: PaymentDelegate) -> PaymentViewController {
         let view = PaymentViewController()
         let router = PaymentRouter()
         let presenter = PaymentPresenter(view: view, router: router, request: request, delegate: delegate)

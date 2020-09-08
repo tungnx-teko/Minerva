@@ -18,14 +18,14 @@ class DatabaseManager {
     }
     
     static let shared = DatabaseManager()
-    let environment = PaymentGateway.environment
+    let environment = Minerva.environment
     
     var database: Firestore?
     
     var transactions: CollectionReference? {
         return database?
             .collection(DatabaseManager.Constants.paymentCollectionPath)
-            .document(PaymentGateway.config.clientCode)
+            .document(Minerva.config.clientCode)
             .collection(DatabaseManager.Constants.transactionCollectionPath)
     }
     

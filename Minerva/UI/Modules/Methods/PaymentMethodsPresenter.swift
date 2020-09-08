@@ -44,7 +44,7 @@ class PaymentMethodsPresenter: PaymentMethodsPresenterProtocol {
     private func requestPayment(method: PaymentMethod, request: BaseTransactionRequest) {
         view?.showLoading()
         do {
-            try PaymentGateway.shared.pay(method: method, request: request, completion: { [weak self] result in
+            try Minerva.shared.pay(method: method, request: request, completion: { [weak self] result in
                 self?.view?.hideLoading()
                 switch result {
                 case .success(let response):

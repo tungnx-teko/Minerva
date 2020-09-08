@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import MinervaCore
 
 public protocol PaymentDelegate: class {
     func onResult(_ result: PaymentResult)
@@ -14,8 +13,6 @@ public protocol PaymentDelegate: class {
 }
 
 class PaymentPresenter: PaymentPresenterProtocol {
-    
-    lazy var gateway = PaymentGateway.shared
     
     weak var view: PaymentViewProtocol?
     var router: PaymentRouterProtocol?

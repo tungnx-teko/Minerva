@@ -19,7 +19,7 @@ public protocol PaymentMethod {
 extension PaymentMethod {
     
     func newTransaction(request: BaseTransactionRequest) throws -> BaseTransactionRequest {
-        guard let gatewayConfig = PaymentGateway.config else {
+        guard let gatewayConfig = Minerva.config else {
             throw PaymentError.missingPaymentConfig
         }
         if let error = validateRequest(request: request) { throw error }
