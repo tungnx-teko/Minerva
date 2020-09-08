@@ -28,20 +28,39 @@ public class ClientConfig {
 public class PaymentConfig : TekCoreService.ClientConfig {
   public var secretKey: Swift.String
   public var terminalCode: Swift.String
-  public init(clientCode: Swift.String?, terminalCode: Swift.String?, secretKey: Swift.String?)
+  public var serviceCode: Swift.String?
+  public var qrPartnerCode: Swift.String?
+  public var cashPartnerCode: Swift.String?
+  public var sposPartnerCode: Swift.String?
+  public var sposMerchantCode: Swift.String?
+  public init(clientCode: Swift.String?, terminalCode: Swift.String?, secretKey: Swift.String?, serviceCode: Swift.String? = nil, qrPartnerCode: Swift.String? = nil, cashPartnerCode: Swift.String? = nil, sposPartnerCode: Swift.String? = nil, sposMerchantCode: Swift.String? = nil)
   override public init(clientCode: Swift.String?)
   @objc deinit
 }
 public class OAuthConfig : TekCoreService.ClientConfig {
   public var scopes: Swift.String
-  public init(clientId: Swift.String?, scopes: Swift.String?)
+  public var googleAppId: Swift.String?
+  public var googleAppSecret: Swift.String?
+  public var facebookAppId: Swift.String?
+  public var facebookAppSecret: Swift.String?
+  public var appleBundleId: Swift.String?
+  public init(clientId: Swift.String?, scopes: Swift.String?, googleAppId: Swift.String? = nil, googleAppSecret: Swift.String? = nil, facebookAppId: Swift.String? = nil, facebookAppSecret: Swift.String? = nil, appleBundleId: Swift.String? = nil)
   override public init(clientCode: Swift.String?)
   @objc deinit
 }
-public class LineConfig {
-  public var channel: TekCoreService.VSChannel
-  public var terminal: TekCoreService.VSTerminal
-  public init(channel: TekCoreService.VSChannel, terminal: TekCoreService.VSTerminal)
+public class LineConfig : TekCoreService.ClientConfig {
+  public var channel: Swift.String?
+  public var terminal: Swift.String?
+  public init(clientCode: Swift.String? = nil, channel: Swift.String?, terminal: Swift.String?)
+  override public init(clientCode: Swift.String?)
+  @objc deinit
+}
+public class OMConfig : TekCoreService.ClientConfig {
+  public var channel: Swift.String
+  public var channelId: Swift.String
+  public var channelType: Swift.String
+  public init(clientCode: Swift.String? = nil, channel: Swift.String, channelId: Swift.String, channelType: Swift.String)
+  override public init(clientCode: Swift.String?)
   @objc deinit
 }
 public struct ServiceConfig {
@@ -59,11 +78,14 @@ public struct ServiceConfig {
   public var usRawUrl: Swift.String?
   public var oAuthRawUrl: Swift.String?
   public var discoveryRawUrl: Swift.String?
+  public var identityRawUrl: Swift.String?
   public var userConfig: TekCoreService.ClientConfig?
+  public var trackerConfig: TekCoreService.ClientConfig?
   public var lineConfig: TekCoreService.LineConfig?
+  public var orderConfig: TekCoreService.OMConfig?
   public var paymentConfig: TekCoreService.PaymentConfig?
   public var oAuthConfig: TekCoreService.OAuthConfig?
-  public init(addressRawUrl: Swift.String? = nil, catalogRawUrl: Swift.String? = nil, crmRawUrl: Swift.String? = nil, iamRawUrl: Swift.String? = nil, listingRawUrl: Swift.String? = nil, omRawUrl: Swift.String? = nil, pageBuilderRawUrl: Swift.String? = nil, ppmRawUrl: Swift.String? = nil, psRawUrl: Swift.String? = nil, searchRawUrl: Swift.String? = nil, stnRawUrl: Swift.String? = nil, usRawUrl: Swift.String? = nil, oAuthRawUrl: Swift.String? = nil, discoveryRawUrl: Swift.String? = nil, userConfig: TekCoreService.ClientConfig? = nil, lineConfig: TekCoreService.LineConfig? = nil, paymentConfig: TekCoreService.PaymentConfig? = nil, oAuthConfig: TekCoreService.OAuthConfig? = nil)
+  public init(addressRawUrl: Swift.String? = nil, catalogRawUrl: Swift.String? = nil, crmRawUrl: Swift.String? = nil, iamRawUrl: Swift.String? = nil, listingRawUrl: Swift.String? = nil, omRawUrl: Swift.String? = nil, pageBuilderRawUrl: Swift.String? = nil, ppmRawUrl: Swift.String? = nil, psRawUrl: Swift.String? = nil, searchRawUrl: Swift.String? = nil, stnRawUrl: Swift.String? = nil, usRawUrl: Swift.String? = nil, oAuthRawUrl: Swift.String? = nil, discoveryRawUrl: Swift.String? = nil, identityRawUrl: Swift.String? = nil, trackerConfig: TekCoreService.ClientConfig? = nil, userConfig: TekCoreService.ClientConfig? = nil, lineConfig: TekCoreService.LineConfig? = nil, paymentConfig: TekCoreService.PaymentConfig? = nil, orderConfig: TekCoreService.OMConfig? = nil, oAuthConfig: TekCoreService.OAuthConfig? = nil)
 }
 open class APIManager : TekCoreNetwork.CoreAPIManager {
   required public convenience init(requestConfiguration: TekCoreNetwork.RequestConfigurationProtocol, serviceCredential: TekCoreService.ServicesCredential? = nil)
@@ -156,9 +178,10 @@ open class BaseService<API> : TekCoreService.CoreService where API : TekCoreServ
   public init(url: Foundation.URL, credential: TekCoreService.ServicesCredential? = nil)
   @objc deinit
 }
+public typealias ServicesCredentialRefreshHandler = (Swift.Bool) -> Swift.Void
 public protocol ServicesCredential {
   var accessToken: Swift.String { get }
-  func refresh(completion: (Swift.Bool) -> Swift.Void)
+  func refresh(completion: @escaping TekCoreService.ServicesCredentialRefreshHandler)
 }
 public enum ServiceType {
   case address

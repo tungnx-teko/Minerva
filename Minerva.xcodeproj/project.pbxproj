@@ -81,7 +81,6 @@
 		1A257F1624F7C8D0004B08DE /* PaymentServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED624F7C8D0004B08DE /* PaymentServiceConfig.swift */; };
 		1A257F1724F7C8D0004B08DE /* PaymentMethodConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED724F7C8D0004B08DE /* PaymentMethodConfig.swift */; };
 		1A257F1824F7C8D0004B08DE /* PaymentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED824F7C8D0004B08DE /* PaymentError.swift */; };
-		1A257F1924F7C8D0004B08DE /* PaymentGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ED924F7C8D0004B08DE /* PaymentGateway.swift */; };
 		1A257F1A24F7C8D0004B08DE /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EDA24F7C8D0004B08DE /* PaymentService.swift */; };
 		1A257F1B24F7C8D0004B08DE /* PaymentStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EDB24F7C8D0004B08DE /* PaymentStatusCode.swift */; };
 		1A257F1C24F7C8D0004B08DE /* BaseTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EDC24F7C8D0004B08DE /* BaseTransactionResponse.swift */; };
@@ -186,7 +185,6 @@
 		1A257ED624F7C8D0004B08DE /* PaymentServiceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentServiceConfig.swift; sourceTree = "<group>"; };
 		1A257ED724F7C8D0004B08DE /* PaymentMethodConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodConfig.swift; sourceTree = "<group>"; };
 		1A257ED824F7C8D0004B08DE /* PaymentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentError.swift; sourceTree = "<group>"; };
-		1A257ED924F7C8D0004B08DE /* PaymentGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentGateway.swift; sourceTree = "<group>"; };
 		1A257EDA24F7C8D0004B08DE /* PaymentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 		1A257EDB24F7C8D0004B08DE /* PaymentStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentStatusCode.swift; sourceTree = "<group>"; };
 		1A257EDC24F7C8D0004B08DE /* BaseTransactionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransactionResponse.swift; sourceTree = "<group>"; };
@@ -436,7 +434,6 @@
 				1A257ED624F7C8D0004B08DE /* PaymentServiceConfig.swift */,
 				1A257ED724F7C8D0004B08DE /* PaymentMethodConfig.swift */,
 				1A257ED824F7C8D0004B08DE /* PaymentError.swift */,
-				1A257ED924F7C8D0004B08DE /* PaymentGateway.swift */,
 				1A257EDA24F7C8D0004B08DE /* PaymentService.swift */,
 				1A257EDB24F7C8D0004B08DE /* PaymentStatusCode.swift */,
 				1A257EDC24F7C8D0004B08DE /* BaseTransactionResponse.swift */,
@@ -713,7 +710,6 @@
 				1A257F1724F7C8D0004B08DE /* PaymentMethodConfig.swift in Sources */,
 				1A257EE624F7C8D0004B08DE /* CTTMethod.swift in Sources */,
 				1A257F0024F7C8D0004B08DE /* PaymentProtocols.swift in Sources */,
-				1A257F1924F7C8D0004B08DE /* PaymentGateway.swift in Sources */,
 				1A257EEC24F7C8D0004B08DE /* UIImage+.swift in Sources */,
 				1A257F1224F7C8D0004B08DE /* MethodCode.swift in Sources */,
 				1A257F0A24F7C8D0004B08DE /* PaymentObserver.swift in Sources */,

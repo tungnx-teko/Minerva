@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         PaymentGateway.initialize(withConfig: config, environment: .development)
         
-        let ctt = CTTMethod(config: CTTPaymentConfig(), methodCode: MethodCode(name: "CTT", code: "CTT"))
-        let spos = SPOSMethod(config: SPOSPaymentConfig(), methodCode: MethodCode(name: "SPOS", code: "SPOSCARD"))
+        let ctt = CTTMethod(config: CTTPaymentConfig(), methodCode: CTTMethod.cttCode)
+        let spos = SPOSMethod(config: SPOSPaymentConfig(), methodCode: SPOSMethod.sposCode)
         
         PaymentGateway.setPaymentMethods(methods: [ctt, spos])
         

@@ -8,6 +8,7 @@
 import Foundation
 
 public class SPOSMethod: PaymentMethod {
+    public static let sposCode = MethodCode(name: "SPOS", code: "SPOSCARD")
     
     public var config: PaymentMethodConfig
     public var methodCode: MethodCode
