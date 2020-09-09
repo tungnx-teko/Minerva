@@ -288,8 +288,8 @@ DEPENDENCIES:
   - FirebaseFirestore
   - SnapKit
   - SVProgressHUD
-  - TekCoreNetwork (~> 0.1.32)
-  - TekCoreService (~> 0.1.35)
+  - TekCoreNetwork
+  - TekCoreService
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -331,6 +331,6 @@ SPEC CHECKSUMS:
   TekCoreNetwork: 3d6f235026ffc4e70ff18e528b68fa5e4ca56a9c
   TekCoreService: 0b81c4c9d442ef623baed2a0447134011d9efc29
 
-PODFILE CHECKSUM: 86fd2e58a84bb700cc1bd1ec8d0b0356a2b94c25
+PODFILE CHECKSUM: a808892a09da8f1a63e8c1ad506c392d8305f220
 
 COCOAPODS: 1.10.0.beta.2

@@ -55,6 +55,6 @@ target 'Minerva' do
   pod 'SVProgressHUD'
   pod 'SnapKit'
   pod 'FirebaseFirestore'
-  pod 'TekCoreNetwork', '~> 0.1.32'
-  pod 'TekCoreService', '~> 0.1.35'
+  pod 'TekCoreNetwork'
+  pod 'TekCoreService'
 end
