@@ -44,24 +44,30 @@ public class Minerva {
     
     public static let shared = Minerva()
     
-    static var config: PaymentServiceConfig!
-    static var environment: Environment = .development
-    static var methods: [PaymentMethod] = []
-    lazy var paymentService = PaymentService(url: URL(string: Minerva.config.baseUrl)!)
+    var config: PaymentServiceConfig!
+    var methods: [PaymentMethod] = []
+    lazy var paymentService = PaymentService(url: URL(string: config.baseUrl)!)
     
     private init() {}
     
-    public static func initialize(withConfig config: PaymentServiceConfig, environment: Environment) {
-        Minerva.config = config
-        Minerva.environment = environment
+    public static let configName = "ps"
+    
+    public func initialize(config: [String: Any]) {
+        let converter = MinervaConverter(input: config)
+        self.config = converter.output
     }
     
-    public static func setPaymentMethods(methods: [PaymentMethod]) {
-        Minerva.methods = methods
+    public func initialize(withConfig config: PaymentServiceConfig) {
+        self.config = config
     }
     
-    public func pay(method: PaymentMethod, request: BaseTransactionRequest, completion: @escaping (Result<BaseTransactionResponse, Error>) -> ()) throws {
-        guard let _ = Minerva.config else {
+    public func setPaymentMethods(methods: [PaymentMethod]) {
+        self.methods = methods
+    }
+    
+    public func pay(method: PaymentMethod, request: BaseTransactionRequest,
+                    completion: @escaping (Result<BaseTransactionResponse, Error>) -> ()) throws {
+        guard let _ = self.config else {
             throw PaymentError.missingPaymentConfig
         }
         guard let method = getPaymentMethod(fromCode: method.methodCode.code) else {
@@ -73,7 +79,7 @@ public class Minerva {
     }
     
     private func getPaymentMethod(fromCode code: String) -> PaymentMethod? {
-        return Minerva.methods.first { $0.methodCode.code == code }
+        return self.methods.first { $0.methodCode.code == code }
     }
     
     

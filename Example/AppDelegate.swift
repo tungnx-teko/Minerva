@@ -17,18 +17,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let config = PaymentServiceConfig(clientCode: "PVSDK1",
-                                          terminalCode: "PE1118CC50322",
-                                          serviceCode: "RETAIL",
-                                          secretKey: "354deb9bf68088199d8818f71c01951f",
-                                          baseUrl: "https://payment.stage.tekoapis.net/api")
+        let dict: [String: Any] = [
+            "clientCode": "PVSDK1",
+            "terminalCode": "PE1118CC50322",
+            "serviceCode": "RETAIL",
+            "secretKey": "354deb9bf68088199d8818f71c01951f",
+            "baseUrl": "https://payment.stage.tekoapis.net/api",
+            "firebaseConfig": [
+                "projectId":"payment-test-fc407",
+                "applicationId":"1:621256043987:ios:b359f0c782414f1d3f1326",
+                "apiKey":"AIzaSyCTMCbvnSPuNG0jk7wW1SRg7gsmYsHbXT0",
+                "databaseUrl":"https://payment-test-fc407.firebaseio.com/",
+                "storageBucket":"payment-test-fc407.appspot.com",
+                "gcmSenderId":"621256043987"
+            ]
+        ]
         
-        PaymentGateway.initialize(withConfig: config, environment: .development)
+//        let config = PaymentServiceConfig(clientCode: "PVSDK1",
+//                                          terminalCode: "PE1118CC50322",
+//                                          serviceCode: "RETAIL",
+//                                          secretKey: "354deb9bf68088199d8818f71c01951f",
+//                                          baseUrl: "https://payment.stage.tekoapis.net/api")
+        
+//        PaymentGateway.initialize(withConfig: config, environment: .development)
+        
+        Minerva.shared.initialize(config: dict)
         
         let ctt = CTTMethod(config: CTTPaymentConfig(), methodCode: CTTMethod.cttCode)
         let spos = SPOSMethod(config: SPOSPaymentConfig(), methodCode: SPOSMethod.sposCode)
         
-        PaymentGateway.setPaymentMethods(methods: [ctt, spos])
+        Minerva.shared.setPaymentMethods(methods: [ctt, spos])
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()

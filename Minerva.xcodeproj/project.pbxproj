@@ -65,7 +65,6 @@
 		1A257F0624F7C8D0004B08DE /* SposRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC124F7C8D0004B08DE /* SposRouter.swift */; };
 		1A257F0724F7C8D0004B08DE /* Minerva.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC224F7C8D0004B08DE /* Minerva.swift */; };
 		1A257F0824F7C8D0004B08DE /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A257EC324F7C8D0004B08DE /* images.bundle */; };
-		1A257F0924F7C8D0004B08DE /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC524F7C8D0004B08DE /* Environment.swift */; };
 		1A257F0A24F7C8D0004B08DE /* PaymentObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC724F7C8D0004B08DE /* PaymentObserver.swift */; };
 		1A257F0B24F7C8D0004B08DE /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257EC824F7C8D0004B08DE /* DatabaseManager.swift */; };
 		1A257F0C24F7C8D0004B08DE /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257ECA24F7C8D0004B08DE /* Encodable+.swift */; };
@@ -93,6 +92,7 @@
 		1A4C7864F3C2448ED6BA3CE0 /* Pods_Minerva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A22133BE1087DC496089243 /* Pods_Minerva.framework */; };
 		1AB6F4ED24FCB6EE00D9A5D8 /* Minerva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A257DE424F7C825004B08DE /* Minerva.framework */; };
 		1AB6F4EE24FCB6EE00D9A5D8 /* Minerva.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A257DE424F7C825004B08DE /* Minerva.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1AF6F935250B850A00FC17F5 /* MinervaConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6F934250B850A00FC17F5 /* MinervaConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,7 +169,6 @@
 		1A257EC124F7C8D0004B08DE /* SposRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SposRouter.swift; sourceTree = "<group>"; };
 		1A257EC224F7C8D0004B08DE /* Minerva.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Minerva.swift; sourceTree = "<group>"; };
 		1A257EC324F7C8D0004B08DE /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
-		1A257EC524F7C8D0004B08DE /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		1A257EC724F7C8D0004B08DE /* PaymentObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentObserver.swift; sourceTree = "<group>"; };
 		1A257EC824F7C8D0004B08DE /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		1A257ECA24F7C8D0004B08DE /* Encodable+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
@@ -194,6 +193,7 @@
 		1A257EE124F7C8D0004B08DE /* SPOSTransactionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOSTransactionResponse.swift; sourceTree = "<group>"; };
 		1A257EE224F7C8D0004B08DE /* SPOSPaymentConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOSPaymentConfig.swift; sourceTree = "<group>"; };
 		1A257EE324F7C8D0004B08DE /* SPOSMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPOSMethod.swift; sourceTree = "<group>"; };
+		1AF6F934250B850A00FC17F5 /* MinervaConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinervaConverter.swift; sourceTree = "<group>"; };
 		2DE4F4EEED284C4421013203 /* Pods-Minerva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.release.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.release.xcconfig"; sourceTree = "<group>"; };
 		37A200C241B09738F398E830 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7E0B7FB20924B6EF6C072B4F /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,7 +386,8 @@
 		1A257EC424F7C8D0004B08DE /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1A257EC524F7C8D0004B08DE /* Environment.swift */,
+				1AF6F933250B84E300FC17F5 /* Response */,
+				1AF6F932250B84DD00FC17F5 /* Request */,
 				1A257EC624F7C8D0004B08DE /* Observer */,
 				1A257EC924F7C8D0004B08DE /* Utils */,
 				1A257ED024F7C8D0004B08DE /* Model */,
@@ -429,14 +430,10 @@
 		1A257ED324F7C8D0004B08DE /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				1A257ED424F7C8D0004B08DE /* BaseTransactionRequest.swift */,
-				1A257ED524F7C8D0004B08DE /* BaseTransactionApiRequest.swift */,
 				1A257ED624F7C8D0004B08DE /* PaymentServiceConfig.swift */,
 				1A257ED724F7C8D0004B08DE /* PaymentMethodConfig.swift */,
-				1A257ED824F7C8D0004B08DE /* PaymentError.swift */,
 				1A257EDA24F7C8D0004B08DE /* PaymentService.swift */,
-				1A257EDB24F7C8D0004B08DE /* PaymentStatusCode.swift */,
-				1A257EDC24F7C8D0004B08DE /* BaseTransactionResponse.swift */,
+				1AF6F934250B850A00FC17F5 /* MinervaConverter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -452,6 +449,25 @@
 				1A257EE324F7C8D0004B08DE /* SPOSMethod.swift */,
 			);
 			path = SPOS;
+			sourceTree = "<group>";
+		};
+		1AF6F932250B84DD00FC17F5 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				1A257ED424F7C8D0004B08DE /* BaseTransactionRequest.swift */,
+				1A257ED524F7C8D0004B08DE /* BaseTransactionApiRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		1AF6F933250B84E300FC17F5 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				1A257ED824F7C8D0004B08DE /* PaymentError.swift */,
+				1A257EDB24F7C8D0004B08DE /* PaymentStatusCode.swift */,
+				1A257EDC24F7C8D0004B08DE /* BaseTransactionResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		20E379B8F3EFE99226F6CA2D /* Pods */ = {
@@ -729,8 +745,8 @@
 				1A257EF624F7C8D0004B08DE /* PaymentMethodsViewController.swift in Sources */,
 				1A257F1024F7C8D0004B08DE /* DateUtils.swift in Sources */,
 				1A257F0224F7C8D0004B08DE /* PaymentPresenter.swift in Sources */,
+				1AF6F935250B850A00FC17F5 /* MinervaConverter.swift in Sources */,
 				1A257EF124F7C8D0004B08DE /* ResultPresenter.swift in Sources */,
-				1A257F0924F7C8D0004B08DE /* Environment.swift in Sources */,
 				1A257F0D24F7C8D0004B08DE /* MD5Encryptor.swift in Sources */,
 				1A257F1B24F7C8D0004B08DE /* PaymentStatusCode.swift in Sources */,
 				1A257EED24F7C8D0004B08DE /* UIColor+.swift in Sources */,

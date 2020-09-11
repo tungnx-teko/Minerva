@@ -56,7 +56,7 @@ class PaymentMethodsViewController: UIViewController, PaymentMethodsViewProtocol
     
     var presenter: PaymentMethodsPresenterProtocol?
     
-    var methods: [PaymentMethod] = Minerva.methods
+    var methods: [PaymentMethod] = Minerva.shared.methods
     
     override public func viewDidLoad() {
         super.viewDidLoad()

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import MinervaCore
 
 class PaymentMethodsRouter: PaymentMethodsRouterProtocol {
     

@@ -18,14 +18,13 @@ class DatabaseManager {
     }
     
     static let shared = DatabaseManager()
-    let environment = Minerva.environment
     
     var database: Firestore?
     
     var transactions: CollectionReference? {
         return database?
             .collection(DatabaseManager.Constants.paymentCollectionPath)
-            .document(Minerva.config.clientCode)
+            .document(Minerva.shared.config.clientCode)
             .collection(DatabaseManager.Constants.transactionCollectionPath)
     }
     
@@ -39,13 +38,13 @@ class DatabaseManager {
     }
     
     private func setupFirebase() {
-        let config = environment.config
-        let options = FirebaseOptions.init(googleAppID: config.googleAppID,
-                                           gcmSenderID: config.gcmSenderID)
+        let config = Minerva.shared.config.firebaseConfig
+        let options = FirebaseOptions.init(googleAppID: config.googleAppId,
+                                           gcmSenderID: config.gcmSenderId)
         
-        options.projectID = config.projectID
+        options.projectID = config.projectId
         options.apiKey = config.apiKey
-        options.databaseURL = config.databaseURL
+        options.databaseURL = config.databaseUrl
         options.storageBucket = config.storageBucket
         
         FirebaseApp.configure(name: DatabaseManager.Constants.appName, options: options)

@@ -281,7 +281,7 @@ PODS:
   - SVProgressHUD (2.2.5)
   - TekCoreNetwork (0.1.32):
     - Alamofire (~> 4.8.2)
-  - TekCoreService (0.1.35):
+  - TekCoreService (0.2.6):
     - TekCoreNetwork (~> 0.1.32)
 
 DEPENDENCIES:
@@ -289,7 +289,7 @@ DEPENDENCIES:
   - SnapKit
   - SVProgressHUD
   - TekCoreNetwork
-  - TekCoreService
+  - TekCoreService (= 0.2.6)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -329,8 +329,8 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TekCoreNetwork: 3d6f235026ffc4e70ff18e528b68fa5e4ca56a9c
-  TekCoreService: 0b81c4c9d442ef623baed2a0447134011d9efc29
+  TekCoreService: ad02e9b90174c74e4d2b081652b2daa582a0996a
 
-PODFILE CHECKSUM: a808892a09da8f1a63e8c1ad506c392d8305f220
+PODFILE CHECKSUM: 361aa12919da848c8134cccbefa04e5ef086c1f5
 
 COCOAPODS: 1.10.0.beta.2
