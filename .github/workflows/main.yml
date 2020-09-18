@@ -30,8 +30,8 @@ jobs:
     - uses: actions/checkout@v2
 #    - name: Install cocoapods
 #      run: gem install cocoapods --pre
-#    - name: Installing pods
-#      run: pod install --verbose
+    - name: Installing pods
+      run: pod install --verbose
     # Runs chmod for setting permissions command using the runners shell
     - name: Chmod
       run: chmod +x ./release/github-release.sh

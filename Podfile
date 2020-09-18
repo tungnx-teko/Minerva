@@ -6,6 +6,32 @@ source "https://github.com/teko-vn/Specs-ios.git"   # for using pods from Teko
 
 platform :ios, '10.0'
 
+$static_framework = [
+  "FBLPromises",
+  "FirebaseCore",
+  "FirebaseCoreDiagnostics",
+  "FirebaseFirestore",
+  "GoogleDataTransport",
+  "GoogleUtilities",
+  "absl",
+  "grpc",
+  "grpcpp",
+  "leveldb",
+  "nanopb",
+  "openssl_grpc"
+]
+
+# static framework enable
+pre_install do |installer|
+  installer.pod_targets.each do |pod|
+    if $static_framework.include?(pod.name)
+      def pod.build_type;
+      Pod::BuildType.static_framework
+    end
+  end
+end
+end
+
 # bitcode enable
 post_install do |installer|
   installer.pods_project.targets.each do |target|
