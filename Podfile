@@ -7,6 +7,10 @@ source "https://github.com/teko-vn/Specs-ios.git"   # for using pods from Teko
 platform :ios, '10.0'
 
 $static_framework = [
+  "BoringSSL-GRPC",
+  "gRPC-C++",
+  "gRPC-Core",
+  "PromisesObjC",
   "FBLPromises",
   "FirebaseCore",
   "FirebaseCoreDiagnostics",
@@ -70,6 +74,7 @@ target 'Example' do
 
   # Pods for Example
   
+#  pod 'Minerva', '0.2.7', :source => 'https://github.com/teko-vn/Specs-ios'
 
 end
 
