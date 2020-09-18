@@ -22,7 +22,11 @@ $static_framework = [
   "grpcpp",
   "leveldb",
   "nanopb",
-  "openssl_grpc"
+  "openssl_grpc",
+  "SVProgressHUD",
+  "TekCoreNetwork",
+  "TekCoreService",
+  "SnapKit",
 ]
 
 # static framework enable
@@ -66,16 +70,6 @@ post_install do |installer|
       config.build_settings['OTHER_CFLAGS'] = cflags
     end
   end
-end
-
-target 'Example' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for Example
-  
-#  pod 'Minerva', '0.2.7', :source => 'https://github.com/teko-vn/Specs-ios'
-
 end
 
 target 'Minerva' do

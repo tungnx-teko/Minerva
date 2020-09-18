@@ -90,14 +90,21 @@ void LogGrpcCallFinished(absl::string_view rpc_name,
 
 Datastore::Datastore(const DatabaseInfo& database_info,
                      const std::shared_ptr<AsyncQueue>& worker_queue,
+                     std::shared_ptr<CredentialsProvider> credentials)
+    : Datastore{database_info, worker_queue, credentials,
+                ConnectivityMonitor::Create(worker_queue)} {
+}
+
+Datastore::Datastore(const DatabaseInfo& database_info,
+                     const std::shared_ptr<AsyncQueue>& worker_queue,
                      std::shared_ptr<CredentialsProvider> credentials,
-                     ConnectivityMonitor* connectivity_monitor)
+                     std::unique_ptr<ConnectivityMonitor> connectivity_monitor)
     : worker_queue_{NOT_NULL(worker_queue)},
       credentials_{std::move(credentials)},
       rpc_executor_{CreateExecutor()},
-      connectivity_monitor_{connectivity_monitor},
+      connectivity_monitor_{std::move(connectivity_monitor)},
       grpc_connection_{database_info, worker_queue, &grpc_queue_,
-                       connectivity_monitor_},
+                       connectivity_monitor_.get()},
       datastore_serializer_{database_info} {
   if (!database_info.ssl_enabled()) {
     GrpcConnection::UseInsecureChannel(database_info.host());

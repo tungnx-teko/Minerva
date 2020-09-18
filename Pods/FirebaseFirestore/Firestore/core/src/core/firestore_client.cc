@@ -42,7 +42,6 @@
 #include "Firestore/core/src/model/database_id.h"
 #include "Firestore/core/src/model/document_set.h"
 #include "Firestore/core/src/model/mutation.h"
-#include "Firestore/core/src/remote/connectivity_monitor.h"
 #include "Firestore/core/src/remote/datastore.h"
 #include "Firestore/core/src/remote/remote_store.h"
 #include "Firestore/core/src/remote/serializer.h"
@@ -85,7 +84,6 @@ using model::DocumentMap;
 using model::MaybeDocument;
 using model::Mutation;
 using model::OnlineState;
-using remote::ConnectivityMonitor;
 using remote::Datastore;
 using remote::RemoteStore;
 using remote::Serializer;
@@ -195,14 +193,13 @@ void FirestoreClient::Initialize(const User& user, const Settings& settings) {
   query_engine_ = absl::make_unique<IndexFreeQueryEngine>();
   local_store_ = absl::make_unique<LocalStore>(persistence_.get(),
                                                query_engine_.get(), user);
-  connectivity_monitor_ = ConnectivityMonitor::Create(worker_queue_);
+
   auto datastore = std::make_shared<Datastore>(database_info_, worker_queue_,
-                                               credentials_provider_,
-                                               connectivity_monitor_.get());
+                                               credentials_provider_);
 
   remote_store_ = absl::make_unique<RemoteStore>(
       local_store_.get(), std::move(datastore), worker_queue_,
-      connectivity_monitor_.get(), [this](OnlineState online_state) {
+      [this](OnlineState online_state) {
         sync_engine_->HandleOnlineStateChange(online_state);
       });
 
