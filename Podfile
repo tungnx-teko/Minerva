@@ -57,4 +57,5 @@ target 'Minerva' do
   pod 'FirebaseFirestore'
   pod 'TekCoreNetwork'
   pod 'TekCoreService'
+  
 end
