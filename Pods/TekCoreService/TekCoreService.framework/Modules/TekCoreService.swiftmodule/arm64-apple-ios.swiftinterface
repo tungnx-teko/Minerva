@@ -32,6 +32,10 @@ public enum ServiceError : Swift.Error {
 extension Optional where Wrapped == Swift.String {
   public func rawAsURL() throws -> Foundation.URL
 }
+public protocol APIManagerHoldable {
+  associatedtype API : TekCoreService.APIManager
+  var apiManager: Self.API { get }
+}
 open class APIManager : TekCoreNetwork.CoreAPIManager {
   required public convenience init(requestConfiguration: TekCoreNetwork.RequestConfigurationProtocol, serviceCredential: TekCoreService.ServicesCredential? = nil)
   override public init(configuration: TekCoreNetwork.APIClientConfiguration)
@@ -55,14 +59,21 @@ extension ServiceConverterSupportable where Self : TekCoreService.ServiceBuildab
     get
   }
 }
+open class BasicWorkerService : TekCoreService.BaseService<TekCoreService.APIManager> {
+  override public init(url: Foundation.URL, credential: TekCoreService.ServicesCredential? = super)
+  @objc deinit
+}
 public protocol ServiceBuildable : AnyObject {
   init()
   var serviceName: Swift.String { get }
   var rawConfig: [Swift.String : Any] { get set }
-  func createService() throws -> TekCoreService.AnyService
+  func createService() throws -> TekCoreService.CoreService
+}
+open class CancelableWorkerService : TekCoreService.BaseService<TekCoreService.CancelableAPIManager> {
+  override public init(url: Foundation.URL, credential: TekCoreService.ServicesCredential? = super)
+  @objc deinit
 }
 public struct AnyService : TekCoreService.CoreService {
-  public typealias API = TekCoreService.APIManager
   public init<Base>(_ base: Base) where Base : TekCoreService.CoreService
   public var base: Any {
     get
@@ -71,9 +82,6 @@ public struct AnyService : TekCoreService.CoreService {
     get
   }
   public var url: Foundation.URL {
-    get
-  }
-  public var apiManager: TekCoreService.APIManager {
     get
   }
 }
@@ -86,16 +94,11 @@ public protocol ServiceCredentialAttachable {
   func withCredential(_ credential: TekCoreService.ServicesCredential)
 }
 public protocol CoreService {
-  associatedtype API : TekCoreService.APIManager
   var serviceCredential: TekCoreService.ServicesCredential? { get }
   var url: Foundation.URL { get }
 }
-extension CoreService {
-  public var apiManager: Self.API {
-    get
-  }
-}
-open class BaseService<API> : TekCoreService.CoreService where API : TekCoreService.APIManager {
+open class BaseService<API> : TekCoreService.CoreService, TekCoreService.APIManagerHoldable where API : TekCoreService.APIManager {
+  public var apiManager: API
   public var serviceCredential: TekCoreService.ServicesCredential?
   public var url: Foundation.URL
   public init(url: Foundation.URL, credential: TekCoreService.ServicesCredential? = nil)
