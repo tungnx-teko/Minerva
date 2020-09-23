@@ -1,0 +1,117 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name TekCoreService
+import Foundation
+import Swift
+import TekCoreNetwork
+@_exported import TekCoreService
+import UIKit
+public protocol ServiceConfigConvertible {
+  associatedtype ServiceConfig
+  init(input: [Swift.String : Any])
+  var input: [Swift.String : Any] { get }
+  func convertConfig(rawValue: [Swift.String : Any]) -> Self.ServiceConfig
+}
+extension ServiceConfigConvertible {
+  public var output: Self.ServiceConfig {
+    get
+  }
+}
+public enum ServiceError : Swift.Error {
+  case invalidURL
+  case missingConfig
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public static func == (a: TekCoreService.ServiceError, b: TekCoreService.ServiceError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension Optional where Wrapped == Swift.String {
+  public func rawAsURL() throws -> Foundation.URL
+}
+public protocol APIManagerHoldable {
+  associatedtype API : TekCoreService.APIManager
+  var apiManager: Self.API { get }
+}
+@_inheritsConvenienceInitializers open class APIManager : TekCoreNetwork.CoreAPIManager {
+  required public convenience init(requestConfiguration: TekCoreNetwork.RequestConfigurationProtocol, serviceCredential: TekCoreService.ServicesCredential? = nil)
+  @objc deinit
+  override public init(configuration: TekCoreNetwork.APIClientConfiguration)
+}
+@_inheritsConvenienceInitializers open class CancelableAPIManager : TekCoreService.APIManager {
+  override open var cancelRequestSupport: Swift.Bool {
+    get
+  }
+  @objc deinit
+  override public init(configuration: TekCoreNetwork.APIClientConfiguration)
+}
+public protocol ServiceConverterSupportable {
+  associatedtype ServiceConverter : TekCoreService.ServiceConfigConvertible
+}
+extension ServiceConverterSupportable where Self : TekCoreService.ServiceBuildable {
+  public var converter: Self.ServiceConverter {
+    get
+  }
+  public var config: Self.ServiceConverter.ServiceConfig? {
+    get
+  }
+}
+@_inheritsConvenienceInitializers open class BasicWorkerService : TekCoreService.BaseService<TekCoreService.APIManager> {
+  @objc deinit
+  override public init(url: Foundation.URL, credential: TekCoreService.ServicesCredential? = super)
+}
+public protocol ServiceBuildable : AnyObject {
+  init()
+  var serviceName: Swift.String { get }
+  var rawConfig: [Swift.String : Any] { get set }
+  func createService() throws -> TekCoreService.CoreService
+}
+@_inheritsConvenienceInitializers open class CancelableWorkerService : TekCoreService.BaseService<TekCoreService.CancelableAPIManager> {
+  @objc deinit
+  override public init(url: Foundation.URL, credential: TekCoreService.ServicesCredential? = super)
+}
+public struct AnyService : TekCoreService.CoreService {
+  public init<Base>(_ base: Base) where Base : TekCoreService.CoreService
+  public var base: Any {
+    get
+  }
+  public var serviceCredential: TekCoreService.ServicesCredential? {
+    get
+  }
+  public var url: Foundation.URL {
+    get
+  }
+}
+public protocol ServiceApplicationAttachable {
+  var application: UIKit.UIApplication? { get }
+  func withApplication(_ application: UIKit.UIApplication)
+}
+public protocol ServiceCredentialAttachable {
+  var credential: TekCoreService.ServicesCredential? { get }
+  func withCredential(_ credential: TekCoreService.ServicesCredential)
+}
+public protocol CoreService {
+  var serviceCredential: TekCoreService.ServicesCredential? { get }
+  var url: Foundation.URL { get }
+}
+open class BaseService<API> : TekCoreService.CoreService, TekCoreService.APIManagerHoldable where API : TekCoreService.APIManager {
+  public var apiManager: API
+  public var serviceCredential: TekCoreService.ServicesCredential?
+  public var url: Foundation.URL
+  public init(url: Foundation.URL, credential: TekCoreService.ServicesCredential? = nil)
+  @objc deinit
+}
+open class BaseServiceConverter<ServiceConfig> : TekCoreService.ServiceConfigConvertible {
+  public var input: [Swift.String : Any]
+  required public init(input: [Swift.String : Any])
+  open func convertConfig(rawValue: [Swift.String : Any]) -> ServiceConfig
+  @objc deinit
+}
+public typealias ServicesCredentialRefreshHandler = (Swift.Bool) -> Swift.Void
+public protocol ServicesCredential {
+  var accessToken: Swift.String { get }
+  func refresh(completion: @escaping TekCoreService.ServicesCredentialRefreshHandler)
+}
