@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Minerva'
-    s.version          = '0.3.10'
+    s.version          = '0.4.0'
     s.summary          = 'PaymentSDK'
   
   # This description is used to generate tags and improve search results.
@@ -44,8 +44,8 @@ Pod::Spec.new do |s|
     s.source_files = 'Minerva.framework/Headers/*.{h, m, swift}'
   
     # dependency
-    s.dependency 'TekCoreNetwork', '0.3.0'
-    s.dependency 'TekCoreService', '0.3.10'
+    s.dependency 'TekCoreNetwork', '0.3.1'
+    s.dependency 'TekCoreService', '0.4.0'
 
     s.dependency 'SVProgressHUD'
     s.dependency 'SnapKit'
