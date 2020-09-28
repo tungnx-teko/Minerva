@@ -7,9 +7,9 @@
 
 import Foundation
 
-class SPOSTransactionResponse: BaseTransactionResponse {
-    var data: SPOSTransaction?
-    var message: String?
+public class SPOSTransactionResponse: BaseTransactionResponse {
+    public var data: SPOSTransaction?
+    public var message: String?
     
     enum CodingKeys: String, CodingKey {
         case data

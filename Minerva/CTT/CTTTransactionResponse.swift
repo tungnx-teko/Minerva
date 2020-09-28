@@ -7,9 +7,9 @@
 
 import Foundation
 
-class CTTTransactionResponse: BaseTransactionResponse {
-    var data: CTTTransaction?
-    var message: String?
+public class CTTTransactionResponse: BaseTransactionResponse {
+    public var data: CTTTransaction?
+    public var message: String?
     
     enum CodingKeys: String, CodingKey {
         case data
