@@ -44,8 +44,8 @@ Pod::Spec.new do |s|
     s.source_files = 'Minerva.framework/Headers/*.{h, m, swift}'
   
     # dependency
-    s.dependency 'TekCoreNetwork', '0.3.1'
-    s.dependency 'TekCoreService', '0.4.0'
+    s.dependency 'TekCoreNetwork'
+    s.dependency 'TekCoreService'
 
     s.dependency 'SVProgressHUD'
     s.dependency 'SnapKit'
