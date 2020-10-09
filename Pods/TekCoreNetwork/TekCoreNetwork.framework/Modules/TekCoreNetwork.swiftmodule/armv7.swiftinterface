@@ -17,11 +17,8 @@ extension TekoCodeProtocol {
     get
   }
 }
-public typealias ServicesCredentialRefreshHandler = (Swift.Bool) -> Swift.Void
-public protocol ServicesCredential {
+public protocol TokenCredential {
   var accessToken: Swift.String { get }
-  var timeOut: Foundation.Date? { get }
-  func refresh(completion: @escaping TekCoreNetwork.ServicesCredentialRefreshHandler)
 }
 public enum NetworkError : Swift.Error, Foundation.LocalizedError {
   case cancelled
@@ -61,9 +58,9 @@ extension CoreRequestProtocol {
 }
 open class RequestConfiguration : TekCoreNetwork.RequestConfigurationProtocol {
   public var mainURL: Foundation.URL
-  public var credential: TekCoreNetwork.ServicesCredential?
+  public var credential: TekCoreNetwork.TokenCredential?
   public var userAgent: Swift.String?
-  public init(mainURL: Foundation.URL, credential: TekCoreNetwork.ServicesCredential? = nil, userAgent: Swift.String? = nil)
+  public init(mainURL: Foundation.URL, credential: TekCoreNetwork.TokenCredential? = nil, userAgent: Swift.String? = nil)
   @objc deinit
 }
 public typealias APIHeaders = Alamofire.HTTPHeaders
@@ -188,7 +185,7 @@ public protocol BaseRequestProtocol : TekCoreNetwork.ParamsContainerRequestProto
 }
 public protocol RequestConfigurationProtocol {
   var mainURL: Foundation.URL { get }
-  var credential: TekCoreNetwork.ServicesCredential? { get }
+  var credential: TekCoreNetwork.TokenCredential? { get }
   var userAgent: Swift.String? { get }
 }
 public protocol APIRequestProtocol : Alamofire.URLRequestConvertible {
