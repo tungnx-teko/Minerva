@@ -18,7 +18,7 @@ extension TekoCodeProtocol {
   }
 }
 public protocol TokenCredential {
-  var accessToken: Swift.String { get }
+  var accessToken: Swift.String? { get }
 }
 public enum NetworkError : Swift.Error, Foundation.LocalizedError {
   case cancelled
@@ -27,6 +27,7 @@ public enum NetworkError : Swift.Error, Foundation.LocalizedError {
   case requestFailed(response: Swift.String?)
   case unauthorized
   case notFound
+  case interalServer
   public var code: Swift.String {
     get
   }
