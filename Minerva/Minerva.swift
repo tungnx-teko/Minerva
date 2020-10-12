@@ -65,12 +65,12 @@ public class Minerva {
         self.methods = methods
     }
     
-    public func pay(method: PaymentMethod, request: BaseTransactionRequest,
+    public func pay(method: MethodCode, request: BaseTransactionRequest,
                     completion: @escaping (Result<BaseTransactionResponse, Error>) -> ()) throws {
         guard let _ = self.config else {
             throw PaymentError.missingPaymentConfig
         }
-        guard let method = getPaymentMethod(fromCode: method.methodCode.code) else {
+        guard let method = getPaymentMethod(fromCode: method.code) else {
             throw PaymentError.methodNotFound
         }
         try paymentService.pay(method: method, request: request, completion: { result in
