@@ -26,15 +26,13 @@ class PaymentMethodsPresenter: PaymentMethodsPresenterProtocol {
         case is SPOSMethod:
             let sposRequest = SPOSTransactionRequest(orderId: request.orderId,
                                                      orderCode: request.orderCode,
-                                                     amount: request.amount.intValue,
-                                                     methodCode: method.methodCode.code)
+                                                     amount: request.amount.intValue)
             
             requestPayment(method: method, request: sposRequest)
         case is CTTMethod:
             let cttRequest = CTTTransactionRequest(orderId: request.orderId,
                                                    orderCode: request.orderCode,
-                                                   amount: request.amount.intValue,
-                                                   methodCode: method.methodCode.code)
+                                                   amount: request.amount.intValue)
             requestPayment(method: method, request: cttRequest)
         default:
             break

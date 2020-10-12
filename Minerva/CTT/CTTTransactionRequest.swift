@@ -22,18 +22,18 @@ public class CTTTransactionRequest: BaseTransactionRequest, Encodable {
     var returnUrl: String?
     var cancelUrl: String?
     var clientRequestTime: String
-    var methodCode: String
+    var methodCode: String = ""
     var partnerCode: String
     var expireTime: Int
     
-    public init(bankCode: String = "", orderId: String, orderCode: String, orderDescription: String? = nil, amount: Int, methodCode: String, partnerCode: String = "VNPAY", returnUrl: String? = nil, cancelUrl: String? = nil, expireTime: Int = 600) {
+    public init(bankCode: String = "", orderId: String, orderCode: String, orderDescription: String? = nil, amount: Int, partnerCode: String = "VNPAY", returnUrl: String? = nil, cancelUrl: String? = nil, expireTime: Int = 600) {
         self.bankCode = bankCode
         self.orderId = orderId
         self.orderCode = orderCode
         self.orderDescription = orderDescription
         self.amount = amount
         self.clientRequestTime = DateUtils.toString(date: Date())
-        self.methodCode = methodCode
+//        self.methodCode = methodCode
         self.partnerCode = partnerCode
         self.returnUrl = returnUrl
         self.cancelUrl = cancelUrl
