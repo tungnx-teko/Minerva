@@ -46,7 +46,7 @@ public class Minerva {
     
     var config: PaymentServiceConfig!
     var methods: [PaymentMethod] = []
-    lazy var paymentService = PaymentService(url: URL(string: config.baseUrl)!)
+    var paymentService: PaymentService!
     
     private init() {}
     
@@ -55,10 +55,12 @@ public class Minerva {
     public func initialize(config: [String: Any]) {
         let converter = MinervaConverter(input: config)
         self.config = converter.output
+        self.paymentService = PaymentService(url: URL(string: self.config.baseUrl)!)
     }
     
     public func initialize(withConfig config: PaymentServiceConfig) {
         self.config = config
+        self.paymentService = PaymentService(url: URL(string: config.baseUrl)!)
     }
     
     public func setPaymentMethods(methods: [PaymentMethod]) {
