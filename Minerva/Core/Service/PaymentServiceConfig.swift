@@ -19,8 +19,8 @@ public class PaymentServiceConfig {
         self.clientCode = (rawValue["clientCode"] as? String) ?? ""
         self.terminalCode = (rawValue["terminalCode"] as? String) ?? ""
         self.serviceCode = (rawValue["serviceCode"] as? String) ?? ""
-        self.secretKey = (rawValue["secretKey"] as? String) ?? ""
-        self.baseUrl = (rawValue["baseUrl"] as? String) ?? ""
+        self.secretKey = (rawValue["secret"] as? String) ?? ""
+        self.baseUrl = (rawValue["url"] as? String) ?? ""
         let firebaseConfigDict = (rawValue["firebaseConfig"] as? [String: Any]) ?? [:]
         self.firebaseConfig = FirebaseConfig(rawValue: firebaseConfigDict)
     }
