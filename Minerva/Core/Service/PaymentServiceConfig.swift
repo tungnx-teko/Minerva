@@ -15,17 +15,6 @@ public class PaymentServiceConfig {
     public var baseUrl: String
     public var firebaseConfig: FirebaseConfig
     
-//    public init(clientCode: String, terminalCode: String,
-//                serviceCode: String, secretKey: String, baseUrl: String,
-//                firebaseConfig: FirebaseConfig) {
-//        self.clientCode = clientCode
-//        self.terminalCode = terminalCode
-//        self.serviceCode = serviceCode
-//        self.secretKey = secretKey
-//        self.baseUrl = baseUrl
-//        self.firebaseConfig = firebaseConfig
-//    }
-    
     public init(rawValue: [String: Any]) {
         self.clientCode = (rawValue["clientCode"] as? String) ?? ""
         self.terminalCode = (rawValue["terminalCode"] as? String) ?? ""
@@ -45,15 +34,6 @@ public class FirebaseConfig {
     var apiKey: String
     var databaseUrl: String
     var storageBucket: String
-//
-//    public init(googleAppId: String, gcmSenderId: String, projectId: String, apiKey: String, databaseUrl: String, storageBucket: String) {
-//        self.googleAppId = googleAppId
-//        self.gcmSenderId = gcmSenderId
-//        self.projectId = projectId
-//        self.apiKey = apiKey
-//        self.databaseUrl = databaseUrl
-//        self.storageBucket = storageBucket
-//    }
     
     public init(rawValue: [String: Any]) {
         self.googleAppId = (rawValue["applicationId"] as? String) ?? ""

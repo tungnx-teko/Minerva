@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Minerva'
-    s.version          = '0.3.27'
+    s.version          = '0.3.29'
     s.summary          = 'PaymentSDK'
   
   # This description is used to generate tags and improve search results.

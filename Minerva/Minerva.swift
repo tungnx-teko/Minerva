@@ -46,7 +46,7 @@ public class Minerva {
     
     var config: PaymentServiceConfig!
     var methods: [PaymentMethod] = []
-    lazy var paymentService = PaymentService(url: URL(string: config.baseUrl)!)
+    var paymentService: PaymentService!
     
     private init() {}
     
@@ -54,11 +54,17 @@ public class Minerva {
     
     public func initialize(config: [String: Any]) {
         let converter = MinervaConverter(input: config)
-        self.config = converter.output
+        initialize(withConfig: converter.output)
     }
     
     public func initialize(withConfig config: PaymentServiceConfig) {
         self.config = config
+        dump(config)
+        if let url = URL(string: self.config.baseUrl) {
+            self.paymentService = PaymentService(url: url)
+        } else {
+            print("[MINERVA] Base url not valid")
+        }
     }
     
     public func setPaymentMethods(methods: [PaymentMethod]) {
@@ -67,6 +73,9 @@ public class Minerva {
     
     public func pay(method: MethodCode, request: BaseTransactionRequest,
                     completion: @escaping (Result<BaseTransactionResponse, Error>) -> ()) throws {
+        guard let paymentService = paymentService else {
+            throw PaymentError.missingPaymentConfig
+        }
         guard let _ = self.config else {
             throw PaymentError.missingPaymentConfig
         }
