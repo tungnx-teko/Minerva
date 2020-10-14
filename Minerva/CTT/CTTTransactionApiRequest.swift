@@ -19,7 +19,7 @@ class CTTTransactionApiRequest: BaseRequestProtocol {
     }
     
     var path: String {
-        return "/transactions/genqr"
+        return "/api/transactions/genqr"
     }
     
     var encoder: APIParamEncoder {

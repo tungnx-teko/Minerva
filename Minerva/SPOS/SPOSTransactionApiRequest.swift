@@ -19,7 +19,7 @@ class SPOSTransactionApiRequest: BaseRequestProtocol {
     }
     
     var path: String {
-        return "/transactions/spos"
+        return "/api/transactions/spos"
     }
     
     var encoder: APIParamEncoder {
