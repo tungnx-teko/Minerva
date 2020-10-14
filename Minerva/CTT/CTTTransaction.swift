@@ -9,15 +9,12 @@ import Foundation
 
 public class CTTTransaction: Codable {
     public var code: String
-    public var qrContent: String
+    public var qrContent: String?
+    public var url: String?
     
     enum CodingKeys: String, CodingKey {
         case code = "psTransactionCode"
         case qrContent = "qrcontent"
-    }
-    
-    public init(code: String, qrContent: String) {
-        self.code = code
-        self.qrContent = qrContent
+        case url = "url"
     }
 }
