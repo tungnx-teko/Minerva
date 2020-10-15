@@ -82,8 +82,7 @@ public class Minerva {
         guard let method = getPaymentMethod(fromCode: method.code) else {
             throw PaymentError.methodNotFound
         }
-        let erasuredRequest = AnyTransactionRequest(request)
-        try paymentService.pay(method: method, request: erasuredRequest, completion: { result in
+        try paymentService.pay(method: method, request: request, completion: { result in
             switch result {
             case .success(let transaction):
                 completion(.success(transaction as! T.TransactionType))
