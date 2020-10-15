@@ -8,23 +8,18 @@
 import Foundation
 import TekCoreNetwork
 
-class CTTTransactionApiRequest: BaseRequestProtocol {
+class ATMTransactionApiRequest: BaseRequestProtocol {
     
-    typealias ResponseType = CTTTransactionResponse
+    typealias ResponseType = ATMTransactionResponse
     
-    enum RequestType {
-        case genqr
-        case pay
-    }
+    let request: ATMTransactionRequest
     
-    let request: CTTTransactionRequest
-    
-    init(request: CTTTransactionRequest) {
+    init(request: ATMTransactionRequest) {
         self.request = request
     }
     
     var path: String {
-        return "/api/transactions/genqr"
+        return "/api/transactions/pay"
     }
     
     var encoder: APIParamEncoder {

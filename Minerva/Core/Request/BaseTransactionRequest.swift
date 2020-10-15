@@ -8,11 +8,12 @@
 import Foundation
 
 public protocol BaseTransactionRequest {
-    var clientCode: String { get set }
-    var clientTransactionCode: String { get set }
-    var terminalCode: String { get set }
-    var serviceCode: String { get set }
-    var checksum: String { get set }
+    associatedtype TransactionType
+    var clientCode: String { get }
+    var clientTransactionCode: String { get }
+    var terminalCode: String { get }
+    var serviceCode: String { get }
+    var checksum: String { get }
     
     func withConfig(config: PaymentServiceConfig)
     func withMethodConfig(methodConfig: PaymentMethodConfig, method: MethodCode)

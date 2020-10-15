@@ -1,14 +1,14 @@
 //
-//  SPOSTransactionRequest.swift
-//  Core
+//  CTTTransactionRequest.swift
+//  CTT
 //
 //  Created by Tung Nguyen on 8/20/20.
 //
 
 import Foundation
 
-public class SPOSTransactionRequest: BaseTransactionRequest, Encodable {
-    public typealias TransactionType = SPOSTransaction
+public class ATMTransactionRequest: BaseTransactionRequest, Encodable {
+    public typealias TransactionType = ATMTransaction
     
     public var clientCode: String = ""
     public var clientTransactionCode: String = ""
@@ -26,8 +26,9 @@ public class SPOSTransactionRequest: BaseTransactionRequest, Encodable {
     var clientRequestTime: String
     var methodCode: String = ""
     var partnerCode: String
+    var expireTime: Int
     
-    public init(bankCode: String = "", orderId: String, orderCode: String, orderDescription: String? = nil, amount: Int, partnerCode: String = "VNPAY", returnUrl: String? = nil, cancelUrl: String? = nil) {
+    public init(bankCode: String = "", orderId: String, orderCode: String, orderDescription: String? = nil, amount: Int, partnerCode: String = "VNPAY", returnUrl: String? = nil, cancelUrl: String? = nil, expireTime: Int = 600) {
         self.bankCode = bankCode
         self.orderId = orderId
         self.orderCode = orderCode
@@ -37,6 +38,7 @@ public class SPOSTransactionRequest: BaseTransactionRequest, Encodable {
         self.partnerCode = partnerCode
         self.returnUrl = returnUrl
         self.cancelUrl = cancelUrl
+        self.expireTime = expireTime
     }
     
     public func withConfig(config: PaymentServiceConfig) {

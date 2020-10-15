@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "clientCode": "PVSDK1",
             "terminalCode": "PE1118CC50322",
             "serviceCode": "RETAIL",
-            "secretKey": "354deb9bf68088199d8818f71c01951f",
-            "baseUrl": "https://payment.stage.tekoapis.net/api",
+            "secret": "354deb9bf68088199d8818f71c01951f",
+            "url": "https://payment.stage.tekoapis.net",
             "firebaseConfig": [
                 "projectId":"payment-test-fc407",
                 "applicationId":"1:621256043987:ios:b359f0c782414f1d3f1326",
@@ -32,14 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 "gcmSenderId":"621256043987"
             ]
         ]
-        
-//        let config = PaymentServiceConfig(clientCode: "PVSDK1",
-//                                          terminalCode: "PE1118CC50322",
-//                                          serviceCode: "RETAIL",
-//                                          secretKey: "354deb9bf68088199d8818f71c01951f",
-//                                          baseUrl: "https://payment.stage.tekoapis.net/api")
-        
-//        PaymentGateway.initialize(withConfig: config, environment: .development)
         
         Minerva.shared.initialize(config: dict)
         

@@ -28,25 +28,25 @@ class PaymentMethodsPresenter: PaymentMethodsPresenterProtocol {
                                                      orderCode: request.orderCode,
                                                      amount: request.amount.intValue)
             
-            requestPayment(method: method, request: sposRequest)
+            requestPayment(method: method, request: AnyTransactionRequest(sposRequest))
         case is CTTMethod:
             let cttRequest = CTTTransactionRequest(orderId: request.orderId,
                                                    orderCode: request.orderCode,
                                                    amount: request.amount.intValue)
-            requestPayment(method: method, request: cttRequest)
+            requestPayment(method: method, request: AnyTransactionRequest(cttRequest))
         default:
             break
         }
     }
     
-    private func requestPayment(method: PaymentMethod, request: BaseTransactionRequest) {
+    private func requestPayment(method: PaymentMethod, request: AnyTransactionRequest) {
         view?.showLoading()
         do {
             try Minerva.shared.pay(method: method.methodCode, request: request, completion: { [weak self] result in
                 self?.view?.hideLoading()
                 switch result {
-                case .success(let response):
-                    self?.showTransactionInformation(response: response, request: request)
+                case .success(let transaction):
+                    self?.showTransactionInformation(transaction: transaction, request: request)
                 case .failure(let error):
                     print(error)
                 }
@@ -56,18 +56,12 @@ class PaymentMethodsPresenter: PaymentMethodsPresenterProtocol {
         }
     }
     
-    func showTransactionInformation(response: BaseTransactionResponse, request: BaseTransactionRequest) {
-        switch response {
-        case let response as SPOSTransactionResponse:
-            guard let transaction = response.data, let request = request as? SPOSTransactionRequest else {
-                fatalError("Mismatch response type")
-            }
-            router?.goToSPOSPayment(transaction: transaction, request: request)
-        case let response as CTTTransactionResponse:
-            guard let transaction = response.data, let request = request as? CTTTransactionRequest else {
-                fatalError("Mismatch response type")
-            }
-            router?.goToCTTPayment(transaction: transaction, request: request)
+    func showTransactionInformation(transaction: BaseTransaction, request: AnyTransactionRequest) {
+        switch transaction {
+        case let transaction as SPOSTransaction:
+            router?.goToSPOSPayment(transaction: transaction, request: request.base as! SPOSTransactionRequest)
+        case let transaction as CTTTransaction:
+            router?.goToCTTPayment(transaction: transaction, request: request.base as! CTTTransactionRequest)
         default: ()
         }
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SPOSTransaction: Decodable {
+public class SPOSTransaction: BaseTransaction, Decodable {
     public var code: String
     public var merchantPartnerCode: String
     

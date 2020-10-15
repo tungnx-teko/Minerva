@@ -8,6 +8,8 @@
 import Foundation
 
 public class CTTTransactionRequest: BaseTransactionRequest, Encodable {
+    public typealias TransactionType = CTTTransaction
+    
     public var clientCode: String = ""
     public var clientTransactionCode: String = ""
     public var terminalCode: String = ""

@@ -20,12 +20,12 @@ public class CTTMethod: PaymentMethod {
         self.methodCode = methodCode
     }
     
-    public func validateRequest(request: BaseTransactionRequest) -> PaymentError? {
+    public func validateRequest(request: AnyTransactionRequest) -> PaymentError? {
         return nil
     }
     
-    public func constructApiRequest(request: BaseTransactionRequest) throws -> AnyRequest {
-        guard let request = request as? CTTTransactionRequest else {
+    public func constructApiRequest(request: AnyTransactionRequest) throws -> AnyRequest {
+        guard let request = request.base as? CTTTransactionRequest else {
             throw PaymentError.invalidTransactionRequest
         }
         return AnyRequest(CTTTransactionApiRequest(request: request))

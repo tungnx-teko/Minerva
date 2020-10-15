@@ -11,8 +11,9 @@ import TekCoreNetwork
 
 class PaymentService: BaseService<APIManager> {
     
-    func pay(method: PaymentMethod, request: BaseTransactionRequest, completion: @escaping (Result<BaseTransactionResponse, Error>) -> ()) throws {
-        let request = try method.newTransaction(request: request)
+    func pay<T: BaseTransactionRequest>(method: PaymentMethod, request: T, completion: @escaping (Result<BaseTransaction, Error>) -> ()) throws {
+        let erasuredRequest = AnyTransactionRequest(request)
+        let request = try method.newTransaction(request: erasuredRequest)
         let apiRequest = try method.constructApiRequest(request: request)
         switch method {
         case is SPOSMethod:
@@ -20,8 +21,12 @@ class PaymentService: BaseService<APIManager> {
                 completion(.failure(PaymentError.invalidRequest))
                 return
             }
+            
             apiManager.call(request, onSuccess: { response in
-                completion(.success(response))
+                guard let transaction = response.data else {
+                    return
+                }
+                completion(.success(transaction))
             }) { (error, response) in
                 completion(.failure(error))
             }
@@ -31,7 +36,10 @@ class PaymentService: BaseService<APIManager> {
                 return
             }
             apiManager.call(request, onSuccess: { response in
-                completion(.success(response))
+                guard let transaction = response.data else {
+                    return
+                }
+                completion(.success(transaction))
             }) { (error, response) in
                 completion(.failure(error))
             }

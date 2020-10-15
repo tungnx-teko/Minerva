@@ -7,14 +7,12 @@
 
 import Foundation
 
-public class CTTTransaction: BaseTransaction, Codable {
+public class ATMTransaction: BaseTransaction, Codable {
     public var code: String
-    public var qrContent: String
-    public var url: String?
+    public var url: String
     
     enum CodingKeys: String, CodingKey {
         case code = "psTransactionCode"
-        case qrContent = "qrcontent"
         case url = "url"
     }
 }

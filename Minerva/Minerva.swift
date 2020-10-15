@@ -71,8 +71,8 @@ public class Minerva {
         self.methods = methods
     }
     
-    public func pay(method: MethodCode, request: BaseTransactionRequest,
-                    completion: @escaping (Result<BaseTransactionResponse, Error>) -> ()) throws {
+    public func pay<T: BaseTransactionRequest> (method: MethodCode, request: T,
+                                                completion: @escaping (Result<T.TransactionType, Error>) -> ()) throws {
         guard let paymentService = paymentService else {
             throw PaymentError.missingPaymentConfig
         }
@@ -82,15 +82,20 @@ public class Minerva {
         guard let method = getPaymentMethod(fromCode: method.code) else {
             throw PaymentError.methodNotFound
         }
-        try paymentService.pay(method: method, request: request, completion: { result in
-            completion(result)
+        let erasuredRequest = AnyTransactionRequest(request)
+        try paymentService.pay(method: method, request: erasuredRequest, completion: { result in
+            switch result {
+            case .success(let transaction):
+                completion(.success(transaction as! T.TransactionType))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         })
     }
     
     private func getPaymentMethod(fromCode code: String) -> PaymentMethod? {
         return self.methods.first { $0.methodCode.code == code }
     }
-    
     
     public func getPaymentUI(request: PaymentRequest, delegate: PaymentDelegate) -> PaymentViewController {
         let pm = PaymentRouter.createModule(request: request, delegate: delegate)
