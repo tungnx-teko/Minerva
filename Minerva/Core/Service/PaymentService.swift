@@ -43,6 +43,19 @@ class PaymentService: BaseService<APIManager> {
             }) { (error, response) in
                 completion(.failure(error))
             }
+        case is ATMMethod:
+            guard let request = apiRequest.base as? ATMTransactionApiRequest else {
+                completion(.failure(PaymentError.invalidRequest))
+                return
+            }
+            apiManager.call(request, onSuccess: { response in
+                guard let transaction = response.data else {
+                    return
+                }
+                completion(.success(transaction))
+            }) { (error, response) in
+                completion(.failure(error))
+            }
         default:
             print("not support method")
         }

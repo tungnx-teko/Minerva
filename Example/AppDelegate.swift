@@ -37,8 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let ctt = CTTMethod(config: CTTPaymentConfig(), methodCode: CTTMethod.cttCode)
         let spos = SPOSMethod(config: SPOSPaymentConfig(), methodCode: SPOSMethod.sposCode)
+        let atm = ATMMethod(config: ATMPaymentConfig(), methodCode: ATMMethod.atmCode)
         
-        Minerva.shared.setPaymentMethods(methods: [ctt, spos])
+        Minerva.shared.setPaymentMethods(methods: [ctt, spos, atm])
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()

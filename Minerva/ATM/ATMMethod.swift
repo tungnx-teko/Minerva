@@ -9,7 +9,7 @@ import Foundation
 
 public class ATMMethod: PaymentMethod {
     
-    public static let cttCode = MethodCode(name: "CTT", code: "CTT")
+    public static let atmCode = MethodCode(name: "ATM", code: "CTT")
     
     public var config: PaymentMethodConfig
     public var methodCode: MethodCode

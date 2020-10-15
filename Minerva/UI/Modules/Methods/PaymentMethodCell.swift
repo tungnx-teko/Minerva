@@ -95,6 +95,9 @@ class PaymentMethodCell: UITableViewCell {
             nameLabel.text = Minerva.Strings.paymentSPOSMethod
         case is CTTMethod:
             iconImageView.image = Minerva.Images.qrIcon
+            nameLabel.text = Minerva.Strings.paymentQRMethod
+        case is ATMMethod:
+            iconImageView.image = Minerva.Images.cardIcon
             nameLabel.text = Minerva.Strings.paymentCTTMethod
         default:
             break

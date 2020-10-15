@@ -40,6 +40,7 @@ public class Minerva {
         public static var backButton: UIImage? = ImagesHelper.imageFor(name: "back")
         public static var sposIcon: UIImage? = ImagesHelper.imageFor(name: "spos")
         public static var qrIcon: UIImage? = ImagesHelper.imageFor(name: "qr")
+        public static var cardIcon: UIImage? = ImagesHelper.imageFor(name: "card")
     }
     
     public static let shared = Minerva()
@@ -71,7 +72,7 @@ public class Minerva {
         self.methods = methods
     }
     
-    public func pay<T: BaseTransactionRequest> (method: MethodCode, request: T,
+    public func pay<T: BaseTransactionRequest>(method: MethodCode, request: T,
                                                 completion: @escaping (Result<T.TransactionType, Error>) -> ()) throws {
         guard let paymentService = paymentService else {
             throw PaymentError.missingPaymentConfig
@@ -79,9 +80,11 @@ public class Minerva {
         guard let _ = self.config else {
             throw PaymentError.missingPaymentConfig
         }
-        guard let method = getPaymentMethod(fromCode: method.code) else {
+        guard let method = getPaymentMethod(from: method) else {
             throw PaymentError.methodNotFound
         }
+        dump(method)
+        dump(request)
         try paymentService.pay(method: method, request: request, completion: { result in
             switch result {
             case .success(let transaction):
@@ -92,14 +95,13 @@ public class Minerva {
         })
     }
     
-    private func getPaymentMethod(fromCode code: String) -> PaymentMethod? {
-        return self.methods.first { $0.methodCode.code == code }
+    private func getPaymentMethod(from methodCode: MethodCode) -> PaymentMethod? {
+        return self.methods.first { $0.methodCode.code == methodCode.code && $0.methodCode.name == methodCode.name }
     }
     
     public func getPaymentUI(request: PaymentRequest, delegate: PaymentDelegate) -> PaymentViewController {
         let pm = PaymentRouter.createModule(request: request, delegate: delegate)
         return pm
     }
-    
-    
+
 }

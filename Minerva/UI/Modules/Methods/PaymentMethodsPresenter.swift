@@ -34,6 +34,13 @@ class PaymentMethodsPresenter: PaymentMethodsPresenterProtocol {
                                                    orderCode: request.orderCode,
                                                    amount: request.amount.intValue)
             requestPayment(method: method, request: AnyTransactionRequest(cttRequest))
+        case is ATMMethod:
+            let atmRequest = ATMTransactionRequest(orderId: request.orderId,
+                                                   orderCode: request.orderCode,
+                                                   amount: request.amount.intValue,
+                                                   returnUrl: "https://vnshop.vn/payment/return",
+                                                   cancelUrl: "https://vnshop.vn/payment/cancel")
+            requestPayment(method: method, request: AnyTransactionRequest(atmRequest))
         default:
             break
         }
