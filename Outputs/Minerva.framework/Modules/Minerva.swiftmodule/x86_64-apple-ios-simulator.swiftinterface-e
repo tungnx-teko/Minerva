@@ -1,0 +1,351 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Minerva
+import CommonCrypto/*.CC_LONG*/
+import CommonCrypto/*.CC_MD5*/
+import CommonCrypto/*.CC_MD5_DIGEST_LENGTH*/
+import FirebaseCore
+import FirebaseFirestore
+import Foundation
+@_exported import Minerva
+import SVProgressHUD
+import SnapKit
+import Swift
+import TekCoreNetwork
+import TekCoreService
+import UIKit
+public typealias BaseTransactionResponse = TekCoreNetwork.BaseResponse<Minerva.PaymentStatusCode>
+public protocol BaseTransactionRequest {
+  associatedtype TransactionType
+  var clientCode: Swift.String { get }
+  var clientTransactionCode: Swift.String { get }
+  var terminalCode: Swift.String { get }
+  var serviceCode: Swift.String { get }
+  var checksum: Swift.String { get }
+  func withConfig(config: Minerva.PaymentServiceConfig)
+  func withMethodConfig(methodConfig: Minerva.PaymentMethodConfig, method: Minerva.MethodCode)
+}
+public class PaymentServiceConfig {
+  public var clientCode: Swift.String
+  public var terminalCode: Swift.String
+  public var serviceCode: Swift.String
+  public var secretKey: Swift.String
+  public var baseUrl: Swift.String
+  public var firebaseConfig: Minerva.FirebaseConfig
+  public init(rawValue: [Swift.String : Any])
+  @objc deinit
+}
+public class FirebaseConfig {
+  public init(rawValue: [Swift.String : Any])
+  @objc deinit
+}
+@objc public class PaymentViewController : UIKit.UIViewController {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct AnyRequest : TekCoreNetwork.BaseRequestProtocol {
+  public typealias ResponseType = Minerva.BaseTransactionResponse
+  public init<Base>(_ base: Base) where Base : TekCoreNetwork.BaseRequestProtocol
+  public var encoder: TekCoreNetwork.APIParamEncoder {
+    get
+  }
+  public var method: TekCoreNetwork.APIMethod {
+    get
+  }
+  public var path: Swift.String {
+    get
+  }
+  public var hasToken: Swift.Bool {
+    get
+  }
+}
+public class SPOSMethod : Minerva.PaymentMethod {
+  public static var sposCode: Minerva.MethodCode
+  public var config: Minerva.PaymentMethodConfig
+  public var methodCode: Minerva.MethodCode
+  public init(config: Minerva.SPOSPaymentConfig, methodCode: Minerva.MethodCode)
+  public func validateRequest(request: Minerva.AnyTransactionRequest) -> Minerva.PaymentError?
+  public func constructApiRequest(request: Minerva.AnyTransactionRequest) throws -> Minerva.AnyRequest
+  @objc deinit
+}
+public class CTTTransactionRequest : Minerva.BaseTransactionRequest, Swift.Encodable {
+  public typealias TransactionType = Minerva.CTTTransaction
+  public var clientCode: Swift.String
+  public var clientTransactionCode: Swift.String
+  public var terminalCode: Swift.String
+  public var serviceCode: Swift.String
+  public var checksum: Swift.String
+  public init(bankCode: Swift.String = "", orderId: Swift.String, orderCode: Swift.String, orderDescription: Swift.String? = nil, amount: Swift.Int, partnerCode: Swift.String = "VNPAY", returnUrl: Swift.String? = nil, cancelUrl: Swift.String? = nil, expireTime: Swift.Int = 600)
+  public func withConfig(config: Minerva.PaymentServiceConfig)
+  public func withMethodConfig(methodConfig: Minerva.PaymentMethodConfig, method: Minerva.MethodCode)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class SPOSTransactionRequest : Minerva.BaseTransactionRequest, Swift.Encodable {
+  public typealias TransactionType = Minerva.SPOSTransaction
+  public var clientCode: Swift.String
+  public var clientTransactionCode: Swift.String
+  public var terminalCode: Swift.String
+  public var serviceCode: Swift.String
+  public var checksum: Swift.String
+  public init(bankCode: Swift.String = "", orderId: Swift.String, orderCode: Swift.String, orderDescription: Swift.String? = nil, amount: Swift.Int, partnerCode: Swift.String = "VNPAY", returnUrl: Swift.String? = nil, cancelUrl: Swift.String? = nil)
+  public func withConfig(config: Minerva.PaymentServiceConfig)
+  public func withMethodConfig(methodConfig: Minerva.PaymentMethodConfig, method: Minerva.MethodCode)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum PaymentError : Swift.Error {
+  case timeOut
+  case methodNotFound
+  case invalidRequest
+  case invalidResponse
+  case missingPaymentConfig
+  case invalidTransactionRequest
+  case transaction(error: Minerva.TransactionError)
+}
+public class CTTTransaction : Minerva.BaseTransaction, Swift.Codable {
+  public var code: Swift.String
+  public var qrContent: Swift.String
+  public var url: Swift.String?
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PaymentTheme {
+}
+public class ATMTransaction : Minerva.BaseTransaction, Swift.Codable {
+  public var code: Swift.String
+  public var url: Swift.String
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class ATMTransactionResponse : Minerva.BaseTransactionResponse {
+  public var data: Minerva.ATMTransaction?
+  public var message: Swift.String?
+  override public init(code: Minerva.PaymentStatusCode)
+  @objc deinit
+}
+public class SPOSTransaction : Minerva.BaseTransaction, Swift.Decodable {
+  public var code: Swift.String
+  public var merchantPartnerCode: Swift.String
+  public init(code: Swift.String, merchantPartnerCode: Swift.String)
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+}
+public class ATMTransactionRequest : Minerva.BaseTransactionRequest, Swift.Encodable {
+  public typealias TransactionType = Minerva.ATMTransaction
+  public var clientCode: Swift.String
+  public var clientTransactionCode: Swift.String
+  public var terminalCode: Swift.String
+  public var serviceCode: Swift.String
+  public var checksum: Swift.String
+  public init(bankCode: Swift.String = "", orderId: Swift.String, orderCode: Swift.String, orderDescription: Swift.String? = nil, amount: Swift.Int, partnerCode: Swift.String = "VNPAY", returnUrl: Swift.String? = nil, cancelUrl: Swift.String? = nil, expireTime: Swift.Int = 600)
+  public func withConfig(config: Minerva.PaymentServiceConfig)
+  public func withMethodConfig(methodConfig: Minerva.PaymentMethodConfig, method: Minerva.MethodCode)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class ATMPaymentConfig : Minerva.PaymentMethodConfig {
+  override public init(partnerCode: Swift.String = "VNPAY")
+  @objc deinit
+}
+public class PaymentRequest {
+  public var orderId: Swift.String
+  public var orderCode: Swift.String
+  public var amount: Swift.Double
+  public var orderDescription: Swift.String
+  public var expireTime: Swift.Int
+  public init(orderId: Swift.String, orderCode: Swift.String, orderDescription: Swift.String = "", amount: Swift.Double, expireTime: Swift.Int = 600)
+  @objc deinit
+}
+open class PaymentMethodConfig {
+  public var partnerCode: Swift.String
+  public init(partnerCode: Swift.String)
+  @objc deinit
+}
+public class CTTMethod : Minerva.PaymentMethod {
+  public static var cttCode: Minerva.MethodCode
+  public static var mmsCode: Minerva.MethodCode
+  public var config: Minerva.PaymentMethodConfig
+  public var methodCode: Minerva.MethodCode
+  public init(config: Minerva.CTTPaymentConfig, methodCode: Minerva.MethodCode)
+  public func validateRequest(request: Minerva.AnyTransactionRequest) -> Minerva.PaymentError?
+  public func constructApiRequest(request: Minerva.AnyTransactionRequest) throws -> Minerva.AnyRequest
+  @objc deinit
+}
+public class ImagesHelper {
+  public static func imageFor(name imageName: Swift.String) -> UIKit.UIImage?
+  @objc deinit
+}
+public class MethodCode {
+  public var name: Swift.String
+  public var code: Swift.String
+  public init(name: Swift.String, code: Swift.String)
+  @objc deinit
+}
+public class PaymentObserver {
+  public init()
+  public func observe(transactionCode: Swift.String, completion: @escaping (Minerva.PaymentResult) -> ())
+  @objc deinit
+}
+public struct PaymentTransactionResult {
+  public var amount: Swift.Double?
+  public var message: Swift.String?
+  public var ref: Swift.String?
+  public var status: Swift.String?
+  public var transactionId: Swift.String?
+  public var isSuccess: Swift.Bool {
+    get
+  }
+  public init(fromDict dict: [Swift.String : Any])
+}
+public enum TransactionError : Swift.Int {
+  case common
+  case processing
+  case paymentProcessed
+  case balanceNotEnough
+  case paymentCancelled
+  case paymentMethodNotSupported
+  case outOfStock
+  public init(code: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol PaymentMethod {
+  var config: Minerva.PaymentMethodConfig { get }
+  var methodCode: Minerva.MethodCode { get }
+  func validateRequest(request: Minerva.AnyTransactionRequest) -> Minerva.PaymentError?
+  func constructApiRequest(request: Minerva.AnyTransactionRequest) throws -> Minerva.AnyRequest
+}
+public struct AnyTransactionRequest : Minerva.BaseTransactionRequest {
+  public typealias TransactionType = Minerva.BaseTransaction
+  public init<Base>(_ base: Base) where Base : Minerva.BaseTransactionRequest
+  public var base: Any {
+    get
+  }
+  public var clientCode: Swift.String {
+    get
+  }
+  public var clientTransactionCode: Swift.String {
+    get
+  }
+  public var terminalCode: Swift.String {
+    get
+  }
+  public var serviceCode: Swift.String {
+    get
+  }
+  public var checksum: Swift.String {
+    get
+  }
+  public func withConfig(config: Minerva.PaymentServiceConfig)
+  public func withMethodConfig(methodConfig: Minerva.PaymentMethodConfig, method: Minerva.MethodCode)
+}
+public class CTTPaymentConfig : Minerva.PaymentMethodConfig {
+  override public init(partnerCode: Swift.String = "VNPAY")
+  @objc deinit
+}
+public class SPOSPaymentConfig : Minerva.PaymentMethodConfig {
+  public init(mcc: Swift.String = "", partnerCode: Swift.String = "VNPAY")
+  override public init(partnerCode: Swift.String)
+  @objc deinit
+}
+public class BaseTransaction {
+  @objc deinit
+}
+public class CTTTransactionResponse : Minerva.BaseTransactionResponse {
+  public var data: Minerva.CTTTransaction?
+  public var message: Swift.String?
+  override public init(code: Minerva.PaymentStatusCode)
+  @objc deinit
+}
+public class ATMMethod : Minerva.PaymentMethod {
+  public static var atmCode: Minerva.MethodCode
+  public var config: Minerva.PaymentMethodConfig
+  public var methodCode: Minerva.MethodCode
+  public init(config: Minerva.ATMPaymentConfig, methodCode: Minerva.MethodCode)
+  public func validateRequest(request: Minerva.AnyTransactionRequest) -> Minerva.PaymentError?
+  public func constructApiRequest(request: Minerva.AnyTransactionRequest) throws -> Minerva.AnyRequest
+  @objc deinit
+}
+extension Encodable {
+  public var dictionary: [Swift.String : Any] {
+    get
+  }
+  public func stringify(withChecksum: Swift.Bool = false) -> Swift.String
+}
+public class DateUtils {
+  public static func toString(date: Foundation.Date) -> Swift.String
+  @objc deinit
+}
+public protocol PaymentDelegate : AnyObject {
+  func onResult(_ result: Minerva.PaymentResult)
+  func onCancel()
+}
+public typealias PaymentResult = Swift.Result<Minerva.PaymentTransactionResult, Minerva.PaymentError>
+public class MD5Encryptor {
+  public static func md5(text: Swift.String, secretKey: Swift.String) -> Swift.String
+  @objc deinit
+}
+public class PaymentStatusCode : TekCoreNetwork.TekoIntCode {
+  @objc override dynamic public var successCode: Swift.Int {
+    @objc get
+  }
+  required public init(from decoder: Swift.Decoder) throws
+  override public init(code: Swift.Int?, message: Swift.String?)
+  @objc deinit
+}
+extension UIColor {
+  public convenience init(hex3: Swift.UInt16, alpha: CoreGraphics.CGFloat = 1)
+}
+public class SPOSTransactionResponse : Minerva.BaseTransactionResponse {
+  public var data: Minerva.SPOSTransaction?
+  public var message: Swift.String?
+  override public init(code: Minerva.PaymentStatusCode)
+  @objc deinit
+}
+public class Minerva {
+  public struct Config {
+    public static var expireTime: Swift.Int
+  }
+  public struct Strings {
+    public static var closeButtonTitle: Swift.String
+    public static var cancelButtonTitle: Swift.String
+    public static var paymentSuccessTitle: Swift.String
+    public static var paymentFailureTitle: Swift.String
+    public static var transactionCodeTitle: Swift.String
+    public static var paymentMethodsTitle: Swift.String
+    public static var paymentQRTitle: Swift.String
+    public static var paymentQRMethod: Swift.String
+    public static var paymentCTTMethod: Swift.String
+    public static var paymentSPOSMethod: Swift.String
+    public static var paymentCashMethod: Swift.String
+    public static var totalMoneyTitle: Swift.String
+    public static var resultTitle: Swift.String
+    public static var sposWaitingResult: Swift.String
+  }
+  public struct Theme {
+    public static var primaryColor: UIKit.UIColor
+    public static var navigationViewHeight: CoreGraphics.CGFloat
+  }
+  public struct Images {
+    public static var backButton: UIKit.UIImage?
+    public static var sposIcon: UIKit.UIImage?
+    public static var qrIcon: UIKit.UIImage?
+    public static var cardIcon: UIKit.UIImage?
+  }
+  public static var shared: Minerva.Minerva
+  public static var configName: Swift.String
+  public func initialize(config: [Swift.String : Any])
+  public func initialize(withConfig config: Minerva.PaymentServiceConfig)
+  public func setPaymentMethods(methods: [Minerva.PaymentMethod])
+  public func pay<T>(method: Minerva.MethodCode, request: T, completion: @escaping (Swift.Result<T.TransactionType, Swift.Error>) -> ()) throws where T : Minerva.BaseTransactionRequest
+  public func getPaymentUI(request: Minerva.PaymentRequest, delegate: Minerva.PaymentDelegate) -> Minerva.PaymentViewController
+  @objc deinit
+}

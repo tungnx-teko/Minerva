@@ -1,0 +1,351 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Minerva
+import CommonCrypto/*.CC_LONG*/
+import CommonCrypto/*.CC_MD5*/
+import CommonCrypto/*.CC_MD5_DIGEST_LENGTH*/
+import FirebaseCore
+import FirebaseFirestore
+import Foundation
+@_exported import Minerva
+import SVProgressHUD
+import SnapKit
+import Swift
+import TekCoreNetwork
+import TekCoreService
+import UIKit
+public typealias BaseTransactionResponse = TekCoreNetwork.BaseResponse<PaymentStatusCode>
+public protocol BaseTransactionRequest {
+  associatedtype TransactionType
+  var clientCode: Swift.String { get }
+  var clientTransactionCode: Swift.String { get }
+  var terminalCode: Swift.String { get }
+  var serviceCode: Swift.String { get }
+  var checksum: Swift.String { get }
+  func withConfig(config: PaymentServiceConfig)
+  func withMethodConfig(methodConfig: PaymentMethodConfig, method: MethodCode)
+}
+public class PaymentServiceConfig {
+  public var clientCode: Swift.String
+  public var terminalCode: Swift.String
+  public var serviceCode: Swift.String
+  public var secretKey: Swift.String
+  public var baseUrl: Swift.String
+  public var firebaseConfig: FirebaseConfig
+  public init(rawValue: [Swift.String : Any])
+  @objc deinit
+}
+public class FirebaseConfig {
+  public init(rawValue: [Swift.String : Any])
+  @objc deinit
+}
+@objc public class PaymentViewController : UIKit.UIViewController {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public struct AnyRequest : TekCoreNetwork.BaseRequestProtocol {
+  public typealias ResponseType = BaseTransactionResponse
+  public init<Base>(_ base: Base) where Base : TekCoreNetwork.BaseRequestProtocol
+  public var encoder: TekCoreNetwork.APIParamEncoder {
+    get
+  }
+  public var method: TekCoreNetwork.APIMethod {
+    get
+  }
+  public var path: Swift.String {
+    get
+  }
+  public var hasToken: Swift.Bool {
+    get
+  }
+}
+public class SPOSMethod : PaymentMethod {
+  public static var sposCode: MethodCode
+  public var config: PaymentMethodConfig
+  public var methodCode: MethodCode
+  public init(config: SPOSPaymentConfig, methodCode: MethodCode)
+  public func validateRequest(request: AnyTransactionRequest) -> PaymentError?
+  public func constructApiRequest(request: AnyTransactionRequest) throws -> AnyRequest
+  @objc deinit
+}
+public class CTTTransactionRequest : BaseTransactionRequest, Swift.Encodable {
+  public typealias TransactionType = CTTTransaction
+  public var clientCode: Swift.String
+  public var clientTransactionCode: Swift.String
+  public var terminalCode: Swift.String
+  public var serviceCode: Swift.String
+  public var checksum: Swift.String
+  public init(bankCode: Swift.String = "", orderId: Swift.String, orderCode: Swift.String, orderDescription: Swift.String? = nil, amount: Swift.Int, partnerCode: Swift.String = "VNPAY", returnUrl: Swift.String? = nil, cancelUrl: Swift.String? = nil, expireTime: Swift.Int = 600)
+  public func withConfig(config: PaymentServiceConfig)
+  public func withMethodConfig(methodConfig: PaymentMethodConfig, method: MethodCode)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class SPOSTransactionRequest : BaseTransactionRequest, Swift.Encodable {
+  public typealias TransactionType = SPOSTransaction
+  public var clientCode: Swift.String
+  public var clientTransactionCode: Swift.String
+  public var terminalCode: Swift.String
+  public var serviceCode: Swift.String
+  public var checksum: Swift.String
+  public init(bankCode: Swift.String = "", orderId: Swift.String, orderCode: Swift.String, orderDescription: Swift.String? = nil, amount: Swift.Int, partnerCode: Swift.String = "VNPAY", returnUrl: Swift.String? = nil, cancelUrl: Swift.String? = nil)
+  public func withConfig(config: PaymentServiceConfig)
+  public func withMethodConfig(methodConfig: PaymentMethodConfig, method: MethodCode)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum PaymentError : Swift.Error {
+  case timeOut
+  case methodNotFound
+  case invalidRequest
+  case invalidResponse
+  case missingPaymentConfig
+  case invalidTransactionRequest
+  case transaction(error: TransactionError)
+}
+public class CTTTransaction : BaseTransaction, Swift.Codable {
+  public var code: Swift.String
+  public var qrContent: Swift.String
+  public var url: Swift.String?
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PaymentTheme {
+}
+public class ATMTransaction : BaseTransaction, Swift.Codable {
+  public var code: Swift.String
+  public var url: Swift.String
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class ATMTransactionResponse : BaseTransactionResponse {
+  public var data: ATMTransaction?
+  public var message: Swift.String?
+  override public init(code: PaymentStatusCode)
+  @objc deinit
+}
+public class SPOSTransaction : BaseTransaction, Swift.Decodable {
+  public var code: Swift.String
+  public var merchantPartnerCode: Swift.String
+  public init(code: Swift.String, merchantPartnerCode: Swift.String)
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+}
+public class ATMTransactionRequest : BaseTransactionRequest, Swift.Encodable {
+  public typealias TransactionType = ATMTransaction
+  public var clientCode: Swift.String
+  public var clientTransactionCode: Swift.String
+  public var terminalCode: Swift.String
+  public var serviceCode: Swift.String
+  public var checksum: Swift.String
+  public init(bankCode: Swift.String = "", orderId: Swift.String, orderCode: Swift.String, orderDescription: Swift.String? = nil, amount: Swift.Int, partnerCode: Swift.String = "VNPAY", returnUrl: Swift.String? = nil, cancelUrl: Swift.String? = nil, expireTime: Swift.Int = 600)
+  public func withConfig(config: PaymentServiceConfig)
+  public func withMethodConfig(methodConfig: PaymentMethodConfig, method: MethodCode)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public class ATMPaymentConfig : PaymentMethodConfig {
+  override public init(partnerCode: Swift.String = "VNPAY")
+  @objc deinit
+}
+public class PaymentRequest {
+  public var orderId: Swift.String
+  public var orderCode: Swift.String
+  public var amount: Swift.Double
+  public var orderDescription: Swift.String
+  public var expireTime: Swift.Int
+  public init(orderId: Swift.String, orderCode: Swift.String, orderDescription: Swift.String = "", amount: Swift.Double, expireTime: Swift.Int = 600)
+  @objc deinit
+}
+open class PaymentMethodConfig {
+  public var partnerCode: Swift.String
+  public init(partnerCode: Swift.String)
+  @objc deinit
+}
+public class CTTMethod : PaymentMethod {
+  public static var cttCode: MethodCode
+  public static var mmsCode: MethodCode
+  public var config: PaymentMethodConfig
+  public var methodCode: MethodCode
+  public init(config: CTTPaymentConfig, methodCode: MethodCode)
+  public func validateRequest(request: AnyTransactionRequest) -> PaymentError?
+  public func constructApiRequest(request: AnyTransactionRequest) throws -> AnyRequest
+  @objc deinit
+}
+public class ImagesHelper {
+  public static func imageFor(name imageName: Swift.String) -> UIKit.UIImage?
+  @objc deinit
+}
+public class MethodCode {
+  public var name: Swift.String
+  public var code: Swift.String
+  public init(name: Swift.String, code: Swift.String)
+  @objc deinit
+}
+public class PaymentObserver {
+  public init()
+  public func observe(transactionCode: Swift.String, completion: @escaping (PaymentResult) -> ())
+  @objc deinit
+}
+public struct PaymentTransactionResult {
+  public var amount: Swift.Double?
+  public var message: Swift.String?
+  public var ref: Swift.String?
+  public var status: Swift.String?
+  public var transactionId: Swift.String?
+  public var isSuccess: Swift.Bool {
+    get
+  }
+  public init(fromDict dict: [Swift.String : Any])
+}
+public enum TransactionError : Swift.Int {
+  case common
+  case processing
+  case paymentProcessed
+  case balanceNotEnough
+  case paymentCancelled
+  case paymentMethodNotSupported
+  case outOfStock
+  public init(code: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol PaymentMethod {
+  var config: PaymentMethodConfig { get }
+  var methodCode: MethodCode { get }
+  func validateRequest(request: AnyTransactionRequest) -> PaymentError?
+  func constructApiRequest(request: AnyTransactionRequest) throws -> AnyRequest
+}
+public struct AnyTransactionRequest : BaseTransactionRequest {
+  public typealias TransactionType = BaseTransaction
+  public init<Base>(_ base: Base) where Base : BaseTransactionRequest
+  public var base: Any {
+    get
+  }
+  public var clientCode: Swift.String {
+    get
+  }
+  public var clientTransactionCode: Swift.String {
+    get
+  }
+  public var terminalCode: Swift.String {
+    get
+  }
+  public var serviceCode: Swift.String {
+    get
+  }
+  public var checksum: Swift.String {
+    get
+  }
+  public func withConfig(config: PaymentServiceConfig)
+  public func withMethodConfig(methodConfig: PaymentMethodConfig, method: MethodCode)
+}
+public class CTTPaymentConfig : PaymentMethodConfig {
+  override public init(partnerCode: Swift.String = "VNPAY")
+  @objc deinit
+}
+public class SPOSPaymentConfig : PaymentMethodConfig {
+  public init(mcc: Swift.String = "", partnerCode: Swift.String = "VNPAY")
+  override public init(partnerCode: Swift.String)
+  @objc deinit
+}
+public class BaseTransaction {
+  @objc deinit
+}
+public class CTTTransactionResponse : BaseTransactionResponse {
+  public var data: CTTTransaction?
+  public var message: Swift.String?
+  override public init(code: PaymentStatusCode)
+  @objc deinit
+}
+public class ATMMethod : PaymentMethod {
+  public static var atmCode: MethodCode
+  public var config: PaymentMethodConfig
+  public var methodCode: MethodCode
+  public init(config: ATMPaymentConfig, methodCode: MethodCode)
+  public func validateRequest(request: AnyTransactionRequest) -> PaymentError?
+  public func constructApiRequest(request: AnyTransactionRequest) throws -> AnyRequest
+  @objc deinit
+}
+extension Encodable {
+  public var dictionary: [Swift.String : Any] {
+    get
+  }
+  public func stringify(withChecksum: Swift.Bool = false) -> Swift.String
+}
+public class DateUtils {
+  public static func toString(date: Foundation.Date) -> Swift.String
+  @objc deinit
+}
+public protocol PaymentDelegate : AnyObject {
+  func onResult(_ result: PaymentResult)
+  func onCancel()
+}
+public typealias PaymentResult = Swift.Result<PaymentTransactionResult, PaymentError>
+public class MD5Encryptor {
+  public static func md5(text: Swift.String, secretKey: Swift.String) -> Swift.String
+  @objc deinit
+}
+public class PaymentStatusCode : TekCoreNetwork.TekoIntCode {
+  @objc override dynamic public var successCode: Swift.Int {
+    @objc get
+  }
+  required public init(from decoder: Swift.Decoder) throws
+  override public init(code: Swift.Int?, message: Swift.String?)
+  @objc deinit
+}
+extension UIColor {
+  public convenience init(hex3: Swift.UInt16, alpha: CoreGraphics.CGFloat = 1)
+}
+public class SPOSTransactionResponse : BaseTransactionResponse {
+  public var data: SPOSTransaction?
+  public var message: Swift.String?
+  override public init(code: PaymentStatusCode)
+  @objc deinit
+}
+public class Minerva {
+  public struct Config {
+    public static var expireTime: Swift.Int
+  }
+  public struct Strings {
+    public static var closeButtonTitle: Swift.String
+    public static var cancelButtonTitle: Swift.String
+    public static var paymentSuccessTitle: Swift.String
+    public static var paymentFailureTitle: Swift.String
+    public static var transactionCodeTitle: Swift.String
+    public static var paymentMethodsTitle: Swift.String
+    public static var paymentQRTitle: Swift.String
+    public static var paymentQRMethod: Swift.String
+    public static var paymentCTTMethod: Swift.String
+    public static var paymentSPOSMethod: Swift.String
+    public static var paymentCashMethod: Swift.String
+    public static var totalMoneyTitle: Swift.String
+    public static var resultTitle: Swift.String
+    public static var sposWaitingResult: Swift.String
+  }
+  public struct Theme {
+    public static var primaryColor: UIKit.UIColor
+    public static var navigationViewHeight: CoreGraphics.CGFloat
+  }
+  public struct Images {
+    public static var backButton: UIKit.UIImage?
+    public static var sposIcon: UIKit.UIImage?
+    public static var qrIcon: UIKit.UIImage?
+    public static var cardIcon: UIKit.UIImage?
+  }
+  public static var shared: Minerva
+  public static var configName: Swift.String
+  public func initialize(config: [Swift.String : Any])
+  public func initialize(withConfig config: PaymentServiceConfig)
+  public func setPaymentMethods(methods: [PaymentMethod])
+  public func pay<T>(method: MethodCode, request: T, completion: @escaping (Swift.Result<T.TransactionType, Swift.Error>) -> ()) throws where T : BaseTransactionRequest
+  public func getPaymentUI(request: PaymentRequest, delegate: PaymentDelegate) -> PaymentViewController
+  @objc deinit
+}

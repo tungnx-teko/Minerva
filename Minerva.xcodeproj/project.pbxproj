@@ -22,7 +22,6 @@
 
 /* Begin PBXBuildFile section */
 		0F7CEC1EB618BC22CD3FE88E /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0B7FB20924B6EF6C072B4F /* Pods_Example.framework */; };
-		1A257DE924F7C825004B08DE /* Minerva.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A257DE724F7C825004B08DE /* Minerva.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A257DF624F7C83A004B08DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257DF524F7C83A004B08DE /* AppDelegate.swift */; };
 		1A257DFA24F7C83A004B08DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A257DF924F7C83A004B08DE /* ViewController.swift */; };
 		1A257DFD24F7C83A004B08DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A257DFB24F7C83A004B08DE /* Main.storyboard */; };
@@ -100,6 +99,7 @@
 		1AC35E5A25380401001C09CC /* ATMTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC35E5425380401001C09CC /* ATMTransactionRequest.swift */; };
 		1AC35E5C25380EC4001C09CC /* BaseTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC35E5B25380EC4001C09CC /* BaseTransaction.swift */; };
 		1AF6F935250B850A00FC17F5 /* MinervaConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6F934250B850A00FC17F5 /* MinervaConverter.swift */; };
+		CA7A979325467D0A00DAAE56 /* Minerva.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A257DE724F7C825004B08DE /* Minerva.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +266,8 @@
 				1A257EDD24F7C8D0004B08DE /* SPOS */,
 				1A257E9C24F7C8D0004B08DE /* UI */,
 				1A257EC224F7C8D0004B08DE /* Minerva.swift */,
+				1A257DE724F7C825004B08DE /* Minerva.h */,
+				1A257DE824F7C825004B08DE /* Info.plist */,
 			);
 			path = Minerva;
 			sourceTree = "<group>";
@@ -469,8 +471,6 @@
 			isa = PBXGroup;
 			children = (
 				1A257EC324F7C8D0004B08DE /* images.bundle */,
-				1A257DE724F7C825004B08DE /* Minerva.h */,
-				1A257DE824F7C825004B08DE /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -535,7 +535,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A257DE924F7C825004B08DE /* Minerva.h in Headers */,
+				CA7A979325467D0A00DAAE56 /* Minerva.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -97,7 +97,7 @@ class PaymentQRViewController: UIViewController, PaymentQRViewProtocol {
         presenter?.viewDidLoad()
         view.backgroundColor = .white
         addSubviews()
-        guard let qrContent = (presenter?.transaction as? CTTTransaction)?.qrContent else { return }
+        guard let qrContent = (presenter?.transaction)?.qrContent else { return }
         qrImageView.image = ImagesHelper.generateQRCode(from: qrContent)
     }
 
