@@ -21,12 +21,12 @@ class DatabaseManager {
     
     var database: Firestore?
     
-    var transactions: CollectionReference? {
+    lazy var transactions: CollectionReference? = {
         return database?
             .collection(DatabaseManager.Constants.paymentCollectionPath)
             .document(Minerva.shared.config.clientCode)
             .collection(DatabaseManager.Constants.transactionCollectionPath)
-    }
+    }()
     
     private init() {
         self.setupFirebase()

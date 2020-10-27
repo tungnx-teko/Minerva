@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Minerva'
-    s.version          = '0.3.37'
+    s.version          = '0.3.36'
     s.summary          = 'PaymentSDK'
   
   # This description is used to generate tags and improve search results.
@@ -48,6 +48,6 @@ Pod::Spec.new do |s|
 
     s.dependency 'SVProgressHUD'
     s.dependency 'SnapKit'
-    s.dependency 'FirebaseFirestore'
+    s.dependency 'FirebaseFirestore', '~> 1.19.0'
   
   end

@@ -28,7 +28,7 @@ public class PaymentObserver {
                 }
         }
     }
-    
+        
 }
 
 public struct PaymentTransactionResult {
