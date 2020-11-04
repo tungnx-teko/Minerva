@@ -19,6 +19,9 @@ post_install do |installer|
       
       config.build_settings['ENABLE_BITCODE'] = 'YES'
       
+      # Xcode12 have to exclude arm64 for simulator architecture
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+
       if config.name == 'Release' || config.name == 'Pro'
         config.build_settings['BITCODE_GENERATION_MODE'] = 'bitcode'
         else # Debug
@@ -55,6 +58,6 @@ target 'Minerva' do
   pod 'SVProgressHUD'
   pod 'SnapKit'
   pod 'FirebaseFirestore'
-  pod 'TekCoreService', '0.3.24'
+  pod 'TekCoreService', '1.2.0'
   
 end

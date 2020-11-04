@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Minerva'
-    s.version          = '0.3.36'
+    s.version          = '1.2.0'
     s.summary          = 'PaymentSDK'
   
   # This description is used to generate tags and improve search results.
@@ -38,13 +38,18 @@ Pod::Spec.new do |s|
     # s.frameworks = 'UIKit', 'MapKit'
     # s.dependency 'AFNetworking', '~> 2.3'
   
+    s.pod_target_xcconfig = {
+      'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    }
+    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+
     s.vendored_frameworks = 'Minerva.framework'
   
     s.public_header_files = 'Minerva.framework/Headers/*.h'
     s.source_files = 'Minerva.framework/Headers/*.{h, m, swift}'
   
     # dependency
-    s.dependency 'TekCoreService', '0.3.24'
+    s.dependency 'TekCoreService', '1.2.0'
 
     s.dependency 'SVProgressHUD'
     s.dependency 'SnapKit'
