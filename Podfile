@@ -1,10 +1,8 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '10.0'
 
 source 'https://github.com/CocoaPods/Specs.git' # for using pods from cocoaPods
 source "https://github.com/teko-vn/Specs-ios.git"   # for using pods from Teko
-
-platform :ios, '10.0'
 
 # bitcode enable
 post_install do |installer|
@@ -13,7 +11,7 @@ post_install do |installer|
       
       # set valid architecture
       config.build_settings['VALID_ARCHS'] = 'arm64 armv7 armv7s x86_64'
-      
+
       # build active architecture only (Debug build all)
       config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
       
@@ -58,6 +56,6 @@ target 'Minerva' do
   pod 'SVProgressHUD'
   pod 'SnapKit'
   pod 'FirebaseFirestore'
-  pod 'TekCoreService', '1.2.0'
+  pod 'TekCoreService', '1.2.1'
   
 end

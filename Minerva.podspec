@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Minerva'
-    s.version          = '1.2.0'
+    s.version          = '1.2.1'
     s.summary          = 'PaymentSDK'
   
   # This description is used to generate tags and improve search results.
@@ -28,16 +28,6 @@ Pod::Spec.new do |s|
   
     s.ios.deployment_target = '10.0'
   
-    # s.source_files = 'Tekit/Classes/**/*'
-    
-    # s.resource_bundles = {
-    #   'Tekit' => ['Tekit/Assets/*.png']
-    # }
-  
-    # s.public_header_files = 'Pod/Classes/**/*.h'
-    # s.frameworks = 'UIKit', 'MapKit'
-    # s.dependency 'AFNetworking', '~> 2.3'
-  
     s.pod_target_xcconfig = {
       'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
     }
@@ -49,7 +39,7 @@ Pod::Spec.new do |s|
     s.source_files = 'Minerva.framework/Headers/*.{h, m, swift}'
   
     # dependency
-    s.dependency 'TekCoreService', '1.2.0'
+    s.dependency 'TekCoreService', '1.2.1'
 
     s.dependency 'SVProgressHUD'
     s.dependency 'SnapKit'
