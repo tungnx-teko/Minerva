@@ -1102,34 +1102,22 @@ google_firestore_v1_StructuredQuery_Filter Serializer::EncodeSingularFilter(
     const FieldFilter& filter) const {
   google_firestore_v1_StructuredQuery_Filter result{};
 
-  bool is_unary = (filter.op() == Filter::Operator::Equal ||
-                   filter.op() == Filter::Operator::NotEqual) &&
-                  (filter.value().is_nan() || filter.value().is_null());
-  if (is_unary) {
-    result.which_filter_type =
-        google_firestore_v1_StructuredQuery_Filter_unary_filter_tag;
-    result.unary_filter.which_operand_type =
-        google_firestore_v1_StructuredQuery_UnaryFilter_field_tag;
-    result.unary_filter.field.field_path = EncodeFieldPath(filter.field());
+  if (filter.op() == Filter::Operator::Equal) {
+    if (filter.value().is_null() || filter.value().is_nan()) {
+      result.which_filter_type =
+          google_firestore_v1_StructuredQuery_Filter_unary_filter_tag;
+      result.unary_filter.which_operand_type =
+          google_firestore_v1_StructuredQuery_UnaryFilter_field_tag;
+      result.unary_filter.field.field_path = EncodeFieldPath(filter.field());
 
-    bool is_equality = filter.op() == Filter::Operator::Equal;
-    if (filter.value().is_nan()) {
-      result.unary_filter.op =
-          is_equality
-              ? google_firestore_v1_StructuredQuery_UnaryFilter_Operator_IS_NAN
-              : google_firestore_v1_StructuredQuery_UnaryFilter_Operator_IS_NOT_NAN;  // NOLINT
-
-    } else if (filter.value().is_null()) {
-      result.unary_filter.op =
-          is_equality
+      auto op =
+          filter.value().is_null()
               ? google_firestore_v1_StructuredQuery_UnaryFilter_Operator_IS_NULL
-              : google_firestore_v1_StructuredQuery_UnaryFilter_Operator_IS_NOT_NULL;  // NOLINT
+              : google_firestore_v1_StructuredQuery_UnaryFilter_Operator_IS_NAN;
+      result.unary_filter.op = op;
 
-    } else {
-      HARD_FAIL("Expected a unary filter");
+      return result;
     }
-
-    return result;
   }
 
   result.which_filter_type =
@@ -1171,14 +1159,6 @@ Filter Serializer::DecodeUnaryFilter(
 
     case google_firestore_v1_StructuredQuery_UnaryFilter_Operator_IS_NAN:
       return FieldFilter::Create(std::move(field), Filter::Operator::Equal,
-                                 FieldValue::Nan());
-
-    case google_firestore_v1_StructuredQuery_UnaryFilter_Operator_IS_NOT_NULL:
-      return FieldFilter::Create(std::move(field), Filter::Operator::NotEqual,
-                                 FieldValue::Null());
-
-    case google_firestore_v1_StructuredQuery_UnaryFilter_Operator_IS_NOT_NAN:
-      return FieldFilter::Create(std::move(field), Filter::Operator::NotEqual,
                                  FieldValue::Nan());
 
     default:
@@ -1246,9 +1226,6 @@ Serializer::EncodeFieldFilterOperator(Filter::Operator op) const {
     case Filter::Operator::Equal:
       return google_firestore_v1_StructuredQuery_FieldFilter_Operator_EQUAL;
 
-    case Filter::Operator::NotEqual:
-      return google_firestore_v1_StructuredQuery_FieldFilter_Operator_NOT_EQUAL;
-
     case Filter::Operator::ArrayContains:
       return google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS;  // NOLINT
 
@@ -1257,9 +1234,6 @@ Serializer::EncodeFieldFilterOperator(Filter::Operator op) const {
 
     case Filter::Operator::ArrayContainsAny:
       return google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS_ANY;  // NOLINT
-
-    case Filter::Operator::NotIn:
-      return google_firestore_v1_StructuredQuery_FieldFilter_Operator_NOT_IN;  // NOLINT
 
     default:
       HARD_FAIL("Unhandled Filter::Operator: %s", op);
@@ -1285,9 +1259,6 @@ Filter::Operator Serializer::DecodeFieldFilterOperator(
     case google_firestore_v1_StructuredQuery_FieldFilter_Operator_EQUAL:
       return Filter::Operator::Equal;
 
-    case google_firestore_v1_StructuredQuery_FieldFilter_Operator_NOT_EQUAL:
-      return Filter::Operator::NotEqual;
-
     case google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS:  // NOLINT
       return Filter::Operator::ArrayContains;
 
@@ -1296,9 +1267,6 @@ Filter::Operator Serializer::DecodeFieldFilterOperator(
 
     case google_firestore_v1_StructuredQuery_FieldFilter_Operator_ARRAY_CONTAINS_ANY:  // NOLINT
       return Filter::Operator::ArrayContainsAny;
-
-    case google_firestore_v1_StructuredQuery_FieldFilter_Operator_NOT_IN:  // NOLINT
-      return Filter::Operator::NotIn;
 
     default:
       reader->Fail(StringFormat("Unhandled FieldFilter.op: %s", op));
@@ -1592,14 +1560,7 @@ std::unique_ptr<WatchChange> Serializer::DecodeWatchChange(
     case google_firestore_v1_ListenResponse_filter_tag:
       return DecodeExistenceFilterWatchChange(reader, watch_change.filter);
   }
-
-  // Occasionally Watch will send response_type == 0 (which isn't a valid tag in
-  // the enumeration). This has only been observed in tests running against the
-  // emulator on Forge. Failing here causes the stream to restart with no ill
-  // effects.
-  reader->Fail(StringFormat("Unknown WatchChange.response_type: %s",
-                            watch_change.which_response_type));
-  return {};
+  UNREACHABLE();
 }
 
 SnapshotVersion Serializer::DecodeVersionFromListenResponse(

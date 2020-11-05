@@ -17,7 +17,7 @@ jobs:
     runs-on: macos-latest
 
     env:
-      XC_VER: ${{ '11.3' }}
+      XC_VER: ${{ '12.1' }}
       
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
