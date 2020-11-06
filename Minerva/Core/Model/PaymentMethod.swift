@@ -23,8 +23,8 @@ extension PaymentMethod {
             throw PaymentError.missingPaymentConfig
         }
         if let error = validateRequest(request: request) { throw error }
-        request.withConfig(config: gatewayConfig)
         request.withMethodConfig(methodConfig: config, method: methodCode)
+        request.withConfig(config: gatewayConfig)
         return request
     }
     
