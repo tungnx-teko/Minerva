@@ -16,13 +16,16 @@
 
 #import "FIRFirestore+Internal.h"
 
+#import <FirebaseCore/FIRApp.h>
+#import <FirebaseCore/FIRAppInternal.h>
+#import <FirebaseCore/FIRComponentContainer.h>
+
 #include <memory>
 #include <string>
 #include <utility>
 
 #import "FIRFirestoreSettings+Internal.h"
 
-#import "FirebaseCore/Sources/Private/FirebaseCoreInternal.h"
 #import "Firestore/Source/API/FIRCollectionReference+Internal.h"
 #import "Firestore/Source/API/FIRDocumentReference+Internal.h"
 #import "Firestore/Source/API/FIRListenerRegistration+Internal.h"
@@ -41,9 +44,7 @@
 #include "Firestore/core/src/core/event_listener.h"
 #include "Firestore/core/src/core/transaction.h"
 #include "Firestore/core/src/model/database_id.h"
-#include "Firestore/core/src/remote/firebase_metadata_provider.h"
 #include "Firestore/core/src/util/async_queue.h"
-#include "Firestore/core/src/util/config.h"
 #include "Firestore/core/src/util/empty.h"
 #include "Firestore/core/src/util/error_apple.h"
 #include "Firestore/core/src/util/exception.h"
@@ -62,7 +63,6 @@ using firebase::firestore::api::ListenerRegistration;
 using firebase::firestore::auth::CredentialsProvider;
 using firebase::firestore::core::EventListener;
 using firebase::firestore::model::DatabaseId;
-using firebase::firestore::remote::FirebaseMetadataProvider;
 using firebase::firestore::util::AsyncQueue;
 using firebase::firestore::util::Empty;
 using firebase::firestore::util::MakeCallback;
@@ -98,7 +98,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)initialize {
   if (self == [FIRFirestore class]) {
     SetThrowHandler(ObjcThrowHandler);
-    Firestore::SetClientLanguage("gl-objc/");
   }
 }
 
@@ -136,14 +135,12 @@ NS_ASSUME_NONNULL_BEGIN
                     persistenceKey:(std::string)persistenceKey
                credentialsProvider:(std::shared_ptr<CredentialsProvider>)credentialsProvider
                        workerQueue:(std::shared_ptr<AsyncQueue>)workerQueue
-          firebaseMetadataProvider:
-              (std::unique_ptr<FirebaseMetadataProvider>)firebaseMetadataProvider
                        firebaseApp:(FIRApp *)app
                   instanceRegistry:(nullable id<FSTFirestoreInstanceRegistry>)registry {
   if (self = [super init]) {
-    _firestore = std::make_shared<Firestore>(
-        std::move(databaseID), std::move(persistenceKey), std::move(credentialsProvider),
-        std::move(workerQueue), std::move(firebaseMetadataProvider), (__bridge void *)self);
+    _firestore = std::make_shared<Firestore>(std::move(databaseID), std::move(persistenceKey),
+                                             std::move(credentialsProvider), std::move(workerQueue),
+                                             (__bridge void *)self);
 
     _app = app;
     _registry = registry;
@@ -176,16 +173,8 @@ NS_ASSUME_NONNULL_BEGIN
     _settings = settings;
     _firestore->set_settings([settings internalSettings]);
 
-#if HAVE_LIBDISPATCH
     std::unique_ptr<util::Executor> user_executor =
         absl::make_unique<util::ExecutorLibdispatch>(settings.dispatchQueue);
-#else
-    // It's possible to build without libdispatch on macOS for testing purposes.
-    // In this case, avoid breaking the build.
-    std::unique_ptr<util::Executor> user_executor =
-        util::Executor::CreateSerial("com.google.firebase.firestore.user");
-#endif  // HAVE_LIBDISPATCH
-
     _firestore->set_user_executor(std::move(user_executor));
   }
 }
