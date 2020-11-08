@@ -132,6 +132,10 @@ public protocol APIClientRequestRetrier {
   func shouldRetry(request: Foundation.URLRequest, httpCode: Swift.Int, error: Swift.Error, completion: @escaping TekCoreNetwork.APIClientRequestRetryCompletion)
 }
 public struct APIClientConfiguration {
+  public var sessionConfiguration: Foundation.URLSessionConfiguration
+  public var requestConfiguration: TekCoreNetwork.RequestConfigurationProtocol
+  public var adapter: TekCoreNetwork.APIClientRequestAdapter?
+  public var retrier: TekCoreNetwork.APIClientRequestRetrier?
   public init(sessionConfiguration: Foundation.URLSessionConfiguration, requestConfiguration: TekCoreNetwork.RequestConfigurationProtocol, adapter: TekCoreNetwork.APIClientRequestAdapter? = nil, retrier: TekCoreNetwork.APIClientRequestRetrier? = nil)
 }
 extension APIClientConfiguration : Alamofire.RequestInterceptor {
@@ -205,6 +209,7 @@ public struct APIRequest<T> : TekCoreNetwork.APIRequestProtocol where T : TekCor
   public let configuration: TekCoreNetwork.RequestConfigurationProtocol
 }
 public struct RequestBuilder {
+  public static func buildRequest<T>(from baseRequest: T, configuration: TekCoreNetwork.RequestConfigurationProtocol) -> TekCoreNetwork.APIRequest<T> where T : TekCoreNetwork.BaseRequestProtocol
 }
 public protocol CoreAPIManagerProtocol {
   var successRange: Swift.ClosedRange<Swift.Int> { get }
@@ -229,6 +234,7 @@ open class CoreAPIManager : TekCoreNetwork.CoreAPIManagerProtocol {
     get
   }
   public var sessionManager: Alamofire.Session
+  public var clientConfiguration: TekCoreNetwork.APIClientConfiguration
   public init(configuration: TekCoreNetwork.APIClientConfiguration)
   open func call<T, V>(_ request: T, onSuccess: @escaping (V) -> Swift.Void, onError: @escaping (Swift.Error, V?) -> Swift.Void) where T : TekCoreNetwork.BaseRequestProtocol, V : Swift.Decodable, V == T.ResponseType
   open func handleResponseJSON<T, V>(with request: T, response: Alamofire.AFDataResponse<Any>, completion: @escaping (TekCoreNetwork.APIResult) -> Swift.Void) where T : TekCoreNetwork.BaseRequestProtocol, V : Swift.Decodable, V == T.ResponseType
