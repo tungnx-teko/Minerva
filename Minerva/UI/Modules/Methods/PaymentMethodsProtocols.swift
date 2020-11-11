@@ -19,6 +19,8 @@ protocol PaymentMethodsViewProtocol: class {
 }
 
 protocol PaymentMethodsPresenterProtocol: class {
+    var appName: String { get }
+    
     func viewDidLoad()
     func didSelectPaymentMethod(method: PaymentMethod)
 }

@@ -13,11 +13,13 @@ class PaymentMethodsPresenter: PaymentMethodsPresenterProtocol {
     weak var view: PaymentMethodsViewProtocol?
     var router: PaymentMethodsRouterProtocol?
     let request: PaymentRequest
+    var appName: String
     
-    init(view: PaymentMethodsViewProtocol, router: PaymentMethodsRouterProtocol?, request: PaymentRequest) {
+    init(view: PaymentMethodsViewProtocol, router: PaymentMethodsRouterProtocol?, appName: String, request: PaymentRequest) {
         self.view = view
         self.router = router
         self.request = request
+        self.appName = appName
     }
     
     func didSelectPaymentMethod(method: PaymentMethod) {
@@ -49,7 +51,7 @@ class PaymentMethodsPresenter: PaymentMethodsPresenterProtocol {
     private func requestPayment(method: PaymentMethod, request: AnyTransactionRequest) {
         view?.showLoading()
         do {
-            try TerraPayment.default.pay(method: method.methodCode, request: request, completion: { [weak self] result in
+            try TerraPayment.instances[appName]?.pay(method: method.methodCode, request: request, completion: { [weak self] result in
                 self?.view?.hideLoading()
                 switch result {
                 case .success(let transaction):

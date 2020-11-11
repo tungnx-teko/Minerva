@@ -10,6 +10,7 @@ import Foundation
 
 protocol PaymentPresenterProtocol: class {
     var request: PaymentRequest { get }
+    var appName: String { get }
     
     func onResult(_ result: PaymentResult)
     func handleCancel()

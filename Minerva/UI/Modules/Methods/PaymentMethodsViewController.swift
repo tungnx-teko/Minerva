@@ -56,7 +56,11 @@ class PaymentMethodsViewController: UIViewController, PaymentMethodsViewProtocol
     
     var presenter: PaymentMethodsPresenterProtocol?
     
-    var methods: [PaymentMethod] = TerraPayment.default.methods
+    var appName: String {
+        return presenter?.appName ?? MinervaSingleton.DEFAULT_VALUE
+    }
+    
+    var methods: [PaymentMethod] { TerraPayment.instances[appName]?.methods ?? [] }
     
     override public func viewDidLoad() {
         super.viewDidLoad()

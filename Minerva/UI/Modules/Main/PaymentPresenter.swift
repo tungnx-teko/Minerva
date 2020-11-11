@@ -18,12 +18,14 @@ class PaymentPresenter: PaymentPresenterProtocol {
     var router: PaymentRouterProtocol?
     weak var delegate: PaymentDelegate?
     let request: PaymentRequest
+    var appName: String
     
-    init(view: PaymentViewProtocol, router: PaymentRouterProtocol?, request: PaymentRequest, delegate: PaymentDelegate?) {
+    init(view: PaymentViewProtocol, router: PaymentRouterProtocol?, appName: String, request: PaymentRequest, delegate: PaymentDelegate?) {
         self.view = view
         self.router = router
         self.delegate = delegate
         self.request = request
+        self.appName = appName
     }
     
     func onResult(_ result: PaymentResult) {

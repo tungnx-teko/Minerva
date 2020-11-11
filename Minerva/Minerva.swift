@@ -48,9 +48,10 @@ public class Minerva {
     var config: PaymentServiceConfig!
     var databaseManager: DatabaseManager
     var paymentManager: PaymentManager
-    
+    var appName: String
     
     public init(appName: String, config: PaymentServiceConfig) {
+        self.appName = appName
         self.config = config
         self.databaseManager = DatabaseManager(appName: appName, firebaseConfig: config.firebaseConfig, document: config.clientCode)
         self.paymentManager = PaymentManager(config: config)
@@ -60,7 +61,7 @@ public class Minerva {
     
     // MARK: - public funcs
     public func getPaymentUI(request: PaymentRequest, delegate: PaymentDelegate) -> PaymentViewController {
-        let pm = PaymentRouter.createModule(request: request, delegate: delegate)
+        let pm = PaymentRouter.createModule(appName: appName, request: request, delegate: delegate)
         return pm
     }
 

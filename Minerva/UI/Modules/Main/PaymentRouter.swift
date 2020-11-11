@@ -11,10 +11,10 @@ class PaymentRouter: PaymentRouterProtocol {
     
     weak var viewController: PaymentViewController?
     
-    static func createModule(request: PaymentRequest, delegate: PaymentDelegate) -> PaymentViewController {
+    static func createModule(appName: String, request: PaymentRequest, delegate: PaymentDelegate) -> PaymentViewController {
         let view = PaymentViewController()
         let router = PaymentRouter()
-        let presenter = PaymentPresenter(view: view, router: router, request: request, delegate: delegate)
+        let presenter = PaymentPresenter(view: view, router: router, appName: appName, request: request, delegate: delegate)
         
         view.presenter = presenter
         router.viewController = view

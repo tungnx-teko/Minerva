@@ -58,6 +58,10 @@ public class PaymentViewController: UIViewController, PaymentViewProtocol {
     
     var presenter: PaymentPresenterProtocol?
     
+    var appName: String {
+        return presenter?.appName ?? MinervaSingleton.DEFAULT_VALUE
+    }
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -97,7 +101,7 @@ public class PaymentViewController: UIViewController, PaymentViewProtocol {
     
     func addChildNavigation() {
         guard let request = presenter?.request else { return }
-        let methodsVC = PaymentMethodsRouter.createModule(request: request)
+        let methodsVC = PaymentMethodsRouter.createModule(appName: appName, request: request)
         let nav = PaymentNavigationController(rootViewController: methodsVC)
         nav.navDelegate = self
         addChild(nav)
