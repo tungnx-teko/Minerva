@@ -63,7 +63,7 @@ public class Minerva {
         self.paymentService = PaymentService(url: URL(string: config.baseUrl)!)
     }
     
-    public func setPaymentMethods(methods: [PaymentMethod]) {
+    public func setPaymentMethods(_ methods: [PaymentMethod]) {
         self.methods = methods
     }
     
@@ -71,7 +71,7 @@ public class Minerva {
         return methods
     }
     
-    public func addPaymentMethod(method: PaymentMethod) {
+    public func addPaymentMethod(_ method: PaymentMethod) {
         guard let _ = methods.first(where: { $0.methodCode === method.methodCode}) else {
             self.methods.append(method)
             return
