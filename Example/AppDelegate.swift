@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let spos = SPOSMethod(config: SPOSPaymentConfig(), methodCode: SPOSMethod.sposCode)
         let atm = ATMMethod(config: ATMPaymentConfig(), methodCode: ATMMethod.atmCode)
         
-        Minerva.shared.setPaymentMethods(methods: [ctt, spos, atm])
+        Minerva.shared.setPaymentMethods([ctt, spos, atm])
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
