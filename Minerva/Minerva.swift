@@ -45,7 +45,7 @@ public class Minerva {
     public static let shared = Minerva()
     
     var config: PaymentServiceConfig!
-    var methods: [PaymentMethod] = []
+    private(set) var methods: [PaymentMethod] = []
     var paymentService: PaymentService!
     
     private init() {}
@@ -65,6 +65,21 @@ public class Minerva {
     
     public func setPaymentMethods(methods: [PaymentMethod]) {
         self.methods = methods
+    }
+    
+    public func getPaymentMethods() -> [PaymentMethod] {
+        return methods
+    }
+    
+    public func addPaymentMethod(method: PaymentMethod) {
+        guard let _ = methods.first(where: { $0.methodCode === method.methodCode}) else {
+            self.methods.append(method)
+            return
+        }
+    }
+    
+    public func clearPaymentMethods() {
+        self.methods.removeAll()
     }
     
     public func pay(method: MethodCode, request: BaseTransactionRequest,
