@@ -49,7 +49,7 @@ class PaymentMethodsPresenter: PaymentMethodsPresenterProtocol {
     private func requestPayment(method: PaymentMethod, request: AnyTransactionRequest) {
         view?.showLoading()
         do {
-            try Minerva.shared.pay(method: method.methodCode, request: request, completion: { [weak self] result in
+            try TerraPayment.default.pay(method: method.methodCode, request: request, completion: { [weak self] result in
                 self?.view?.hideLoading()
                 switch result {
                 case .success(let transaction):

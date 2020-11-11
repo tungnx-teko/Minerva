@@ -13,6 +13,7 @@ public class ATMMethod: PaymentMethod {
     
     public var config: PaymentMethodConfig
     public var methodCode: MethodCode
+    public var gatewayConfig: PaymentServiceConfig!
     
     public init(config: ATMPaymentConfig, methodCode: MethodCode) {
         self.config = config

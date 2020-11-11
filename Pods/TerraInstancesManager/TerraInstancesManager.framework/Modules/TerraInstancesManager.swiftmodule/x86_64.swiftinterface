@@ -1,0 +1,48 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name TerraInstancesManager
+import Foundation
+import Swift
+import TekCoreService
+@_exported import TerraInstancesManager
+import UIKit
+public protocol ServiceInstanceGeneratable : TerraInstancesManager.InstanceGeneratable where Self.InstanceType : TekCoreService.CoreService {
+  associatedtype ServiceFactory : TekCoreService.ServiceBuildable
+}
+extension ServiceInstanceGeneratable {
+  public func generateInstance(app: TerraInstancesManager.ITerraApp) -> Self.InstanceType?
+}
+public protocol PandoraConfigGettable {
+  func getConfig(key: Swift.String) -> [Swift.String : Any]?
+}
+public protocol ITerraApp {
+  var identity: Swift.String { get }
+  var application: UIKit.UIApplication { get }
+  var configGetter: TerraInstancesManager.PandoraConfigGettable? { get }
+  var servicesCredential: TekCoreService.ServicesCredential { get }
+  var servicesErrorDelegation: TekCoreService.ServicesErrorDelegate? { get }
+  var env: TerraInstancesManager.TerraEnv { get }
+}
+public protocol InstanceGeneratable {
+  associatedtype InstanceType
+  init()
+  func generateInstance(app: TerraInstancesManager.ITerraApp) -> Self.InstanceType?
+}
+public protocol InstancesManageable {
+  associatedtype Generator : TerraInstancesManager.InstanceGeneratable
+  var instances: [Swift.String : Self.Generator.InstanceType] { get set }
+}
+extension InstancesManageable {
+  public mutating func getInstance(by app: TerraInstancesManager.ITerraApp) -> Self.Generator.InstanceType?
+  public mutating func revokeInstance(by app: TerraInstancesManager.ITerraApp)
+}
+public enum TerraEnv {
+  case dev
+  case staging
+  case live
+  public static func == (a: TerraInstancesManager.TerraEnv, b: TerraInstancesManager.TerraEnv) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}

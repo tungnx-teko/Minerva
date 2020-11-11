@@ -16,29 +16,33 @@ class DatabaseManager {
         static let transactionCollectionPath = "transactions"
         static let paymentCollectionPath = "payment"
     }
-    
-    static let shared = DatabaseManager()
-    
+        
     var database: Firestore?
     
     lazy var transactions: CollectionReference? = {
         return database?
             .collection(DatabaseManager.Constants.paymentCollectionPath)
-            .document(Minerva.shared.config.clientCode)
+            .document(document)
             .collection(DatabaseManager.Constants.transactionCollectionPath)
     }()
     
-    private init() {
-        self.setupFirebase()
+    var document: String
+    var appName: String
+    var firebaseConfig: FirebaseConfig
+    
+    init(appName: String = Constants.appName, firebaseConfig: FirebaseConfig, document: String) {
+        self.appName = appName
+        self.firebaseConfig = firebaseConfig
+        self.document = document
         
-        guard let app = FirebaseApp.app(name: DatabaseManager.Constants.appName) else {
+        self.setupFirebase(appName: appName, config: firebaseConfig)
+        guard let app = FirebaseApp.app(name: appName) else {
             return
         }
         database = Firestore.firestore(app: app)
     }
     
-    private func setupFirebase() {
-        let config = Minerva.shared.config.firebaseConfig
+    private func setupFirebase(appName: String, config: FirebaseConfig) {
         let options = FirebaseOptions.init(googleAppID: config.googleAppId,
                                            gcmSenderID: config.gcmSenderId)
         
@@ -47,7 +51,7 @@ class DatabaseManager {
         options.databaseURL = config.databaseUrl
         options.storageBucket = config.storageBucket
         
-        FirebaseApp.configure(name: DatabaseManager.Constants.appName, options: options)
+        FirebaseApp.configure(name: appName, options: options)
     }
     
     

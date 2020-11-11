@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import TerraInstancesManager
 
 public class Minerva {
     
@@ -42,66 +43,73 @@ public class Minerva {
         public static var qrIcon: UIImage? = ImagesHelper.imageFor(name: "qr")
         public static var cardIcon: UIImage? = ImagesHelper.imageFor(name: "card")
     }
-    
-    public static let shared = Minerva()
-    
-    var config: PaymentServiceConfig!
-    var methods: [PaymentMethod] = []
-    var paymentService: PaymentService!
-    
-    private init() {}
-    
+        
     public static let configName = "ps"
+    var config: PaymentServiceConfig!
+    var databaseManager: DatabaseManager
+    var paymentManager: PaymentManager
     
-    public func initialize(config: [String: Any]) {
-        let converter = MinervaConverter(input: config)
-        initialize(withConfig: converter.output)
-    }
     
-    public func initialize(withConfig config: PaymentServiceConfig) {
+    public init(appName: String, config: PaymentServiceConfig) {
         self.config = config
+        self.databaseManager = DatabaseManager(appName: appName, firebaseConfig: config.firebaseConfig, document: config.clientCode)
+        self.paymentManager = PaymentManager(config: config)
         dump(config)
-        if let url = URL(string: self.config.baseUrl) {
-            self.paymentService = PaymentService(url: url)
-        } else {
-            print("[MINERVA] Base url not valid")
-        }
     }
     
-    public func setPaymentMethods(methods: [PaymentMethod]) {
-        self.methods = methods
-    }
     
-    public func pay<T: BaseTransactionRequest>(method: MethodCode, request: T,
-                                                completion: @escaping (Result<T.TransactionType, Error>) -> ()) throws {
-        guard let paymentService = paymentService else {
-            throw PaymentError.missingPaymentConfig
-        }
-        guard let _ = self.config else {
-            throw PaymentError.missingPaymentConfig
-        }
-        guard let method = getPaymentMethod(from: method) else {
-            throw PaymentError.methodNotFound
-        }
-        dump(method)
-        dump(request)
-        try paymentService.pay(method: method, request: request, completion: { result in
-            switch result {
-            case .success(let transaction):
-                completion(.success(transaction as! T.TransactionType))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        })
-    }
-    
-    private func getPaymentMethod(from methodCode: MethodCode) -> PaymentMethod? {
-        return self.methods.first { $0.methodCode.code == methodCode.code && $0.methodCode.name == methodCode.name }
-    }
-    
+    // MARK: - public funcs
     public func getPaymentUI(request: PaymentRequest, delegate: PaymentDelegate) -> PaymentViewController {
         let pm = PaymentRouter.createModule(request: request, delegate: delegate)
         return pm
     }
 
+}
+
+// MARK: - public static funcs
+extension Minerva {
+    public static func configure(appName: String = MinervaSingleton.DEFAULT_VALUE, config: PaymentServiceConfig) -> Minerva {
+        let instance = Minerva(appName: appName, config: config)
+        instance.config = config
+        dump(config)
+        return instance
+    }
+    
+    public static func configure(appName: String = MinervaSingleton.DEFAULT_VALUE, config: [String: Any]) -> Minerva {
+        let converter = MinervaConverter(input: config)
+        return configure(appName: appName, config: converter.output)
+    }
+    
+    public static func configure(app: ITerraApp) -> Minerva {
+        let config = app.configGetter?.getConfig(key: Minerva.configName) ?? [:]
+        return configure(appName: app.identity, config: config)
+    }
+}
+
+// MARK: - IPaymentManager
+extension Minerva: IPaymentManager {
+    var methods: [PaymentMethod] {
+        return paymentManager.methods
+    }
+
+    public func setPaymentMethods(_ methods: [PaymentMethod]) {
+        paymentManager.setPaymentMethods(methods)
+    }
+    
+    public func getPaymentMethods() -> [PaymentMethod] {
+        return methods
+    }
+    
+    public func addPaymentMethod(_ method: PaymentMethod) {
+        paymentManager.addPaymentMethod(method)
+    }
+    
+    public func clearPaymentMethods() {
+        paymentManager.clearPaymentMethods()
+    }
+
+    public func pay<T: BaseTransactionRequest>(method: MethodCode, request: T,
+                                                completion: @escaping (Result<T.TransactionType, Error>) -> ()) throws {
+        try paymentManager.pay(method: method, request: request, completion: completion)
+    }
 }

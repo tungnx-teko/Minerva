@@ -23,7 +23,7 @@ class ViewController: UIViewController, PaymentDelegate {
     
     @IBAction func openUI(_ sender: Any) {
         let request = PaymentRequest(orderId: "aaa", orderCode: "aaaa", amount: 100000)
-        let pm = Minerva.shared.getPaymentUI(request: request, delegate: self)
+        let pm = TerraPayment.default.getPaymentUI(request: request, delegate: self)
         present(pm, animated: true, completion: nil)
     }
     

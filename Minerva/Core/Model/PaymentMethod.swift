@@ -10,6 +10,7 @@ import TekCoreNetwork
 
 public protocol PaymentMethod {
     var config: PaymentMethodConfig { get }
+    var gatewayConfig: PaymentServiceConfig! { get set }
     var methodCode: MethodCode { get }
     
     func validateRequest(request: AnyTransactionRequest) -> PaymentError?
@@ -19,9 +20,6 @@ public protocol PaymentMethod {
 extension PaymentMethod {
     
     func newTransaction(request: AnyTransactionRequest) throws -> AnyTransactionRequest {
-        guard let gatewayConfig = Minerva.shared.config else {
-            throw PaymentError.missingPaymentConfig
-        }
         if let error = validateRequest(request: request) { throw error }
         request.withMethodConfig(methodConfig: config, method: methodCode)
         request.withConfig(config: gatewayConfig)

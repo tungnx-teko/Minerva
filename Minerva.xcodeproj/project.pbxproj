@@ -100,6 +100,9 @@
 		35E2A945F8B66D89455CCCDD /* Pods_Minerva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28CD18BAD225826E781D6EF /* Pods_Minerva.framework */; };
 		AF7B3D736C9826AD17D94FFD /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E9474DDBC432BD520373B5 /* Pods_Example.framework */; };
 		CA7A979325467D0A00DAAE56 /* Minerva.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A257DE724F7C825004B08DE /* Minerva.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CAB887C9255C0CD200266EEB /* TerraPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB887C8255C0CD200266EEB /* TerraPayment.swift */; };
+		CAB887E4255C0E1B00266EEB /* TerraPaymentDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB887E3255C0E1B00266EEB /* TerraPaymentDatabase.swift */; };
+		CAB887EF255C11E700266EEB /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB887EE255C11E700266EEB /* PaymentManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +213,9 @@
 		1AF6F934250B850A00FC17F5 /* MinervaConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinervaConverter.swift; sourceTree = "<group>"; };
 		69E9474DDBC432BD520373B5 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC247BAD20DE24C47300C62 /* Pods-Minerva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.release.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.release.xcconfig"; sourceTree = "<group>"; };
+		CAB887C8255C0CD200266EEB /* TerraPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerraPayment.swift; sourceTree = "<group>"; };
+		CAB887E3255C0E1B00266EEB /* TerraPaymentDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerraPaymentDatabase.swift; sourceTree = "<group>"; };
+		CAB887EE255C11E700266EEB /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		E8000F3FBE4C899B6B9BBB0B /* Pods-Minerva.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.debug.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.debug.xcconfig"; sourceTree = "<group>"; };
 		F28CD18BAD225826E781D6EF /* Pods_Minerva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minerva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F66C2217B44BE5F5B9A36B47 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +265,8 @@
 		1A257DE624F7C825004B08DE /* Minerva */ = {
 			isa = PBXGroup;
 			children = (
+				CAB887C7255C0CC400266EEB /* MultiInstances */,
+				CAB887ED255C11DA00266EEB /* PaymentManager */,
 				1AC35E4D2538035A001C09CC /* Supporting Files */,
 				1A257EC424F7C8D0004B08DE /* Core */,
 				1AC35E4E2538036D001C09CC /* ATM */,
@@ -518,6 +526,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CAB887C7255C0CC400266EEB /* MultiInstances */ = {
+			isa = PBXGroup;
+			children = (
+				CAB887C8255C0CD200266EEB /* TerraPayment.swift */,
+				CAB887E3255C0E1B00266EEB /* TerraPaymentDatabase.swift */,
+			);
+			path = MultiInstances;
+			sourceTree = "<group>";
+		};
+		CAB887ED255C11DA00266EEB /* PaymentManager */ = {
+			isa = PBXGroup;
+			children = (
+				CAB887EE255C11E700266EEB /* PaymentManager.swift */,
+			);
+			path = PaymentManager;
+			sourceTree = "<group>";
+		};
 		E458E24DF986A8D0968CB982 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +790,7 @@
 				1A257EFB24F7C8D0004B08DE /* PaymentQRViewController.swift in Sources */,
 				1A257F0124F7C8D0004B08DE /* PaymentRequest.swift in Sources */,
 				1A257F1724F7C8D0004B08DE /* PaymentMethodConfig.swift in Sources */,
+				CAB887E4255C0E1B00266EEB /* TerraPaymentDatabase.swift in Sources */,
 				1A257EE624F7C8D0004B08DE /* CTTMethod.swift in Sources */,
 				1A257F0024F7C8D0004B08DE /* PaymentProtocols.swift in Sources */,
 				1A257EEC24F7C8D0004B08DE /* UIImage+.swift in Sources */,
@@ -784,12 +810,14 @@
 				1AC35E5725380401001C09CC /* ATMMethod.swift in Sources */,
 				1A257F0C24F7C8D0004B08DE /* Encodable+.swift in Sources */,
 				1A257F0324F7C8D0004B08DE /* SposViewController.swift in Sources */,
+				CAB887C9255C0CD200266EEB /* TerraPayment.swift in Sources */,
 				1A257F0E24F7C8D0004B08DE /* DictionaryExtensions.swift in Sources */,
 				1A257EF224F7C8D0004B08DE /* ResultRouter.swift in Sources */,
 				1A257EF624F7C8D0004B08DE /* PaymentMethodsViewController.swift in Sources */,
 				1A257F1024F7C8D0004B08DE /* DateUtils.swift in Sources */,
 				1A257F0224F7C8D0004B08DE /* PaymentPresenter.swift in Sources */,
 				1AF6F935250B850A00FC17F5 /* MinervaConverter.swift in Sources */,
+				CAB887EF255C11E700266EEB /* PaymentManager.swift in Sources */,
 				1A257EF124F7C8D0004B08DE /* ResultPresenter.swift in Sources */,
 				1A257F0D24F7C8D0004B08DE /* MD5Encryptor.swift in Sources */,
 				1A257F1B24F7C8D0004B08DE /* PaymentStatusCode.swift in Sources */,

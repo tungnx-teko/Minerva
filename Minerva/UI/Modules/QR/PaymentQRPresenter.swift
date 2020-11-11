@@ -15,7 +15,7 @@ class PaymentQRPresenter: PaymentQRPresenterProtocol, PaymentMethodPresenterProt
     let transaction: CTTTransaction
     let request: CTTTransactionRequest
     
-    var observer: PaymentObserver = PaymentObserver()
+    var observer: PaymentObserver = PaymentObserver(databaseManager: TerraPaymentDatabase.default)
     
     var timer: Timer!
     var timeLeft: Int

@@ -13,6 +13,7 @@ public class SPOSMethod: PaymentMethod {
     
     public var config: PaymentMethodConfig
     public var methodCode: MethodCode
+    public var gatewayConfig: PaymentServiceConfig!
     
     public init(config: SPOSPaymentConfig, methodCode: MethodCode) {
         self.config = config

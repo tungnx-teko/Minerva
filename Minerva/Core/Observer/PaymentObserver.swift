@@ -9,9 +9,11 @@ import Foundation
 
 public class PaymentObserver {
     
-    let databaseManager = DatabaseManager.shared
+    var databaseManager: DatabaseManager
     
-    public init() {}
+    init(databaseManager: DatabaseManager) {
+        self.databaseManager = databaseManager
+    }
     
     public func observe(transactionCode: String, completion: @escaping (PaymentResult) -> ()) {
         databaseManager

@@ -14,7 +14,7 @@ class SposPresenter: SposPresenterProtocol, PaymentMethodPresenterProtocol {
     let transaction: SPOSTransaction
     let request: SPOSTransactionRequest
     
-    lazy var observer: PaymentObserver = .init()
+    lazy var observer: PaymentObserver = .init(databaseManager: TerraPaymentDatabase.default)
     
     init(view: SposViewProtocol, router: SposRouterProtocol?, transaction: SPOSTransaction, request: SPOSTransactionRequest) {
         self.view = view

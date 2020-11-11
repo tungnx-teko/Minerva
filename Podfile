@@ -44,7 +44,11 @@ target 'Example' do
   use_frameworks!
 
   # Pods for Example
-  
+  pod 'SVProgressHUD'
+  pod 'SnapKit'
+  pod 'FirebaseFirestore', '~> 1.19.0'
+  pod 'TekCoreService', '1.2.2'
+  pod 'TerraInstancesManager', '1.0.2'
 
 end
 
@@ -57,5 +61,6 @@ target 'Minerva' do
   pod 'SnapKit'
   pod 'FirebaseFirestore', '~> 1.19.0'
   pod 'TekCoreService', '1.2.2'
+  pod 'TerraInstancesManager', '1.0.2'
   
 end

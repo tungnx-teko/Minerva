@@ -33,13 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ]
         ]
         
-        Minerva.shared.initialize(config: dict)
+        TerraPayment.configureWith(config: dict)
         
         let ctt = CTTMethod(config: CTTPaymentConfig(), methodCode: CTTMethod.cttCode)
         let spos = SPOSMethod(config: SPOSPaymentConfig(), methodCode: SPOSMethod.sposCode)
         let atm = ATMMethod(config: ATMPaymentConfig(), methodCode: ATMMethod.atmCode)
         
-        Minerva.shared.setPaymentMethods(methods: [ctt, spos, atm])
+        TerraPayment.default.setPaymentMethods([ctt, spos, atm])
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
