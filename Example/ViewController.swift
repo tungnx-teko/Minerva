@@ -27,6 +27,11 @@ class ViewController: UIViewController, PaymentDelegate {
         present(pm, animated: true, completion: nil)
     }
     
+    @IBAction func openScanUI(_ sender: Any) {
+        let scanVC = Minerva.shared.getQRScanUI()
+        present(scanVC, animated: true, completion: nil)
+    }
+    
     func onResult(_ result: PaymentResult) {
         print(result)
     }

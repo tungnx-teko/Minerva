@@ -59,6 +59,7 @@ target 'Minerva' do
   # Pods for Minerva
   pod 'SVProgressHUD'
   pod 'SnapKit'
+  pod 'BerTlv'
   pod 'FirebaseFirestore', '~> 1.19.0'
   pod 'TekCoreService', '1.2.2'
   pod 'TerraInstancesManager', '1.0.2'

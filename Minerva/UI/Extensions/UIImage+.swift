@@ -19,6 +19,11 @@ public class ImagesHelper {
         return UIImage(named: imageName, in: podsBundle, compatibleWith: nil)
     }
     
+    public static func assestFor(name imageName: String) -> UIImage? {
+        let bundle = Bundle(for: ImagesHelper.self)
+        return UIImage(named: imageName, in: bundle, compatibleWith: nil)
+    }
+    
     class func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
         

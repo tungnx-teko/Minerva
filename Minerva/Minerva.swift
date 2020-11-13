@@ -113,4 +113,9 @@ extension Minerva: IPaymentManager {
                                                 completion: @escaping (Result<T.TransactionType, Error>) -> ()) throws {
         try paymentManager.pay(method: method, request: request, completion: completion)
     }
+
+    public func getQRScanUI() -> QRScanViewController {
+        let scan = QRScanRouter.createModule()
+        return scan
+    }
 }
