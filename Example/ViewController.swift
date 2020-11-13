@@ -28,7 +28,7 @@ class ViewController: UIViewController, PaymentDelegate {
     }
     
     @IBAction func openScanUI(_ sender: Any) {
-        let scanVC = Minerva.shared.getQRScanUI()
+        let scanVC = TerraPayment.default.getQRScanUI()
         present(scanVC, animated: true, completion: nil)
     }
     

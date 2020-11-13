@@ -213,6 +213,7 @@ PODS:
     - abseil/base/config
     - abseil/meta/type_traits
   - Alamofire (5.3.0)
+  - BerTlv (0.2.5)
   - BoringSSL-GRPC (0.0.7):
     - BoringSSL-GRPC/Implementation (= 0.0.7)
     - BoringSSL-GRPC/Interface (= 0.0.7)
@@ -287,6 +288,7 @@ PODS:
     - TekCoreService (= 1.2.2)
 
 DEPENDENCIES:
+  - BerTlv
   - FirebaseFirestore (~> 1.19.0)
   - SnapKit
   - SVProgressHUD
@@ -297,6 +299,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - abseil
     - Alamofire
+    - BerTlv
     - BoringSSL-GRPC
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -318,6 +321,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
+  BerTlv: c94b89a7b93bf8c1881691a8d105ec87a4a10759
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
@@ -335,6 +339,6 @@ SPEC CHECKSUMS:
   TekCoreService: 9c29f2ad56b3de93899a34b0ae067d9aeaa28dca
   TerraInstancesManager: 1c95e7612d980395447c0b8e5f3e1a8007152fce
 
-PODFILE CHECKSUM: b5aff4fe132c12c617f8e35f84e0abdf559afaf5
+PODFILE CHECKSUM: 4dc617c10a43eb63c452164795bd035aebfdb5ca
 
 COCOAPODS: 1.10.0

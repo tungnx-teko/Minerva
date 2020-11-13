@@ -103,6 +103,15 @@
 		CAB887C9255C0CD200266EEB /* TerraPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB887C8255C0CD200266EEB /* TerraPayment.swift */; };
 		CAB887E4255C0E1B00266EEB /* TerraPaymentDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB887E3255C0E1B00266EEB /* TerraPaymentDatabase.swift */; };
 		CAB887EF255C11E700266EEB /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB887EE255C11E700266EEB /* PaymentManager.swift */; };
+		E4D8EEB8255E82F20035F896 /* ScanOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8EEB2255E82F20035F896 /* ScanOverlayView.swift */; };
+		E4D8EEB9255E82F20035F896 /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8EEB3255E82F20035F896 /* QRScanViewController.swift */; };
+		E4D8EEBA255E82F20035F896 /* QRScanRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8EEB4255E82F20035F896 /* QRScanRouter.swift */; };
+		E4D8EEBB255E82F20035F896 /* QRScanProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8EEB5255E82F20035F896 /* QRScanProtocols.swift */; };
+		E4D8EEBC255E82F20035F896 /* QRScanInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8EEB6255E82F20035F896 /* QRScanInteractor.swift */; };
+		E4D8EEBD255E82F20035F896 /* QRScanPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8EEB7255E82F20035F896 /* QRScanPresenter.swift */; };
+		E4D8EEC4255E831B0035F896 /* QRCodeReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E4D8EEC2255E831B0035F896 /* QRCodeReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4D8EEC5255E831B0035F896 /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D8EEC3255E831B0035F896 /* QRCodeReader.m */; };
+		E4D8EEE3255E83BA0035F896 /* assests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D8EEE2255E83BA0035F896 /* assests.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +225,15 @@
 		CAB887C8255C0CD200266EEB /* TerraPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerraPayment.swift; sourceTree = "<group>"; };
 		CAB887E3255C0E1B00266EEB /* TerraPaymentDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerraPaymentDatabase.swift; sourceTree = "<group>"; };
 		CAB887EE255C11E700266EEB /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		E4D8EEB2255E82F20035F896 /* ScanOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanOverlayView.swift; sourceTree = "<group>"; };
+		E4D8EEB3255E82F20035F896 /* QRScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
+		E4D8EEB4255E82F20035F896 /* QRScanRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanRouter.swift; sourceTree = "<group>"; };
+		E4D8EEB5255E82F20035F896 /* QRScanProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanProtocols.swift; sourceTree = "<group>"; };
+		E4D8EEB6255E82F20035F896 /* QRScanInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanInteractor.swift; sourceTree = "<group>"; };
+		E4D8EEB7255E82F20035F896 /* QRScanPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanPresenter.swift; sourceTree = "<group>"; };
+		E4D8EEC2255E831B0035F896 /* QRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
+		E4D8EEC3255E831B0035F896 /* QRCodeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReader.m; sourceTree = "<group>"; };
+		E4D8EEE2255E83BA0035F896 /* assests.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assests.xcassets; sourceTree = "<group>"; };
 		E8000F3FBE4C899B6B9BBB0B /* Pods-Minerva.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.debug.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.debug.xcconfig"; sourceTree = "<group>"; };
 		F28CD18BAD225826E781D6EF /* Pods_Minerva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minerva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F66C2217B44BE5F5B9A36B47 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -338,6 +356,7 @@
 		1A257EA424F7C8D0004B08DE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E4D8EEB0255E82F20035F896 /* QRCustomer */,
 				1A257EA524F7C8D0004B08DE /* Result */,
 				1A257EAA24F7C8D0004B08DE /* Methods */,
 				1A257EB124F7C8D0004B08DE /* QR */,
@@ -409,6 +428,7 @@
 		1A257EC424F7C8D0004B08DE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E4D8EEC0255E831B0035F896 /* Libs */,
 				1AF6F933250B84E300FC17F5 /* Response */,
 				1AF6F932250B84DD00FC17F5 /* Request */,
 				1A257EC624F7C8D0004B08DE /* Observer */,
@@ -478,6 +498,7 @@
 		1AC35E4D2538035A001C09CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E4D8EEE2255E83BA0035F896 /* assests.xcassets */,
 				1A257EC324F7C8D0004B08DE /* images.bundle */,
 			);
 			name = "Supporting Files";
@@ -553,6 +574,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E4D8EEB0255E82F20035F896 /* QRCustomer */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8EEB1255E82F20035F896 /* QRScan */,
+			);
+			path = QRCustomer;
+			sourceTree = "<group>";
+		};
+		E4D8EEB1255E82F20035F896 /* QRScan */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8EEB2255E82F20035F896 /* ScanOverlayView.swift */,
+				E4D8EEB3255E82F20035F896 /* QRScanViewController.swift */,
+				E4D8EEB4255E82F20035F896 /* QRScanRouter.swift */,
+				E4D8EEB5255E82F20035F896 /* QRScanProtocols.swift */,
+				E4D8EEB6255E82F20035F896 /* QRScanInteractor.swift */,
+				E4D8EEB7255E82F20035F896 /* QRScanPresenter.swift */,
+			);
+			path = QRScan;
+			sourceTree = "<group>";
+		};
+		E4D8EEC0255E831B0035F896 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8EEC1255E831B0035F896 /* QRScan */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		E4D8EEC1255E831B0035F896 /* QRScan */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8EEC2255E831B0035F896 /* QRCodeReader.h */,
+				E4D8EEC3255E831B0035F896 /* QRCodeReader.m */,
+			);
+			path = QRScan;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -561,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA7A979325467D0A00DAAE56 /* Minerva.h in Headers */,
+				E4D8EEC4255E831B0035F896 /* QRCodeReader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +714,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D8EEE3255E83BA0035F896 /* assests.xcassets in Resources */,
 				1A257F0824F7C8D0004B08DE /* images.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -772,6 +833,7 @@
 				1A257F1824F7C8D0004B08DE /* PaymentError.swift in Sources */,
 				1A257F1F24F7C8D0004B08DE /* SPOSTransactionApiRequest.swift in Sources */,
 				1A257EF324F7C8D0004B08DE /* PaymentMethodsPresenter.swift in Sources */,
+				E4D8EEBD255E82F20035F896 /* QRScanPresenter.swift in Sources */,
 				1A257EE924F7C8D0004B08DE /* CTTTransactionApiRequest.swift in Sources */,
 				1A257EEA24F7C8D0004B08DE /* UIView+.swift in Sources */,
 				1A257EE724F7C8D0004B08DE /* CTTTransaction.swift in Sources */,
@@ -789,6 +851,7 @@
 				1AC35E5825380401001C09CC /* ATMPaymentConfig.swift in Sources */,
 				1A257EFB24F7C8D0004B08DE /* PaymentQRViewController.swift in Sources */,
 				1A257F0124F7C8D0004B08DE /* PaymentRequest.swift in Sources */,
+				E4D8EEBB255E82F20035F896 /* QRScanProtocols.swift in Sources */,
 				1A257F1724F7C8D0004B08DE /* PaymentMethodConfig.swift in Sources */,
 				CAB887E4255C0E1B00266EEB /* TerraPaymentDatabase.swift in Sources */,
 				1A257EE624F7C8D0004B08DE /* CTTMethod.swift in Sources */,
@@ -796,6 +859,7 @@
 				1A257EEC24F7C8D0004B08DE /* UIImage+.swift in Sources */,
 				1A257F1224F7C8D0004B08DE /* MethodCode.swift in Sources */,
 				1A257F0A24F7C8D0004B08DE /* PaymentObserver.swift in Sources */,
+				E4D8EEBC255E82F20035F896 /* QRScanInteractor.swift in Sources */,
 				1A257EF524F7C8D0004B08DE /* PaymentMethodCell.swift in Sources */,
 				1AC35E5925380401001C09CC /* ATMTransactionApiRequest.swift in Sources */,
 				1A257F1324F7C8D0004B08DE /* PaymentMethod.swift in Sources */,
@@ -807,6 +871,7 @@
 				1A257EF024F7C8D0004B08DE /* ResultProtocols.swift in Sources */,
 				1A257EF724F7C8D0004B08DE /* PaymentMethodPresenterProtocol.swift in Sources */,
 				1A257EE424F7C8D0004B08DE /* CTTTransactionResponse.swift in Sources */,
+				E4D8EEB8255E82F20035F896 /* ScanOverlayView.swift in Sources */,
 				1AC35E5725380401001C09CC /* ATMMethod.swift in Sources */,
 				1A257F0C24F7C8D0004B08DE /* Encodable+.swift in Sources */,
 				1A257F0324F7C8D0004B08DE /* SposViewController.swift in Sources */,
@@ -816,15 +881,18 @@
 				1A257EF624F7C8D0004B08DE /* PaymentMethodsViewController.swift in Sources */,
 				1A257F1024F7C8D0004B08DE /* DateUtils.swift in Sources */,
 				1A257F0224F7C8D0004B08DE /* PaymentPresenter.swift in Sources */,
+				E4D8EEB9255E82F20035F896 /* QRScanViewController.swift in Sources */,
 				1AF6F935250B850A00FC17F5 /* MinervaConverter.swift in Sources */,
 				CAB887EF255C11E700266EEB /* PaymentManager.swift in Sources */,
 				1A257EF124F7C8D0004B08DE /* ResultPresenter.swift in Sources */,
+				E4D8EEBA255E82F20035F896 /* QRScanRouter.swift in Sources */,
 				1A257F0D24F7C8D0004B08DE /* MD5Encryptor.swift in Sources */,
 				1A257F1B24F7C8D0004B08DE /* PaymentStatusCode.swift in Sources */,
 				1A257EED24F7C8D0004B08DE /* UIColor+.swift in Sources */,
 				1A257F2024F7C8D0004B08DE /* SPOSTransactionResponse.swift in Sources */,
 				1A257EF424F7C8D0004B08DE /* PaymentMethodsProtocols.swift in Sources */,
 				1A257EFE24F7C8D0004B08DE /* PaymentRouter.swift in Sources */,
+				E4D8EEC5255E831B0035F896 /* QRCodeReader.m in Sources */,
 				1A257F0524F7C8D0004B08DE /* SposProtocols.swift in Sources */,
 				1A257F0724F7C8D0004B08DE /* Minerva.swift in Sources */,
 				1A257EEF24F7C8D0004B08DE /* ResultViewController.swift in Sources */,
