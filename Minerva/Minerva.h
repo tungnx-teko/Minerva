@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QRCodeReader.h"
 
 //! Project version number for Minerva.
 FOUNDATION_EXPORT double MinervaVersionNumber;

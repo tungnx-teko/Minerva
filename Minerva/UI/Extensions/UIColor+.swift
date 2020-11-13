@@ -24,3 +24,9 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
+
+extension UIColor {
+    static var overlay: UIColor {
+        return UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+    }
+}
