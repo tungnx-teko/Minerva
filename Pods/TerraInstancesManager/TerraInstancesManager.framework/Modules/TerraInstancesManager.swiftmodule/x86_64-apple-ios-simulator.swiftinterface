@@ -15,13 +15,16 @@ extension ServiceInstanceGeneratable {
 public protocol PandoraConfigGettable {
   func getConfig(key: Swift.String) -> [Swift.String : Any]?
 }
-public protocol ITerraApp {
+public protocol ITerraApp : AnyObject {
   var identity: Swift.String { get }
   var application: UIKit.UIApplication { get }
   var configGetter: TerraInstancesManager.PandoraConfigGettable? { get }
-  var servicesCredential: TekCoreService.ServicesCredential { get }
+  var servicesCredential: TekCoreService.ServicesCredential? { get set }
   var servicesErrorDelegation: TekCoreService.ServicesErrorDelegate? { get }
   var env: TerraInstancesManager.TerraEnv { get }
+}
+extension ITerraApp {
+  public func setServicesCredential(_ credential: TekCoreService.ServicesCredential)
 }
 public protocol InstanceGeneratable {
   associatedtype InstanceType
@@ -31,6 +34,10 @@ public protocol InstanceGeneratable {
 public protocol InstancesManageable {
   associatedtype Generator : TerraInstancesManager.InstanceGeneratable
   var instances: [Swift.String : Self.Generator.InstanceType] { get set }
+}
+extension InstancesManageable {
+  public mutating func getInstance(by name: Swift.String) -> Self.Generator.InstanceType?
+  public mutating func revokeInstance(by name: Swift.String)
 }
 extension InstancesManageable {
   public mutating func getInstance(by app: TerraInstancesManager.ITerraApp) -> Self.Generator.InstanceType?
