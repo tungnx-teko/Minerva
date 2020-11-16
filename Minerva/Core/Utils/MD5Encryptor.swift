@@ -8,8 +8,9 @@
 import var CommonCrypto.CC_MD5_DIGEST_LENGTH
 import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
+import CommonCrypto
 
-public class MD5Encryptor {
+public class CrypUtils {
     
     public static func md5(text: String, secretKey: String) -> String {
         let length = Int(CC_MD5_DIGEST_LENGTH)
@@ -26,6 +27,32 @@ public class MD5Encryptor {
             }
         }
         return digestData.map { String(format: "%02hhx", $0) }.joined()
+    }
+    
+    public static func sha256(text: String) -> String {
+        if let stringData = text.data(using: String.Encoding.utf8) {
+            return hexStringFromData(input: digest(input: stringData as NSData))
+        }
+        return ""
+    }
+    
+    private static func digest(input : NSData) -> NSData {
+        let digestLength = Int(CC_SHA256_DIGEST_LENGTH)
+        var hash = [UInt8](repeating: 0, count: digestLength)
+        CC_SHA256(input.bytes, UInt32(input.length), &hash)
+        return NSData(bytes: hash, length: digestLength)
+    }
+    
+    private static func hexStringFromData(input: NSData) -> String {
+        var bytes = [UInt8](repeating: 0, count: input.length)
+        input.getBytes(&bytes, length: input.length)
+        
+        var hexString = ""
+        for byte in bytes {
+            hexString += String(format:"%02x", UInt8(byte))
+        }
+        
+        return hexString
     }
     
 }

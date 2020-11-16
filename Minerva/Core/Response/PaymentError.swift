@@ -15,4 +15,5 @@ public enum PaymentError: Error {
     case missingPaymentConfig
     case invalidTransactionRequest
     case transaction(error: TransactionError)
+    case custom(message: String)
 }

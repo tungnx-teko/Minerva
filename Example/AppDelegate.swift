@@ -17,12 +17,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+//        let dict: [String: Any] = [
+//            "clientCode": "PVSDK1",
+//            "terminalCode": "PE1118CC50322",
+//            "serviceCode": "RETAIL",
+//            "secret": "354deb9bf68088199d8818f71c01951f",
+////            "url": "https://payment.stage.tekoapis.net",
+//            "url": "http://payment-setting.stag.tekoapis.net",
+//            "firebaseConfig": [
+//                "projectId":"payment-test-fc407",
+//                "applicationId":"1:621256043987:ios:b359f0c782414f1d3f1326",
+//                "apiKey":"AIzaSyCTMCbvnSPuNG0jk7wW1SRg7gsmYsHbXT0",
+//                "databaseUrl":"https://payment-test-fc407.firebaseio.com/",
+//                "storageBucket":"payment-test-fc407.appspot.com",
+//                "gcmSenderId":"621256043987"
+//            ]
+//        ]
+        
         let dict: [String: Any] = [
-            "clientCode": "PVSDK1",
-            "terminalCode": "PE1118CC50322",
+            "clientCode": "VNSHOP_APP",
+            "terminalCode": "VNSHOP_APP",
             "serviceCode": "RETAIL",
-            "secret": "354deb9bf68088199d8818f71c01951f",
-            "url": "https://payment.stage.tekoapis.net",
+//            "secret": "e825d74cbc6ad6330a25f5a731486c8a",
+            "secret": "cf1accf0ff29a65074bdb915e971842d",
+            //            "url": "https://payment.stage.tekoapis.net",
+            "url": "http://payment-setting.stag.tekoapis.net",
             "firebaseConfig": [
                 "projectId":"payment-test-fc407",
                 "applicationId":"1:621256043987:ios:b359f0c782414f1d3f1326",

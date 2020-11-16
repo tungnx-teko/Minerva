@@ -47,7 +47,7 @@ public class CTTTransactionRequest: BaseTransactionRequest, Encodable {
         clientTransactionCode = UUID().uuidString
         terminalCode = config.terminalCode
         serviceCode = config.serviceCode
-        checksum = MD5Encryptor.md5(text: self.stringify(), secretKey: config.secretKey)
+        checksum = CrypUtils.md5(text: self.stringify(), secretKey: config.secretKey)
     }
     
     public func withMethodConfig(methodConfig: PaymentMethodConfig, method: MethodCode) {

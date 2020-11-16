@@ -113,4 +113,34 @@ extension Minerva: IPaymentManager {
                                                 completion: @escaping (Result<T.TransactionType, Error>) -> ()) throws {
         try paymentManager.pay(method: method, request: request, completion: completion)
     }
+    
+    public func getPaymentMethods(payload: PaymentMethodsGetPayload,
+                                  completion: @escaping (Result<PaymentMethodsGetResponse, PaymentError>) -> ()) {
+        guard let paymentService = paymentService else {
+            completion(.failure(PaymentError.missingPaymentConfig))
+            return
+        }
+        guard let _ = self.config else {
+            completion(.failure(PaymentError.missingPaymentConfig))
+            return
+        }
+        paymentService.getPaymentMethods(payload: payload) { result in
+            completion(result)
+        }
+    }
+    
+    public func initAIOPayment(payload: PaymentAIOPayload, completion: @escaping (Result<PaymentAIOResponse, PaymentError>) -> ()) {
+        guard let paymentService = paymentService else {
+            completion(.failure(PaymentError.missingPaymentConfig))
+            return
+        }
+        guard let _ = self.config else {
+            completion(.failure(PaymentError.missingPaymentConfig))
+            return
+        }
+        paymentService.initAIOPayment(payload: payload) { result in
+            dump(result)
+            completion(result)
+        }
+    }
 }

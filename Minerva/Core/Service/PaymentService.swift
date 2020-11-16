@@ -11,10 +11,33 @@ import TekCoreNetwork
 
 class PaymentService: BaseService<APIManager> {
     
+    
+    
+    func getPaymentMethods(payload: PaymentMethodsGetPayload,
+                           completion: @escaping (Result<PaymentMethodsGetResponse, PaymentError>) -> ()) {
+        let request = PaymentMethodsGetRequest(payload: payload)
+        apiManager.call(request) { response in
+            completion(.success(response))
+        } onError: { (error, response) in
+            completion(.failure(.custom(message: error.localizedDescription)))
+        }
+    }
+    
+    func initAIOPayment(payload: PaymentAIOPayload, completion: @escaping (Result<PaymentAIOResponse, PaymentError>) -> ()) {
+        let request = PaymentAIORequest(requestType: .initPaymentAIO(payload: payload))
+        apiManager.call(request) { response in
+            completion(.success(response))
+        } onError: { (error, response) in
+            print(error)
+            completion(.failure(.custom(message: response?.code.message ?? error.localizedDescription)))
+        }
+    }
+    
     func pay<T: BaseTransactionRequest>(method: PaymentMethod, request: T, completion: @escaping (Result<BaseTransaction, Error>) -> ()) throws {
         let erasuredRequest = AnyTransactionRequest(request)
         let request = try method.newTransaction(request: erasuredRequest)
         let apiRequest = try method.constructApiRequest(request: request)
+        dump(apiRequest)
         switch method {
         case is SPOSMethod:
             guard let request = apiRequest.base as? SPOSTransactionApiRequest else {

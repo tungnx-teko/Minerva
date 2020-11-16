@@ -16,6 +16,10 @@ protocol IPaymentManager {
     func addPaymentMethod(_ method: PaymentMethod)
     func clearPaymentMethods()
 
+    func getPaymentMethods(payload: PaymentMethodsGetPayload,
+                           completion: @escaping (Result<PaymentMethodsGetResponse, PaymentError>) -> ())
+    func initAIOPayment(payload: PaymentAIOPayload,
+                        completion: @escaping (Result<PaymentAIOResponse, PaymentError>) -> ())
     func pay<T: BaseTransactionRequest>(method: MethodCode, request: T,
                                         completion: @escaping (Result<T.TransactionType, Error>) -> ()) throws
 }
