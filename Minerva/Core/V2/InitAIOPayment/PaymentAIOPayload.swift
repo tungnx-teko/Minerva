@@ -21,7 +21,7 @@ public struct PaymentAIOPayload: Encodable {
     public init(orderCode: String, userId: String, totalPaymentAmount: Int, payments: PaymentData, successUrl: String, cancelUrl: String) {
         self.orderCode = orderCode
         self.userId = userId
-        self.terminalCode = Minerva.shared.config.terminalCode
+        self.terminalCode = TerraPayment.default.config.terminalCode
         self.totalPaymentAmount = totalPaymentAmount
         self.payments = payments
         self.successUrl = successUrl
@@ -30,7 +30,7 @@ public struct PaymentAIOPayload: Encodable {
     }
     
     private func generateChecksum() -> String {
-        var string: String = "\(Minerva.shared.config.secretKey)\(orderCode)|\(userId)|\(terminalCode)|\(totalPaymentAmount)|\(successUrl)|\(cancelUrl)"
+        var string: String = "\(TerraPayment.default.config.secretKey)\(orderCode)|\(userId)|\(terminalCode)|\(totalPaymentAmount)|\(successUrl)|\(cancelUrl)"
         ///order by Loyalty > QR > Card > Credit
         if let loyalty = payments.loyalty {
             string += "|\(loyalty.clientTransactionCode)|\(loyalty.merchantMethodCode)|\(loyalty.methodCode)|\(loyalty.amount)"

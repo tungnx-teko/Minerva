@@ -18,7 +18,7 @@ class ViewController: UIViewController, PaymentDelegate {
     
     @IBAction func paymentMethodsWasTapped(_ sender: Any) {
         let payload = PaymentMethodsGetPayload(terminalCode: "VNSHOP_APP", amount: 20000, orderItems: [.init(sku: "STDVNSHOP05", quantity: 1, price: 20000)])
-        Minerva.shared.getPaymentMethods(payload: payload) { result in
+        TerraPayment.default.getPaymentMethods(payload: payload) { result in
             dump(result)
         }
     }
@@ -26,19 +26,18 @@ class ViewController: UIViewController, PaymentDelegate {
     @IBAction func callService(_ sender: Any) {
         let card = CardRequestData(merchantMethodCode: "VNSHOP_VNPAY_GATEWAY",
                             methodCode: "VNPAY_GATEWAY",
-                            clientTransactionCode: "client-atransactionn7",
+                            clientTransactionCode: "client-atransactionn-1",
                             amount: 100000,
                             bankCode: "",
                             type: .redirect,
                             token: "")
-        let qr = QrRequestData()
         let payload = PaymentAIOPayload(orderCode: "order-code",
                                         userId: "02d1788674b7408395c6fb96f1ccd1f2",
                                         totalPaymentAmount: 100000,
-                                        payments: Payments(card: card),
+                                        payments: PaymentData(card: card),
                                         successUrl: "https://teko.vn",
                                         cancelUrl: "https://teko.vn")
-        Minerva.shared.initAIOPayment(payload: payload) { result in
+        TerraPayment.default.initAIOPayment(payload: payload) { result in
             print(result)
         }
     }

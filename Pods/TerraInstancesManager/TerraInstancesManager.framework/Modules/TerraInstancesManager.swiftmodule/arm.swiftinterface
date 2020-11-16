@@ -17,6 +17,8 @@ public protocol PandoraConfigGettable {
 }
 public protocol ITerraApp : AnyObject {
   var identity: Swift.String { get }
+  var clientId: Swift.String? { get }
+  var terraURL: Foundation.URL? { get }
   var application: UIKit.UIApplication { get }
   var configGetter: TerraInstancesManager.PandoraConfigGettable? { get }
   var servicesCredential: TekCoreService.ServicesCredential? { get set }

@@ -89,6 +89,26 @@ class PaymentManager: IPaymentManager {
         })
     }
     
+    func getPaymentMethods(payload: PaymentMethodsGetPayload, completion: @escaping (Result<PaymentMethodsGetResponse, PaymentError>) -> ()) {
+        guard let paymentService = paymentService else {
+            completion(.failure(PaymentError.missingPaymentConfig))
+            return
+        }
+        paymentService.getPaymentMethods(payload: payload) { result in
+            completion(result)
+        }
+    }
+    
+    func initAIOPayment(payload: PaymentAIOPayload, completion: @escaping (Result<PaymentAIOResponse, PaymentError>) -> ()) {
+        guard let paymentService = paymentService else {
+            completion(.failure(PaymentError.missingPaymentConfig))
+            return
+        }
+        paymentService.initAIOPayment(payload: payload) { result in
+            dump(result)
+            completion(result)
+        }
+    }
     
 }
 

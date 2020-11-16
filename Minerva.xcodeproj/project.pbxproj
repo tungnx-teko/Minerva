@@ -114,8 +114,8 @@
 		1ADC0FD2255A9C0500BFEC83 /* Deposit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC0FD1255A9C0500BFEC83 /* Deposit.swift */; };
 		1ADC0FD8255AA83900BFEC83 /* PaymentMethodV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADC0FD7255AA83900BFEC83 /* PaymentMethodV1.swift */; };
 		1AF6F935250B850A00FC17F5 /* MinervaConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6F934250B850A00FC17F5 /* MinervaConverter.swift */; };
-		35E2A945F8B66D89455CCCDD /* Pods_Minerva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28CD18BAD225826E781D6EF /* Pods_Minerva.framework */; };
-		AF7B3D736C9826AD17D94FFD /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E9474DDBC432BD520373B5 /* Pods_Example.framework */; };
+		5C9AC44B52FF9757D24F71C2 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA5701ABEAE2D40B5F38E30 /* Pods_Example.framework */; };
+		862830B1B48C7FC66123AC87 /* Pods_Minerva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F139B46793476622DFE97 /* Pods_Minerva.framework */; };
 		CA7A979325467D0A00DAAE56 /* Minerva.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A257DE724F7C825004B08DE /* Minerva.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAB887C9255C0CD200266EEB /* TerraPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB887C8255C0CD200266EEB /* TerraPayment.swift */; };
 		CAB887E4255C0E1B00266EEB /* TerraPaymentDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB887E3255C0E1B00266EEB /* TerraPaymentDatabase.swift */; };
@@ -147,7 +147,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		062E3B831EF202D3BC465561 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		1A0CFE7B24F8AF6B00A3C6AB /* Minerva.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Minerva.framework; path = Outputs/Minerva.framework; sourceTree = "<group>"; };
 		1A257DE424F7C825004B08DE /* Minerva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Minerva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A257DE724F7C825004B08DE /* Minerva.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Minerva.h; sourceTree = "<group>"; };
@@ -245,14 +244,15 @@
 		1ADC0FD1255A9C0500BFEC83 /* Deposit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deposit.swift; sourceTree = "<group>"; };
 		1ADC0FD7255AA83900BFEC83 /* PaymentMethodV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodV1.swift; sourceTree = "<group>"; };
 		1AF6F934250B850A00FC17F5 /* MinervaConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinervaConverter.swift; sourceTree = "<group>"; };
-		69E9474DDBC432BD520373B5 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AC247BAD20DE24C47300C62 /* Pods-Minerva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.release.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.release.xcconfig"; sourceTree = "<group>"; };
+		1BD5B17088CE6C0E7D76D849 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		2EA5701ABEAE2D40B5F38E30 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83F139B46793476622DFE97 /* Pods_Minerva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minerva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB887C8255C0CD200266EEB /* TerraPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerraPayment.swift; sourceTree = "<group>"; };
 		CAB887E3255C0E1B00266EEB /* TerraPaymentDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerraPaymentDatabase.swift; sourceTree = "<group>"; };
 		CAB887EE255C11E700266EEB /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
-		E8000F3FBE4C899B6B9BBB0B /* Pods-Minerva.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.debug.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.debug.xcconfig"; sourceTree = "<group>"; };
-		F28CD18BAD225826E781D6EF /* Pods_Minerva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Minerva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F66C2217B44BE5F5B9A36B47 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		E2B520823D42D777A1EDCD75 /* Pods-Minerva.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.debug.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.debug.xcconfig"; sourceTree = "<group>"; };
+		E5598626C16B1B4D5F0EA0E7 /* Pods-Minerva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Minerva.release.xcconfig"; path = "Target Support Files/Pods-Minerva/Pods-Minerva.release.xcconfig"; sourceTree = "<group>"; };
+		FD978C85CCF522DB2CFCE469 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35E2A945F8B66D89455CCCDD /* Pods_Minerva.framework in Frameworks */,
+				862830B1B48C7FC66123AC87 /* Pods_Minerva.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AB6F4ED24FCB6EE00D9A5D8 /* Minerva.framework in Frameworks */,
-				AF7B3D736C9826AD17D94FFD /* Pods_Example.framework in Frameworks */,
+				5C9AC44B52FF9757D24F71C2 /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,10 +617,10 @@
 		20E379B8F3EFE99226F6CA2D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				062E3B831EF202D3BC465561 /* Pods-Example.debug.xcconfig */,
-				F66C2217B44BE5F5B9A36B47 /* Pods-Example.release.xcconfig */,
-				E8000F3FBE4C899B6B9BBB0B /* Pods-Minerva.debug.xcconfig */,
-				6AC247BAD20DE24C47300C62 /* Pods-Minerva.release.xcconfig */,
+				1BD5B17088CE6C0E7D76D849 /* Pods-Example.debug.xcconfig */,
+				FD978C85CCF522DB2CFCE469 /* Pods-Example.release.xcconfig */,
+				E2B520823D42D777A1EDCD75 /* Pods-Minerva.debug.xcconfig */,
+				E5598626C16B1B4D5F0EA0E7 /* Pods-Minerva.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -646,8 +646,8 @@
 			isa = PBXGroup;
 			children = (
 				1A0CFE7B24F8AF6B00A3C6AB /* Minerva.framework */,
-				69E9474DDBC432BD520373B5 /* Pods_Example.framework */,
-				F28CD18BAD225826E781D6EF /* Pods_Minerva.framework */,
+				2EA5701ABEAE2D40B5F38E30 /* Pods_Example.framework */,
+				A83F139B46793476622DFE97 /* Pods_Minerva.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -670,7 +670,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A257DEC24F7C825004B08DE /* Build configuration list for PBXNativeTarget "Minerva" */;
 			buildPhases = (
-				EC9103678FA9AF144028EAAE /* [CP] Check Pods Manifest.lock */,
+				CD243148F454CA5C894FDC77 /* [CP] Check Pods Manifest.lock */,
 				1A257DDF24F7C825004B08DE /* Headers */,
 				1A257DE024F7C825004B08DE /* Sources */,
 				1A257DE124F7C825004B08DE /* Frameworks */,
@@ -689,12 +689,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A257E0424F7C83B004B08DE /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				552FCEDFA78CE886049F3F64 /* [CP] Check Pods Manifest.lock */,
+				F2ED2ADE12BD8064C2E177E9 /* [CP] Check Pods Manifest.lock */,
 				1A257DEF24F7C83A004B08DE /* Sources */,
 				1A257DF024F7C83A004B08DE /* Frameworks */,
 				1A257DF124F7C83A004B08DE /* Resources */,
 				1AB6F4F124FCB6EE00D9A5D8 /* Embed Frameworks */,
-				2B1BE6746169678C476C9ED1 /* [CP] Embed Pods Frameworks */,
+				43FEDD74197EC6558F4BA4E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -788,7 +788,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# build fat framework script\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nWORKSPACE=\"Minerva.xcworkspace\"\nNAME_OUTPUT_FOLDER=\"Outputs\"\nOUTPUT_FOLDER=\"${PROJECT_DIR}/${NAME_OUTPUT_FOLDER}/\"\n\nSDK_TARGET_NAME=\"Minerva\"\nZIP_NAME=\"${SDK_TARGET_NAME}.zip\"\n\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\nmkdir -p \"${OUTPUT_FOLDER}\"\n\n# Build Device and Simulator versions\nxcodebuild -workspace \"${WORKSPACE}\" -scheme \"${SDK_TARGET_NAME}\" -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" ONLY_ACTIVE_ARCH=NO BUILD_ROOT=\"${BUILD_ROOT}\" OBJROOT=\"${OBJROOT}/DependentBuilds\" BUILD_LIBRARY_FOR_DISTRIBUTION=YES\nxcodebuild -workspace \"${WORKSPACE}\" -scheme \"${SDK_TARGET_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ARCHS=x86_64 ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" OBJROOT=\"${OBJROOT}/DependentBuilds\" BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# make fat framework\n\"${PROJECT_DIR}/build-phases/make-fat-framework.sh\" \"${UNIVERSAL_OUTPUTFOLDER}\" \"${SDK_TARGET_NAME}\" \"${OUTPUT_FOLDER}\"\n\n\nfind . -name \"*.swiftinterface\" -exec sed -i -e 's/Minerva\\.//g' {} \\;\n\n# Zip file\n#zip -r \"${ZIP_NAME}\" ./\"${NAME_OUTPUT_FOLDER}\"\n\ncd \"$NAME_OUTPUT_FOLDER\"\n\nzip -r \"${ZIP_NAME}\" \"${SDK_TARGET_NAME}.framework\"\n\ncd ..\n\n# Open the project's directory in Finder\nopen \"${OUTPUT_FOLDER}\"\n";
 		};
-		2B1BE6746169678C476C9ED1 /* [CP] Embed Pods Frameworks */ = {
+		43FEDD74197EC6558F4BA4E3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -805,29 +805,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		552FCEDFA78CE886049F3F64 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC9103678FA9AF144028EAAE /* [CP] Check Pods Manifest.lock */ = {
+		CD243148F454CA5C894FDC77 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -843,6 +821,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Minerva-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2ED2ADE12BD8064C2E177E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1126,7 +1126,7 @@
 		};
 		1A257DED24F7C825004B08DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8000F3FBE4C899B6B9BBB0B /* Pods-Minerva.debug.xcconfig */;
+			baseConfigurationReference = E2B520823D42D777A1EDCD75 /* Pods-Minerva.debug.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = marker;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -1136,7 +1136,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				INFOPLIST_FILE = Minerva/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1157,7 +1157,7 @@
 		};
 		1A257DEE24F7C825004B08DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6AC247BAD20DE24C47300C62 /* Pods-Minerva.release.xcconfig */;
+			baseConfigurationReference = E5598626C16B1B4D5F0EA0E7 /* Pods-Minerva.release.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -1167,7 +1167,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				INFOPLIST_FILE = Minerva/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1187,13 +1187,13 @@
 		};
 		1A257E0524F7C83B004B08DE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 062E3B831EF202D3BC465561 /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = 1BD5B17088CE6C0E7D76D849 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2G2F7B8D22;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Outputs",
@@ -1213,13 +1213,13 @@
 		};
 		1A257E0624F7C83B004B08DE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F66C2217B44BE5F5B9A36B47 /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = FD978C85CCF522DB2CFCE469 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2G2F7B8D22;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Outputs",

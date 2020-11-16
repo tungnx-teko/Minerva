@@ -283,7 +283,7 @@ PODS:
     - Alamofire (= 5.3.0)
   - TekCoreService (1.2.2):
     - TekCoreNetwork (= 1.2.14)
-  - TerraInstancesManager (1.0.8):
+  - TerraInstancesManager (1.0.9):
     - TekCoreService (= 1.2.2)
 
 DEPENDENCIES:
@@ -333,8 +333,8 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TekCoreNetwork: e9509f4c131efa1b0be02eab63950811bd594bf7
   TekCoreService: 9c29f2ad56b3de93899a34b0ae067d9aeaa28dca
-  TerraInstancesManager: b554a720ac5f4aaf47ac5655075bbcc3fcea3cd1
+  TerraInstancesManager: d1cd77499a132eca7057cddd56fe57d484b4807f
 
-PODFILE CHECKSUM: bad5469af9787b3a7c42193bc93edbd1726c5603
+PODFILE CHECKSUM: 6a56c58cae3c8265a172e21bf6fbb61c44e4fbc0
 
 COCOAPODS: 1.10.0

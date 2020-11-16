@@ -16,18 +16,18 @@ class PaymentService: BaseService<APIManager> {
     func getPaymentMethods(payload: PaymentMethodsGetPayload,
                            completion: @escaping (Result<PaymentMethodsGetResponse, PaymentError>) -> ()) {
         let request = PaymentMethodsGetRequest(payload: payload)
-        apiManager.call(request) { response in
+        apiManager.call(request, onSuccess: { response in
             completion(.success(response))
-        } onError: { (error, response) in
+        }) { (error, response) in
             completion(.failure(.custom(message: error.localizedDescription)))
         }
     }
     
     func initAIOPayment(payload: PaymentAIOPayload, completion: @escaping (Result<PaymentAIOResponse, PaymentError>) -> ()) {
         let request = PaymentAIORequest(requestType: .initPaymentAIO(payload: payload))
-        apiManager.call(request) { response in
+        apiManager.call(request, onSuccess: { response in
             completion(.success(response))
-        } onError: { (error, response) in
+        }) { (error, response) in
             print(error)
             completion(.failure(.custom(message: response?.code.message ?? error.localizedDescription)))
         }
