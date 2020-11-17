@@ -29,4 +29,5 @@ protocol PaymentMethodsRouterProtocol: class {
     func goToCTTPayment(transaction: CTTTransaction, request: CTTTransactionRequest)
     func goToSPOSPayment(transaction: SPOSTransaction, request: SPOSTransactionRequest)
     func goToFail(error: PaymentError)
+    func goToScanQR(withRequest request: PaymentRequest)
 }

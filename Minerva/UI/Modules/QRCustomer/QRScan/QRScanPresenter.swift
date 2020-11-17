@@ -11,15 +11,15 @@ import UIKit
 class QRScanPresenter: QRScanPresenterProtocol {
     
     weak private var view: QRScanViewProtocol?
-    var interactor: QRScanInteractorProtocol?
     private let router: QRScanWireframeProtocol
+    private let request: PaymentRequest
 
     var qrReader: QRCodeReader
     
-    init(interface: QRScanViewProtocol, interactor: QRScanInteractorProtocol?, router: QRScanWireframeProtocol) {
+    init(interface: QRScanViewProtocol, router: QRScanWireframeProtocol, request: PaymentRequest) {
         self.view = interface
-        self.interactor = interactor
         self.router = router
+        self.request = request
         self.qrReader = QRCodeReader(metadataObjectTypes: [AVMetadataObject.ObjectType.qr])
         self.configQRScaner()
     }
@@ -47,7 +47,8 @@ class QRScanPresenter: QRScanPresenterProtocol {
     }
     
     func toogleTorch() {
-        qrReader.toggleTorch()
+//        qrReader.toggleTorch()
+        router.showQRInfo(QRInfo.test())
     }
     
     func goBack() {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,23 +35,13 @@
                                     <action selector="callService:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qbb-RP-NF6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMX-Yf-4GS">
-                                <rect key="frame" x="166.5" y="600.5" width="81" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Scan UI"/>
-                                <connections>
-                                    <action selector="openScanUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VY2-by-eCV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KIv-iX-bLP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="43I-HR-tnL"/>
                             <constraint firstItem="KIv-iX-bLP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="4xK-iK-1jB"/>
-                            <constraint firstItem="BMX-Yf-4GS" firstAttribute="top" secondItem="KIv-iX-bLP" secondAttribute="bottom" constant="32" id="EnM-ea-pwh"/>
                             <constraint firstItem="QWj-E1-OYD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SSl-Li-BHT"/>
-                            <constraint firstItem="BMX-Yf-4GS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oPY-XD-Tze"/>
                             <constraint firstItem="QWj-E1-OYD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="wWA-rG-B9O"/>
                         </constraints>
                     </view>

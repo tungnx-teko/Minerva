@@ -23,26 +23,30 @@ class PaymentMethodsPresenter: PaymentMethodsPresenterProtocol {
     }
     
     func didSelectPaymentMethod(method: PaymentMethod) {
-        view?.showLoading()
         switch method {
         case is SPOSMethod:
+            view?.showLoading()
             let sposRequest = SPOSTransactionRequest(orderId: request.orderId,
                                                      orderCode: request.orderCode,
                                                      amount: request.amount.intValue)
             
             requestPayment(method: method, request: AnyTransactionRequest(sposRequest))
         case is CTTMethod:
+            view?.showLoading()
             let cttRequest = CTTTransactionRequest(orderId: request.orderId,
                                                    orderCode: request.orderCode,
                                                    amount: request.amount.intValue)
             requestPayment(method: method, request: AnyTransactionRequest(cttRequest))
         case is ATMMethod:
+            view?.showLoading()
             let atmRequest = ATMTransactionRequest(orderId: request.orderId,
                                                    orderCode: request.orderCode,
                                                    amount: request.amount.intValue,
                                                    returnUrl: "https://vnshop.vn/payment/return",
                                                    cancelUrl: "https://vnshop.vn/payment/cancel")
             requestPayment(method: method, request: AnyTransactionRequest(atmRequest))
+        case is QRCustomerMethod:
+            router?.goToScanQR(withRequest: request)
         default:
             break
         }

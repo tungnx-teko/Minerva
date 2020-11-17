@@ -95,8 +95,8 @@ public class PaymentViewController: UIViewController, PaymentViewProtocol {
     }
     
     func reloadBackButton() {
-//        backButton.isHidden = !childNav.canGoBack
-        backButton.isHidden = true
+        backButton.isHidden = !childNav.canGoBack
+//        backButton.isHidden = true
     }
     
     func addChildNavigation() {
@@ -153,7 +153,7 @@ public class PaymentViewController: UIViewController, PaymentViewProtocol {
         backButton.snp.makeConstraints { make in
             make.left.equalTo(navigationView).offset(8)
             make.centerY.equalTo(navigationView)
-            make.width.equalTo(36)
+            make.width.equalTo(50)
             make.height.equalTo(36)
         }
     }

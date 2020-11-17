@@ -38,8 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ctt = CTTMethod(config: CTTPaymentConfig(), methodCode: CTTMethod.cttCode)
         let spos = SPOSMethod(config: SPOSPaymentConfig(), methodCode: SPOSMethod.sposCode)
         let atm = ATMMethod(config: ATMPaymentConfig(), methodCode: ATMMethod.atmCode)
+        let qr = QRCustomerMethod(config: QRCustomerConfig(), methodCode: QRCustomerMethod.qrCode)
         
-        TerraPayment.default.setPaymentMethods([ctt, spos, atm])
+        TerraPayment.default.setPaymentMethods([ctt, spos, atm, qr])
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()

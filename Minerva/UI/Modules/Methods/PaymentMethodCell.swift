@@ -99,6 +99,9 @@ class PaymentMethodCell: UITableViewCell {
         case is ATMMethod:
             iconImageView.image = Minerva.Images.cardIcon
             nameLabel.text = Minerva.Strings.paymentCTTMethod
+        case is QRCustomerMethod:
+            iconImageView.image = Minerva.Images.qrIcon
+            nameLabel.text = Minerva.Strings.paymentQRCustomerMethod
         default:
             break
         }

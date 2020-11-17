@@ -26,7 +26,19 @@ extension UIColor {
 }
 
 extension UIColor {
-    static var overlay: UIColor {
+    class var overlay: UIColor {
         return UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+    }
+    
+    class var neutral02PrimaryText: UIColor {
+        return UIColor(red: 89, green: 89, blue: 89)
+    }
+    
+    class var neutral01TitleText: UIColor {
+        return UIColor(red: 38, green: 38, blue: 38)
+    }
+    
+    class var secondaryDefault: UIColor {
+        return UIColor(red: 6, green: 116, blue: 232)
     }
 }
