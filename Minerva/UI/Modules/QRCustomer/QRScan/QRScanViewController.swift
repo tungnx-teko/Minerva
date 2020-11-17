@@ -18,14 +18,6 @@ public class QRScanViewController: UIViewController, QRScanViewProtocol {
         return view
     }()
     
-    let backButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(ImagesHelper.assestFor(name: "ic_close_white"), for: .normal)
-        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
     let flashButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +68,6 @@ extension QRScanViewController {
     
     private func addSubviews() {
         view.addSubview(overlayView)
-        view.addSubview(backButton)
         view.addSubview(flashButton)
         view.addSubview(markImgView)
         
@@ -86,12 +77,6 @@ extension QRScanViewController {
         
         overlayView.snp.makeConstraints { maker in
             maker.edges.equalTo(view)
-        }
-        
-        backButton.snp.makeConstraints { maker in
-            maker.width.height.equalTo(40)
-            maker.top.equalTo(view.safeArea.top).offset(16)
-            maker.leading.equalTo(view.safeArea.leading).offset(16)
         }
         
         flashButton.snp.makeConstraints { maker in

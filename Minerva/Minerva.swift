@@ -25,11 +25,25 @@ public class Minerva {
         public static var paymentQRTitle: String           = "VNPayQR"
         public static var paymentQRMethod: String          = "VNPayQR"
         public static var paymentCTTMethod: String         = "Thẻ (ATM/Debit/Credit...)"
+        public static var paymentQRCustomerMethod: String  = "VNPay-QR khách hàng"
         public static var paymentSPOSMethod: String        = "VNPayPOS"
         public static var paymentCashMethod: String        = "Tiền mặt"
         public static var totalMoneyTitle: String          = "Tổng tiền"
         public static var resultTitle: String              = "Kết quả giao dịch"
         public static var sposWaitingResult: String        = "Đang chờ kết quả giao dịch"
+        public static var continueButtonTitle: String      = "Tiếp tục"
+        public static var paymentInfoTitle: String         = "Thông tin thanh toán"
+        
+        //QR Customer
+        public static var customerName: String             = "Tên khách hàng"
+        public static var phoneNumber: String              = "Số điện thoại/Số thẻ"
+        public static var bankName: String                 = "Đơn vị thanh toán"
+        public static var discountCode: String             = "Mã giảm giá"
+        public static var orderCode: String                = "Số hoá đơn"
+        public static var amount: String                   = "Số tiền"
+        public static var discountAmount: String           = "Số tiền giảm giá"
+        public static var realAmount: String               = "Số tiền thanh toán"
+        public static var note: String                     = "Ghi chú"
     }
     
     public struct Theme {
@@ -38,7 +52,7 @@ public class Minerva {
     }
     
     public struct Images {
-        public static var backButton: UIImage? = ImagesHelper.imageFor(name: "back")
+        public static var backButton: UIImage? = ImagesHelper.assestFor(name: "ic_back")
         public static var sposIcon: UIImage? = ImagesHelper.imageFor(name: "spos")
         public static var qrIcon: UIImage? = ImagesHelper.imageFor(name: "qr")
         public static var cardIcon: UIImage? = ImagesHelper.imageFor(name: "card")
@@ -112,10 +126,5 @@ extension Minerva: IPaymentManager {
     public func pay<T: BaseTransactionRequest>(method: MethodCode, request: T,
                                                 completion: @escaping (Result<T.TransactionType, Error>) -> ()) throws {
         try paymentManager.pay(method: method, request: request, completion: completion)
-    }
-
-    public func getQRScanUI() -> QRScanViewController {
-        let scan = QRScanRouter.createModule()
-        return scan
     }
 }

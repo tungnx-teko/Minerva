@@ -11,6 +11,7 @@ import Foundation
 //MARK: Wireframe
 protocol QRScanWireframeProtocol: class {
     func goBack()
+    func showQRInfo(_ info: QRInfo)
 }
 //MARK: Presenter
 protocol QRScanPresenterProtocol: class {
@@ -20,12 +21,6 @@ protocol QRScanPresenterProtocol: class {
     func stopScanQR()
     func toogleTorch()
     func goBack()
-}
-
-//MARK: Interactor
-protocol QRScanInteractorProtocol: class {
-
-  var presenter: QRScanPresenterProtocol?  { get set }
 }
 
 //MARK: View

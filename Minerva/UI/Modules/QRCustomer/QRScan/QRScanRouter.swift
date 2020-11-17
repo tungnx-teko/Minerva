@@ -12,21 +12,24 @@ class QRScanRouter: QRScanWireframeProtocol {
     
     weak var viewController: UIViewController?
     
-    static func createModule() -> QRScanViewController {
+    static func createModule(request: PaymentRequest) -> QRScanViewController {
         // Change to get view from storyboard if not using progammatic UI
         let view = QRScanViewController()
-        let interactor = QRScanInteractor()
         let router = QRScanRouter()
-        let presenter = QRScanPresenter(interface: view, interactor: interactor, router: router)
+        let presenter = QRScanPresenter(interface: view, router: router, request: request)
         
         view.presenter = presenter
-        interactor.presenter = presenter
         router.viewController = view
         
         return view
     }
     
     func goBack() {
-        viewController?.dismiss(animated: true, completion: nil)
+        viewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func showQRInfo(_ info: QRInfo) {
+        let infoVC = QRInfoRouter.createModule(qrInfo: info)
+        viewController?.navigationController?.show(infoVC, sender: nil)
     }
 }

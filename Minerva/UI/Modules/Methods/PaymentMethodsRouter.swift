@@ -45,4 +45,8 @@ class PaymentMethodsRouter: PaymentMethodsRouterProtocol {
         }
     }
     
+    func goToScanQR(withRequest request: PaymentRequest) {
+        let scanVC = QRScanRouter.createModule(request: request)
+        self.viewController?.navigationController?.show(scanVC, sender: nil)
+    }
 }
