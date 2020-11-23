@@ -34,6 +34,7 @@ public class FirebaseConfig {
     var apiKey: String
     var databaseUrl: String
     var storageBucket: String
+    var merchantCode: String
     
     public init(rawValue: [String: Any]) {
         self.googleAppId = (rawValue["applicationId"] as? String) ?? ""
@@ -42,6 +43,7 @@ public class FirebaseConfig {
         self.apiKey = (rawValue["apiKey"] as? String) ?? ""
         self.databaseUrl = (rawValue["databaseUrl"] as? String) ?? ""
         self.storageBucket = (rawValue["storageBucket"] as? String) ?? ""
+        self.merchantCode = (rawValue["merchantCode"] as? String) ?? ""
     }
 }
 

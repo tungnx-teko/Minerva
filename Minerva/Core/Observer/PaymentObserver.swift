@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import FirebaseFirestore
+
+public typealias Transaction = PaymentAIOResponse.PaymentTransaction
 
 public class PaymentObserver {
     
@@ -15,10 +18,15 @@ public class PaymentObserver {
         self.databaseManager = databaseManager
     }
     
-    public func observe(transactionCode: String, completion: @escaping (PaymentResult) -> ()) {
-        databaseManager
+    weak var observation: ListenerRegistration?
+    
+    public func observe(transaction: Transaction, completion: @escaping (PaymentResult) -> ()) {
+        observation = databaseManager
             .transactions?
-            .document(transactionCode)
+            .collection(transaction.merchantCode)
+            .document(transaction.merchantMethodCode)
+            .collection(DatabaseManager.Constants.ipn)
+            .document(transaction.transactionCode)
             .addSnapshotListener { snapshot, error in
                 if let dictionary = snapshot?.data() {
                     let result = PaymentTransactionResult(fromDict: dictionary)
@@ -30,6 +38,10 @@ public class PaymentObserver {
                 }
         }
     }
+    
+    public func removeObserver() {
+        observation?.remove()
+    }
         
 }
 
@@ -39,10 +51,13 @@ public struct PaymentTransactionResult {
     public var message: String?
     public var ref: String?
     public var status: String?
-    public var transactionId: String?
+    public var transactionCode: String?
+    public var orderCode: String?
+    public var methodCode: String?
+    public var createdTime: Int?
     
     public var isSuccess: Bool {
-        return status == "000"
+        return status == "200"
     }
     
     public init(fromDict dict: [String: Any]) {
@@ -50,7 +65,10 @@ public struct PaymentTransactionResult {
         self.message = dict["message"] as? String
         self.ref = dict["ref"] as? String
         self.status = dict["status"] as? String
-        self.transactionId = dict["transaction_id"] as? String
+        self.transactionCode = dict["transaction_code"] as? String
+        self.orderCode = dict["order_code"] as? String
+        self.methodCode = dict["method_code"] as? String
+        self.createdTime = dict["created_time"] as? Int
     }
     
     var error: TransactionError {

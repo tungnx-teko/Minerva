@@ -12,7 +12,7 @@ public class CardRequestData: PaymentRequestData {
     
     public enum PaymentCardType: Int {
         case redirect = 1
-        case ctt = 2
+        case qrcode = 2
     }
     
     private(set) public var bankCode: String

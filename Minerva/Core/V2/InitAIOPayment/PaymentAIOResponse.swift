@@ -13,6 +13,7 @@ public class PaymentAIOResponse: BaseResponse<PaymentCodeV2> {
     public var message: String?
     public var orderCode: String?
     public var payments: PaymentsData?
+    public var merchantCode: String = ""
     
     enum CodingKeys: String, CodingKey {
         case message, orderCode, payments
@@ -54,6 +55,8 @@ public class PaymentAIOResponse: BaseResponse<PaymentCodeV2> {
         public var qrContent: String?
         public var returnUrl: String?
         public var traceId: String
+        public var merchantMethodCode: String = ""
+        public var merchantCode: String = ""
         
         enum CodingKeys: String, CodingKey {
             case clientTransactionCode, transactionCode, methodCode, responseCode, responseMessage, qrContent, returnUrl, traceId

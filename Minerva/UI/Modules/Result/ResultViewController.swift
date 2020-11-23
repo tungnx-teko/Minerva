@@ -74,7 +74,7 @@ class ResultViewController: UIViewController, ResultViewProtocol {
             let grayStyle: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.darkGray, .font: UIFont.systemFont(ofSize: 14)]
             attributedText.append(NSAttributedString(string: Minerva.Strings.transactionCodeTitle, attributes: grayStyle))
             let defaultStyle: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black, .font: UIFont.systemFont(ofSize: 14)]
-            attributedText.append(NSAttributedString(string: "#" + (transaction.transactionId ?? ""), attributes: defaultStyle))
+            attributedText.append(NSAttributedString(string: "#" + (transaction.transactionCode ?? ""), attributes: defaultStyle))
             detailLabel.attributedText = attributedText
         case .failure:
             iconImage.image = ImagesHelper.imageFor(name: "fail")

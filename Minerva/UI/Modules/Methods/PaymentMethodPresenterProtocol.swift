@@ -16,7 +16,7 @@ protocol PaymentMethodPresenterProtocol: class {
 extension PaymentMethodPresenterProtocol {
     
     func observeTransaction(transactionCode: String, completion: @escaping (PaymentResult) -> ()) {
-        observer.observe(transactionCode: transactionCode) { result in completion(result) }
+//        observer.observe(transactionCode: transactionCode) { result in completion(result) }
     }
     
 }

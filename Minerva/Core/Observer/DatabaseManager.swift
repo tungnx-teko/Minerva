@@ -14,26 +14,24 @@ class DatabaseManager {
     struct Constants {
         static let appName = "payment-gateway"
         static let transactionCollectionPath = "transactions"
-        static let paymentCollectionPath = "payment"
+        static let paymentCollectionPath = "paymentv2"
+        static let ipn = "ipn"
     }
         
     var database: Firestore?
     
-    lazy var transactions: CollectionReference? = {
+    lazy var transactions: DocumentReference? = {
         return database?
             .collection(DatabaseManager.Constants.paymentCollectionPath)
-            .document(document)
-            .collection(DatabaseManager.Constants.transactionCollectionPath)
+            .document(Constants.transactionCollectionPath)
     }()
-    
-    var document: String
+ 
     var appName: String
     var firebaseConfig: FirebaseConfig
     
-    init(appName: String = Constants.appName, firebaseConfig: FirebaseConfig, document: String) {
+    init(appName: String = Constants.appName, firebaseConfig: FirebaseConfig) {
         self.appName = appName
         self.firebaseConfig = firebaseConfig
-        self.document = document
         
         self.setupFirebase(appName: appName, config: firebaseConfig)
         guard let app = FirebaseApp.app(name: appName) else {

@@ -105,11 +105,23 @@ class PaymentManager: IPaymentManager {
             return
         }
         paymentService.initAIOPayment(payload: payload) { result in
-            dump(result)
-            completion(result)
+            switch result {
+            case .success(let response):
+                response.payments?.card?.merchantCode = payload.merchantCode
+                response.payments?.qr?.merchantCode = payload.merchantCode
+                response.payments?.loyalty?.merchantCode = payload.merchantCode
+                response.payments?.credit?.merchantCode = payload.merchantCode
+                
+                response.payments?.card?.merchantMethodCode = payload.payments.card?.merchantMethodCode ?? ""
+                response.payments?.qr?.merchantMethodCode = payload.payments.qr?.merchantMethodCode ?? ""
+                response.payments?.loyalty?.merchantMethodCode = payload.payments.loyalty?.merchantMethodCode ?? ""
+                response.payments?.credit?.merchantMethodCode = payload.payments.credit?.merchantMethodCode ?? ""
+                dump(response)
+                completion(.success(response))
+            case .failure:
+                completion(result)
+            }
         }
     }
     
 }
-
-

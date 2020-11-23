@@ -53,11 +53,10 @@ public class Minerva {
     public init(appName: String, config: PaymentServiceConfig) {
         self.appName = appName
         self.config = config
-        self.databaseManager = DatabaseManager(appName: appName, firebaseConfig: config.firebaseConfig, document: config.clientCode)
+        self.databaseManager = DatabaseManager(appName: appName, firebaseConfig: config.firebaseConfig)
         self.paymentManager = PaymentManager(config: config)
         dump(config)
     }
-    
     
     // MARK: - public funcs
     public func getPaymentUI(request: PaymentRequest, delegate: PaymentDelegate) -> PaymentViewController {
@@ -121,5 +120,9 @@ extension Minerva: IPaymentManager {
     
     public func initAIOPayment(payload: PaymentAIOPayload, completion: @escaping (Result<PaymentAIOResponse, PaymentError>) -> ()) {
         paymentManager.initAIOPayment(payload: payload, completion: completion)
+    }
+    
+    public func createObserver() -> PaymentObserver {
+        return PaymentObserver(databaseManager: databaseManager)
     }
 }

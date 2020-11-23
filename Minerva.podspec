@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Minerva'
-    s.version          = '2.1.2'
-    s.summary          = 'PaymentSDK'
+    s.version          = '2.3.0'
+    s.summary          = 'PaymentSDK v2. Update with payment service v2 and firebase firestore v2'
   
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -28,10 +28,10 @@ Pod::Spec.new do |s|
   
     s.ios.deployment_target = '10.0'
   
-    s.pod_target_xcconfig = {
-      'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
-    }
-    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    # s.pod_target_xcconfig = {
+    #   'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    # }
+    # s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
     s.vendored_frameworks = 'Minerva.framework'
   

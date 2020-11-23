@@ -9,6 +9,7 @@
 import Foundation
 
 public struct PaymentAIOPayload: Encodable {
+    var merchantCode: String
     var orderCode: String
     var userId: String
     var terminalCode: String
@@ -18,7 +19,8 @@ public struct PaymentAIOPayload: Encodable {
     var cancelUrl: String
     var checksum: String?
     
-    public init(orderCode: String, userId: String, totalPaymentAmount: Int, payments: PaymentData, successUrl: String, cancelUrl: String) {
+    public init(merchantCode: String, orderCode: String, userId: String, totalPaymentAmount: Int, payments: PaymentData, successUrl: String, cancelUrl: String) {
+        self.merchantCode = merchantCode
         self.orderCode = orderCode
         self.userId = userId
         self.terminalCode = TerraPayment.default.config.terminalCode
